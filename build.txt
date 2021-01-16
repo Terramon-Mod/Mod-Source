@@ -1,0 +1,7 @@
+author = Terramon Team
+version = 1.0
+displayName = Terramon Mod
+homepage = https://discord.gg/U8skDEA
+buildIgnore = *.csproj, *.zip, *.user, obj\*, bin\*, .vs\*, .git\*, *.gitignore, *.psd, Items\Apricorns\Cooked\*, Items\Food\*, Items\Eggs\*, *.exe, Pokemon\NodeUtils\*, DevSuite\*
+includePDB = true
+dllReferences = DiscordRPC

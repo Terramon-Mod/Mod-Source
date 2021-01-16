@@ -1,0 +1,18 @@
+﻿#This is localisation file for Russian
+evolveUI.placemon=Поместите покемона в первый слот.
+evolveUI.placeItem=Поместите {0} {1} во второй слот.
+evolveUI.pressEvolve=Замечательно! Теперь нажмите кнопку evolve!
+evolveUI.cannotEvolve=Этот покемон не может эволюционировать!
+sidebar.sendOut=Нажми ЛКМ что бы вызвать
+go=Вперед, {0}
+retire1={0}, сменяйся!
+retire2={0}, назад!
+retire3=Пока хватит, {0}!
+sidebar.help1=(1/3) Добро пожаловать в мод Terramon, в котором вы можете находить и ловить покемонов в Terraria! Продолжайте нажимать на кнопку что бы получить подсказки (перевод в разработке).
+rareCandy=Rare Candy
+linkCable=Link Cable
+#Some names that need fixing
+Nidoranm=Nidoran ♂
+Nidoranf=Nidoran ♀
+Mrmime=Mr. Mime
+title=Powered by Razorwing

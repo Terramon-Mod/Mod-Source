@@ -1,0 +1,12 @@
+﻿#This is localisation file for English
+evolveUI.placemon=Place a Pokémon in the first slot.
+evolveUI.placeItem=Place {0} {1} in the second slot.
+evolveUI.pressEvolve=Great! Press the evolve button!
+evolveUI.cannotEvolve=This Pokémon cannot evolve!
+rareCandy=Rare Candy
+linkCable=Link Cable
+#Some names that need fixing
+Nidoranm=Nidoran
+Nidoranf=Nidoran
+Mrmime=Mr. Mime
+title=Powered by Razorwing

@@ -1,0 +1,19 @@
+// Terramon Achievements Reference //
+ach1 = Going Green
+ach2 = Playing with Fire
+ach3 = Dry up your Drip
+ach4 = First Toss
+ach5 = A Lot of Tosses
+ach6 = First Great Toss
+ach7 = A Lot of Great Tosses
+ach8 = First Ultra Toss
+ach9 = A Lot of Ultra Tosses
+ach10 = The New Arrival
+ach11 = Retro Collector
+ach12 = Beginner Trainer (Catch 5 different Pokemon)
+ach13 = Amateur Trainer (Catch 10 different Pokemon)
+ach14 = Intermediate Trainer (Catch 25 different Pokemon)
+ach15 = Great Trainer (Catch 50 different Pokemon)
+ach16 = Awesome Trainer (Catch 75 different Pokemon)
+ach17 = Insane Trainer (Catch 100 different Pokemon)
+ach18 = Gotta Catch 'em All...? (Catch all 151 Pokemon)
