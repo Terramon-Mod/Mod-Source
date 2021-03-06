@@ -161,7 +161,7 @@ namespace Terramon
                     Assets = new Assets()
                     {
                         LargeImageKey = "largeimage2",
-                        LargeImageText = "Merry Christmas!",
+                        LargeImageText = "Terramon Mod",
                         SmallImageKey = "pokeball",
                         SmallImageText = "No Pokémon Selected"
                     },
@@ -185,7 +185,7 @@ namespace Terramon
                 Assets = new Assets()
                 {
                     LargeImageKey = "largeimage2",
-                    LargeImageText = "Merry Christmas!",
+                    LargeImageText = "Terramon Mod",
                     SmallImageKey = "pokeball",
                     SmallImageText = "Using " + name
                 },
@@ -205,7 +205,7 @@ namespace Terramon
                     Assets = new Assets()
                     {
                         LargeImageKey = "largeimage2",
-                        LargeImageText = "Merry Christmas!",
+                        LargeImageText = "Terramon Mod",
                         SmallImageKey = "pokeball",
                         SmallImageText = "No Pokémon Selected"
                     },
@@ -224,7 +224,7 @@ namespace Terramon
                     Assets = new Assets()
                     {
                         LargeImageKey = "largeimage2",
-                        LargeImageText = "Merry Christmas!"
+                        LargeImageText = "Terramon Mod"
                     }
                 });
         }
@@ -274,7 +274,7 @@ namespace Terramon
                     Assets = new Assets()
                     {
                         LargeImageKey = "largeimage2",
-                        LargeImageText = "Merry Christmas!"
+                        LargeImageText = "Terramon Mod"
                     }
                 });
             }
