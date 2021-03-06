@@ -21,9 +21,9 @@ namespace Terramon.UI.Starter
 {
     // ExampleUIs visibility is toggled by typing "/coin" in chat. (See CoinCommand.cs)
     // ExampleUI is a simple UI example showing how to use UIPanel, UIImageButton, and even a custom UIElement.
-    internal class ChooseStarter : UIState
+    public class ChooseStarter : UIState
     {
-        public NonDragableUIPanel mainPanel;
+        NonDragableUIPanel mainPanel;
         public static bool Visible;
 
         private UIText testmenu;
@@ -31,29 +31,29 @@ namespace Terramon.UI.Starter
 
         // POKeMON BTN DEFINITIONS
 
-        public UIHoverImageButton bulbasaurTextureButton;
-        public UIHoverImageButtonDisabled chikoritaTextureButton;
-        public UIHoverImageButtonDisabled treeckoTextureButton;
-        public UIHoverImageButtonDisabled turtwigTextureButton;
-        public UIHoverImageButtonDisabled snivyTextureButton;
-        public UIHoverImageButtonDisabled chespinTextureButton;
-        public UIHoverImageButtonDisabled rowletTextureButton;
+         UIHoverImageButton bulbasaurTextureButton;
+         UIHoverImageButtonDisabled chikoritaTextureButton;
+         UIHoverImageButtonDisabled treeckoTextureButton;
+         UIHoverImageButtonDisabled turtwigTextureButton;
+         UIHoverImageButtonDisabled snivyTextureButton;
+         UIHoverImageButtonDisabled chespinTextureButton;
+         UIHoverImageButtonDisabled rowletTextureButton;
 
-        public UIHoverImageButton squirtleTextureButton;
-        public UIHoverImageButtonDisabled totodileTextureButton;
-        public UIHoverImageButtonDisabled mudkipTextureButton;
-        public UIHoverImageButtonDisabled piplupTextureButton;
-        public UIHoverImageButtonDisabled oshawottTextureButton;
-        public UIHoverImageButtonDisabled froakieTextureButton;
-        public UIHoverImageButtonDisabled popplioTextureButton;
+         UIHoverImageButton squirtleTextureButton;
+         UIHoverImageButtonDisabled totodileTextureButton;
+         UIHoverImageButtonDisabled mudkipTextureButton;
+         UIHoverImageButtonDisabled piplupTextureButton;
+         UIHoverImageButtonDisabled oshawottTextureButton;
+         UIHoverImageButtonDisabled froakieTextureButton;
+         UIHoverImageButtonDisabled popplioTextureButton;
 
-        public UIHoverImageButton charmanderTextureButton;
-        public UIHoverImageButtonDisabled cyndaquilTextureButton;
-        public UIHoverImageButtonDisabled torchicTextureButton;
-        public UIHoverImageButtonDisabled chimcharTextureButton;
-        public UIHoverImageButtonDisabled tepigTextureButton;
-        public UIHoverImageButtonDisabled fennekinTextureButton;
-        public UIHoverImageButtonDisabled littenTextureButton;
+         UIHoverImageButton charmanderTextureButton;
+         UIHoverImageButtonDisabled cyndaquilTextureButton;
+         UIHoverImageButtonDisabled torchicTextureButton;
+         UIHoverImageButtonDisabled chimcharTextureButton;
+         UIHoverImageButtonDisabled tepigTextureButton;
+         UIHoverImageButtonDisabled fennekinTextureButton;
+         UIHoverImageButtonDisabled littenTextureButton;
 
         private UIText fanMadeModText;
 
@@ -520,7 +520,7 @@ Texture2D smallbushtexture = ModContent.GetTexture("Terramon/UI/IntroMovie/Small
 
         private Player player = Main.LocalPlayer;
 
-        float shaderBar1Timer = 0;
+        public static float shaderBar1Timer = 0;
         float shaderBar1MoveTimer = 0;
         float fanMadeModTimer = 0;
 
@@ -578,7 +578,7 @@ Texture2D smallbushtexture = ModContent.GetTexture("Terramon/UI/IntroMovie/Small
         byte didSelectStarter = 0;
         bool render = true;
 
-        bool playedIntroMusic = false;
+        public static bool playedIntroMusic = false;
 
         double start;
         double end;
@@ -602,7 +602,8 @@ Texture2D smallbushtexture = ModContent.GetTexture("Terramon/UI/IntroMovie/Small
                 scrollFastTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
             }
 
-            if (shaderBar1Timer > 0 && !playedIntroMusic)
+            var modExpanse = ModLoader.GetMod("tmonadds");
+            if (shaderBar1Timer > 0 && !playedIntroMusic/* && modExpanse == null*/)
             {
                 playedIntroMusic = true;
                 TerramonPlayer p = Main.LocalPlayer.GetModPlayer<TerramonPlayer>();

@@ -540,8 +540,9 @@ namespace Terramon
             if (Main.myPlayer == -1 || Main.gameMenu || !Main.LocalPlayer.active) return;
 
             var player = Main.LocalPlayer.GetModPlayer<TerramonPlayer>();
+            var modExpanse = ModLoader.GetMod("tmonadds");
 
-            if (player.Battle != null)
+            if (player.Battle != null && modExpanse == null)
             {
                 priority = MusicPriority.BossHigh;
                 music = GetSoundSlot(SoundType.Music, "Sounds/Music/Battling/wildbattle");

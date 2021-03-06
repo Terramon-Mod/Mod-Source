@@ -106,13 +106,12 @@ namespace Terramon.Pokemon
                     shop.item[nextSlot].SetDefaults(modExpanse.ItemType("GameBoyGreen"));
                     nextSlot++;
                 }
-                int nurse = NPC.FindFirstNPC(NPCID.Nurse);
-                if (nurse >= 0)
+                if (NPC.downedBoss2)
                 {
                     shop.item[nextSlot].SetDefaults(modExpanse.ItemType("GameBoyPink"));
                     nextSlot++;
                 }
-                if (Main.bloodMoon || NPC.downedHalloweenKing)
+                if (Main.bloodMoon || NPC.downedHalloweenKing || Main.eclipse)
                 {
                     shop.item[nextSlot].SetDefaults(modExpanse.ItemType("GameBoyDark"));
                     nextSlot++;
