@@ -602,7 +602,7 @@ Texture2D smallbushtexture = ModContent.GetTexture("Terramon/UI/IntroMovie/Small
                 scrollFastTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
             }
 
-            var modExpanse = ModLoader.GetMod("tmonadds");
+            //var modExpanse = ModLoader.GetMod("tmonadds");
             if (shaderBar1Timer > 0 && !playedIntroMusic/* && modExpanse == null*/)
             {
                 playedIntroMusic = true;

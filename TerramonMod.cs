@@ -560,7 +560,7 @@ namespace Terramon
                 priority = MusicPriority.BossHigh;
                 music = GetSoundSlot(SoundType.Music, null);
             }
-            if (MyUIStateActive(Main.LocalPlayer) && ChooseStarter.movieFinished)
+            if (MyUIStateActive(Main.LocalPlayer) && ChooseStarter.movieFinished && modExpanse == null)
             {
                 priority = MusicPriority.BossHigh;
                 music = GetSoundSlot(SoundType.Music, "Sounds/Music/wifi");
