@@ -177,7 +177,7 @@ namespace Terramon.Pokemon
                         return;
                     }
 
-                    var data = new PokemonData()
+                    var data = new PokemonData() //this line (tmonadds)
                     {
                         Pokemon = HomeClass().Name,
                     };
