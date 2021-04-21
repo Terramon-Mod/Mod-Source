@@ -56,7 +56,7 @@ namespace Terramon.Pokemon
                 pokemon = value;
                 localised = TerramonMod.Localisation.GetLocalisedString(new LocalisedString(pokemon));
                 var mon = TerramonMod.GetPokemon(Pokemon);
-                Types = mon.PokemonTypes;
+                Types = mon.PokemonTypes; //this line (tmonadds)
                 ExperienceGroup = mon.ExpGroup;
                 ExpToNext = EXPToNextYield(Level + 1, ExperienceGroup);
             }

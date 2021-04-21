@@ -161,7 +161,7 @@ namespace Terramon
                     Assets = new Assets()
                     {
                         LargeImageKey = "largeimage2",
-                        LargeImageText = "Merry Christmas!",
+                        LargeImageText = "Terramon Mod",
                         SmallImageKey = "pokeball",
                         SmallImageText = "No Pokémon Selected"
                     },
@@ -185,7 +185,7 @@ namespace Terramon
                 Assets = new Assets()
                 {
                     LargeImageKey = "largeimage2",
-                    LargeImageText = "Merry Christmas!",
+                    LargeImageText = "Terramon Mod",
                     SmallImageKey = "pokeball",
                     SmallImageText = "Using " + name
                 },
@@ -205,7 +205,7 @@ namespace Terramon
                     Assets = new Assets()
                     {
                         LargeImageKey = "largeimage2",
-                        LargeImageText = "Merry Christmas!",
+                        LargeImageText = "Terramon Mod",
                         SmallImageKey = "pokeball",
                         SmallImageText = "No Pokémon Selected"
                     },
@@ -224,7 +224,7 @@ namespace Terramon
                     Assets = new Assets()
                     {
                         LargeImageKey = "largeimage2",
-                        LargeImageText = "Merry Christmas!"
+                        LargeImageText = "Terramon Mod"
                     }
                 });
         }
@@ -274,7 +274,7 @@ namespace Terramon
                     Assets = new Assets()
                     {
                         LargeImageKey = "largeimage2",
-                        LargeImageText = "Merry Christmas!"
+                        LargeImageText = "Terramon Mod"
                     }
                 });
             }
@@ -540,8 +540,9 @@ namespace Terramon
             if (Main.myPlayer == -1 || Main.gameMenu || !Main.LocalPlayer.active) return;
 
             var player = Main.LocalPlayer.GetModPlayer<TerramonPlayer>();
+            var modExpanse = ModLoader.GetMod("tmonadds");
 
-            if (player.Battle != null)
+            if (player.Battle != null && modExpanse == null)
             {
                 priority = MusicPriority.BossHigh;
                 music = GetSoundSlot(SoundType.Music, "Sounds/Music/Battling/wildbattle");
@@ -559,7 +560,7 @@ namespace Terramon
                 priority = MusicPriority.BossHigh;
                 music = GetSoundSlot(SoundType.Music, null);
             }
-            if (MyUIStateActive(Main.LocalPlayer) && ChooseStarter.movieFinished)
+            if (MyUIStateActive(Main.LocalPlayer) && ChooseStarter.movieFinished && modExpanse == null)
             {
                 priority = MusicPriority.BossHigh;
                 music = GetSoundSlot(SoundType.Music, "Sounds/Music/wifi");

@@ -24,17 +24,6 @@ namespace Terramon.Items.Pokeballs.Parts
             item.rare = 0;
         }
 
-        public override void AddRecipes()
-        {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.LunarBar, 7);
-            recipe.AddIngredient(mod.ItemType("RedApricorn"), 4);
-            recipe.AddIngredient(mod.ItemType("BlueApricorn"), 4);
-            recipe.AddTile(TileID.MythrilAnvil);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
-        }
-
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
             TooltipLine nameLine = tooltips.FirstOrDefault(t => t.Name == "ItemName" && t.mod == "Terraria");
