@@ -206,7 +206,7 @@ namespace Terramon.Pokemon.Moves
                     if (opponent)
                     {
                         BattleMode.UI.splashText.SetText($"{deffender.PokemonName} had its energy drained!");
-                    } 
+                    }
                     else
                     {
                         if (state == BattleState.BattleWithWild)
@@ -260,21 +260,31 @@ namespace Terramon.Pokemon.Moves
             projectile.width = 10;
             projectile.height = 10;
             projectile.friendly = true;
-            projectile.alpha = 0;
+            projectile.alpha = 255;
             projectile.penetrate = -1;
             projectile.tileCollide = false;
             projectile.ignoreWater = true;
             projectile.timeLeft = 20000;
+            projectile.scale = (float)(Main.rand.NextDouble() * (1.2f - 0.9f) + 1f) / 1.5f;
         }
 
         private int spawntimer;
         private int timer;
+        private int timer2;
 
         internal Vector2 vel;
 
         public override void AI()
         {
             timer++;
+            timer2++;
+            if (timer2 > 40)
+            {
+                projectile.alpha += 28;
+            } else
+            {
+                projectile.alpha -= 14;
+            }
             if (timer >= 8)
             {
                 for (int i = 0; i < 2; i++)

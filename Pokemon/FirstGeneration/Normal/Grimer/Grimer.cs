@@ -17,14 +17,14 @@ namespace Terramon.Pokemon.FirstGeneration.Normal.Grimer
 
         public override PokemonType[] PokemonTypes => new[] { PokemonType.Poison };
 
-        public override ExpGroup ExpGroup => ExpGroup.MediumFast;public override int MaxHP => 80; public override int PhysicalDamage => 80; public override int PhysicalDefence => 50; public override int SpecialDamage => 40; public override int SpecialDefence => 50; public override int Speed => 25;
+        public override ExpGroup ExpGroup => ExpGroup.MediumFast; public override int MaxHP => 80; public override int PhysicalDamage => 80; public override int PhysicalDefence => 50; public override int SpecialDamage => 40; public override int SpecialDefence => 50; public override int Speed => 25;
 
         public override void SetDefaults()
         {
             base.SetDefaults();
 
-            
-            
+
+
         }
     }
 }

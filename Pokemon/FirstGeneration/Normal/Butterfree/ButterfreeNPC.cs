@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Butterfree
 {
     public class ButterfreeNPC : NotCatchablePKMNBirdFlying
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Butterfree/Butterfree";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Butterfree/Butterfree";
         public override Type HomeClass()
         {
             return typeof(Butterfree);

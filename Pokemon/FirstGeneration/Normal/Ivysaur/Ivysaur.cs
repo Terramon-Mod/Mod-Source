@@ -17,14 +17,14 @@ namespace Terramon.Pokemon.FirstGeneration.Normal.Ivysaur
 
         public override PokemonType[] PokemonTypes => new[] { PokemonType.Grass, PokemonType.Poison };
 
-        public override ExpGroup ExpGroup => ExpGroup.MediumSlow;public override int MaxHP => 60; public override int PhysicalDamage => 62; public override int PhysicalDefence => 63; public override int SpecialDamage => 80; public override int SpecialDefence => 80; public override int Speed => 60;
+        public override ExpGroup ExpGroup => ExpGroup.MediumSlow; public override int MaxHP => 60; public override int PhysicalDamage => 62; public override int PhysicalDefence => 63; public override int SpecialDamage => 80; public override int SpecialDefence => 80; public override int Speed => 60;
 
         public override void SetDefaults()
         {
             base.SetDefaults();
 
-            
-            
+
+
         }
     }
 }

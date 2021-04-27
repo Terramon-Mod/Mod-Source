@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Marowak
 {
     public class MarowakNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Marowak/Marowak";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Marowak/Marowak";
         public override Type HomeClass()
         {
             return typeof(Marowak);

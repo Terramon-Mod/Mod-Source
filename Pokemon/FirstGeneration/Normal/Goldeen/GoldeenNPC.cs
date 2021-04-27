@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Goldeen
 {
     public class GoldeenNPC : NotCatchablePKMN
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Goldeen/Goldeen";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Goldeen/Goldeen";
         public override Type HomeClass()
         {
             return typeof(Goldeen);

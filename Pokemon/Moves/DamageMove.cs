@@ -26,7 +26,7 @@ namespace Terramon.Pokemon.Moves
         {
             PostTextLoc =
                 TerramonMod.Localisation.GetLocalisedString(new LocalisedString(("moves.baseDamageText", "{0} attacked {1} with {2} for {3} damage")));
-            
+
         }
 
         public override bool PerformInBattle(ParentPokemon mon, ParentPokemon target, TerramonPlayer player, PokemonData attacker,
@@ -35,7 +35,8 @@ namespace Terramon.Pokemon.Moves
             if (player == null)
             {
                 BattleMode.UI.splashText.SetText($"The wild {attacker.PokemonName} used {MoveName}!");
-            } else
+            }
+            else
             {
                 BattleMode.UI.splashText.SetText($"{attacker.PokemonName} used {MoveName}!");
             }
@@ -84,14 +85,17 @@ namespace Terramon.Pokemon.Moves
             bool stab = false;
 
             if (attacker.CustomData.ContainsKey("CritRatioModifier")) attackercritRatioModifier = int.Parse(attacker.CustomData["CritRatioModifier"]);
-            
+
             if (deffender.CustomData.ContainsKey("PhysDefModifier")) deffenderphysDefModifier = int.Parse(deffender.CustomData["PhysDefModifier"]);
             if (deffender.CustomData.ContainsKey("SpDefModifier")) deffenderspDefModifier = int.Parse(deffender.CustomData["SpDefModifier"]);
 
             // Same type attack bonus (STAB)
-            if (mon.PokemonTypes.Length > 1) { 
-                if (mon.PokemonTypes[0] == MoveType || mon.PokemonTypes[1] == MoveType) stab = true; 
-            } else { 
+            if (mon.PokemonTypes.Length > 1)
+            {
+                if (mon.PokemonTypes[0] == MoveType || mon.PokemonTypes[1] == MoveType) stab = true;
+            }
+            else
+            {
                 if (mon.PokemonTypes[0] == MoveType) stab = true;
             }
 
@@ -99,6 +103,18 @@ namespace Terramon.Pokemon.Moves
             float d;
 
             // critical hit chance
+            if (GetCritChance(attackercritRatioModifier) == 1)
+            {
+                critical = true;
+                // ignore attackers negative attack/spatk stat stages
+                if (attackerphysDefModifier < 0) attackerphysDefModifier = 0;
+                if (attackerspDefModifier < 0) attackerspDefModifier = 0;
+                // ignore defenders positive defense/spdef stat stages
+                if (deffenderphysDefModifier > 0) deffenderphysDefModifier = 0;
+                if (deffenderspDefModifier > 0) deffenderspDefModifier = 0;
+                CombatText.NewText(target.projectile.Hitbox, Microsoft.Xna.Framework.Color.LightGray, "Critical hit!");
+            }
+            else
             if (_mrand.Next(1, GetCritChance(attackercritRatioModifier)) == 1)
             {
                 critical = true;
@@ -108,6 +124,7 @@ namespace Terramon.Pokemon.Moves
                 // ignore defenders positive defense/spdef stat stages
                 if (deffenderphysDefModifier > 0) deffenderphysDefModifier = 0;
                 if (deffenderspDefModifier > 0) deffenderspDefModifier = 0;
+                CombatText.NewText(target.projectile.Hitbox, Microsoft.Xna.Framework.Color.LightGray, "Critical hit!");
             }
 
             // Move resist
@@ -217,10 +234,11 @@ namespace Terramon.Pokemon.Moves
 
             if (opponent)
             {
-               text = TerramonMod.Localisation.GetLocalisedString(new LocalisedString(("moves.modifyStatText", "{0}'s {1} {2}")));
-            } else
+                text = TerramonMod.Localisation.GetLocalisedString(new LocalisedString(("moves.modifyStatText", "{0}'s {1} {2}")));
+            }
+            else
             {
-               text = TerramonMod.Localisation.GetLocalisedString(new LocalisedString(("moves.modifyStatText", "Wild {0}'s {1} {2}")));
+                text = TerramonMod.Localisation.GetLocalisedString(new LocalisedString(("moves.modifyStatText", "Wild {0}'s {1} {2}")));
             }
 
             if (modifier == -3) adjustment = "severely fell!";
@@ -480,7 +498,7 @@ namespace Terramon.Pokemon.Moves
                 else text = TerramonMod.Localisation.GetLocalisedString(new LocalisedString(("moves.modifyStatText", "The wild {0} is getting pumped!")));
 
                 Main.PlaySound(ModContent.GetInstance<TerramonMod>().GetLegacySoundSlot(SoundType.Custom, "Sounds/UI/BattleSFX/StatRise").WithVolume(.8f));
-                
+
                 if (pokemon.CustomData.ContainsKey("CritRatioModifier"))
                 {
                     if (int.Parse(pokemon.CustomData["CritRatioModifier"]) + modifier > 5) // Going past maximum
@@ -501,7 +519,8 @@ namespace Terramon.Pokemon.Moves
                     };
                     target.gettingPumped = true;
                     return text;
-                } else
+                }
+                else
                 {
                     pokemon.CustomData.Add("CritRatioModifier", modifier.ToString());
                     text.Args = new object[]

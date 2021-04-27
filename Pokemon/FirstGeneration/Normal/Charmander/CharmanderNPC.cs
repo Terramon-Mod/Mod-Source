@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Charmander
 {
     public class CharmanderNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Charmander/Charmander";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Charmander/Charmander";
         public override Type HomeClass()
         {
             return typeof(Charmander);
@@ -21,19 +22,20 @@ namespace Terramon.Pokemon.FirstGeneration.Normal.Charmander
             npc.scale = 1f;
         }
 
-public static bool PlayerIsInForest(Player player){
-	return !player.ZoneJungle
-		&& !player.ZoneDungeon
-		&& !player.ZoneCorrupt
-		&& !player.ZoneCrimson
-		&& !player.ZoneHoly
-		&& !player.ZoneSnow
-		&& !player.ZoneUndergroundDesert
-		&& !player.ZoneGlowshroom
-		&& !player.ZoneMeteor
-		&& !player.ZoneBeach
-		&& !player.ZoneDesert;
-}
+        public static bool PlayerIsInForest(Player player)
+        {
+            return !player.ZoneJungle
+                && !player.ZoneDungeon
+                && !player.ZoneCorrupt
+                && !player.ZoneCrimson
+                && !player.ZoneHoly
+                && !player.ZoneSnow
+                && !player.ZoneUndergroundDesert
+                && !player.ZoneGlowshroom
+                && !player.ZoneMeteor
+                && !player.ZoneBeach
+                && !player.ZoneDesert;
+        }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {

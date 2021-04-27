@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Krabby
 {
     public class KrabbyNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Krabby/Krabby";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Krabby/Krabby";
         public override Type HomeClass()
         {
             return typeof(Krabby);

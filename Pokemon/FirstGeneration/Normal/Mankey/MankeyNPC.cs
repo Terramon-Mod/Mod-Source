@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Mankey
 {
     public class MankeyNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Mankey/Mankey";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Mankey/Mankey";
         public override Type HomeClass()
         {
             return typeof(Mankey);

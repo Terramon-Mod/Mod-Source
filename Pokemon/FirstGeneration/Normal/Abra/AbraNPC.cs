@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Abra
 {
     public class AbraNPC : ParentPokemonNPCFlying
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Abra/Abra";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Abra/Abra";
         public override Type HomeClass()
         {
             return typeof(Abra);

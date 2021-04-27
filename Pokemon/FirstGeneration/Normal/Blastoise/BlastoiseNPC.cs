@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Blastoise
 {
     public class BlastoiseNPC : NotCatchablePKMN
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Blastoise/Blastoise";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Blastoise/Blastoise";
         public override Type HomeClass()
         {
             return typeof(Blastoise);

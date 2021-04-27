@@ -17,14 +17,14 @@ namespace Terramon.Pokemon.FirstGeneration.Normal.Meowth
 
         public override PokemonType[] PokemonTypes => new[] { PokemonType.Normal };
 
-        public override ExpGroup ExpGroup => ExpGroup.MediumFast;public override int MaxHP => 40; public override int PhysicalDamage => 45; public override int PhysicalDefence => 35; public override int SpecialDamage => 40; public override int SpecialDefence => 40; public override int Speed => 90;
+        public override ExpGroup ExpGroup => ExpGroup.MediumFast; public override int MaxHP => 40; public override int PhysicalDamage => 45; public override int PhysicalDefence => 35; public override int SpecialDamage => 40; public override int SpecialDefence => 40; public override int Speed => 90;
 
         public override void SetDefaults()
         {
             base.SetDefaults();
 
-            
-            
+
+
         }
     }
 }

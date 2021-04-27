@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Diglett
 {
     public class DiglettNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Diglett/Diglett";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Diglett/Diglett";
         public override Type HomeClass()
         {
             return typeof(Diglett);

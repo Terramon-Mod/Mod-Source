@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Dewgong
 {
     public class DewgongNPC : NotCatchablePKMN
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Dewgong/Dewgong";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Dewgong/Dewgong";
         public override Type HomeClass()
         {
             return typeof(Dewgong);

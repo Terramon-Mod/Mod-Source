@@ -19,14 +19,14 @@ namespace Terramon.Pokemon.FirstGeneration.Normal.Poliwhirl
 
         public override PokemonType[] PokemonTypes => new[] { PokemonType.Water };
 
-        public override ExpGroup ExpGroup => ExpGroup.MediumSlow;public override int MaxHP => 65; public override int PhysicalDamage => 65; public override int PhysicalDefence => 65; public override int SpecialDamage => 50; public override int SpecialDefence => 50; public override int Speed => 90;
+        public override ExpGroup ExpGroup => ExpGroup.MediumSlow; public override int MaxHP => 65; public override int PhysicalDamage => 65; public override int PhysicalDefence => 65; public override int SpecialDamage => 50; public override int SpecialDefence => 50; public override int Speed => 90;
 
         public override void SetDefaults()
         {
             base.SetDefaults();
 
-            
-            
+
+
         }
     }
 }

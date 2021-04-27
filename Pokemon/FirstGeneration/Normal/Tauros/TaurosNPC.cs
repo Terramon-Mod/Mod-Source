@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Tauros
 {
     public class TaurosNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Tauros/Tauros";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Tauros/Tauros";
         public override Type HomeClass()
         {
             return typeof(Tauros);

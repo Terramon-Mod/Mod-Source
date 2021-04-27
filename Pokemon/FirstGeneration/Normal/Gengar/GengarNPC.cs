@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Gengar
 {
     public class GengarNPC : NotCatchablePKMN
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Gengar/Gengar";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Gengar/Gengar";
         public override Type HomeClass()
         {
             return typeof(Gengar);

@@ -8,7 +8,7 @@ namespace Terramon.Razorwing.Framework.IO.Stores
 {
     internal class EmbeddedStore : IResourceStore<byte[]>
     {
-        private Dictionary<string,byte[]> files= new Dictionary<string, byte[]>();
+        private Dictionary<string, byte[]> files = new Dictionary<string, byte[]>();
         private const string resourceFolder = "Terramon/";
 
 
@@ -28,7 +28,7 @@ namespace Terramon.Razorwing.Framework.IO.Stores
                 return null;
             }
             var data = ModContent.GetFileBytes(path);
-            files.Add(name,data);
+            files.Add(name, data);
             return files[name];
         }
 

@@ -161,7 +161,8 @@ namespace Terramon.Pokemon
                 if (Main.mouseRightRelease)
                 {
                     var player = Main.LocalPlayer.GetModPlayer<TerramonPlayer>();
-                    if (d < 60000 && player.ActivePet == null) {
+                    if (d < 60000 && player.ActivePet == null)
+                    {
                         Main.NewText("Please send out a Pokémon before starting a battle!", new Color(200, 50, 70));
                         return;
                     };
@@ -221,7 +222,7 @@ namespace Terramon.Pokemon
             if (pokeName.Value != n)
             {
                 pokeName = TerramonMod.Localisation.GetLocalisedString(new LocalisedString(n));
-		        n = pokeName.Value;
+                n = pokeName.Value;
             }
             DisplayName.SetDefault(n);
             Main.npcFrameCount[npc.type] = 2;
@@ -254,7 +255,8 @@ namespace Terramon.Pokemon
             if (shiny)
             {
                 return "Terramon/Minisprites/Regular/mini" + npc.TypeName + "_Shiny";
-            } else
+            }
+            else
             {
                 return "Terramon/Minisprites/Regular/mini" + npc.TypeName;
             }
@@ -597,7 +599,7 @@ namespace Terramon.Pokemon
             if (Main.netMode == NetmodeID.MultiplayerClient)
             {
                 var packet = new BaseCatchPacket();
-                packet.Send((TerramonMod) mod, HomeClass().Name, npc.TypeName, npc.getRect(), type, shiny);
+                packet.Send((TerramonMod)mod, HomeClass().Name, npc.TypeName, npc.getRect(), type, shiny);
             }
             else
             {

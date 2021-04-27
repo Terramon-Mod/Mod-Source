@@ -17,14 +17,14 @@ namespace Terramon.Pokemon.FirstGeneration.Normal.Slowpoke
 
         public override PokemonType[] PokemonTypes => new[] { PokemonType.Water, PokemonType.Psychic };
 
-        public override ExpGroup ExpGroup => ExpGroup.MediumFast;public override int MaxHP => 90; public override int PhysicalDamage => 65; public override int PhysicalDefence => 65; public override int SpecialDamage => 40; public override int SpecialDefence => 40; public override int Speed => 15;
+        public override ExpGroup ExpGroup => ExpGroup.MediumFast; public override int MaxHP => 90; public override int PhysicalDamage => 65; public override int PhysicalDefence => 65; public override int SpecialDamage => 40; public override int SpecialDefence => 40; public override int Speed => 15;
 
         public override void SetDefaults()
         {
             base.SetDefaults();
 
-            
-            
+
+
         }
     }
 }

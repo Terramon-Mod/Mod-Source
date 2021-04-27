@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.SecondGeneration.Normal.Murkrow
 {
     public class MurkrowNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/SecondGeneration/Normal/Murkrow/Murkrow";
+    {
+        public override string Texture => "Terramon/Pokemon/SecondGeneration/Normal/Murkrow/Murkrow";
         public override Type HomeClass()
         {
             return typeof(Murkrow);
@@ -21,20 +22,21 @@ namespace Terramon.Pokemon.SecondGeneration.Normal.Murkrow
             npc.scale = 1f;
         }
 
-public static bool PlayerIsInForest(Player player){
-	return !player.ZoneJungle
-		&& !player.ZoneDungeon
-		&& !player.ZoneCorrupt
-		&& !player.ZoneCrimson
-		&& !player.ZoneHoly
-		&& !player.ZoneSnow
-		&& !player.ZoneUndergroundDesert
-		&& !player.ZoneGlowshroom
-		&& !player.ZoneMeteor
-		&& !player.ZoneBeach
-		&& !player.ZoneDesert
-		&& player.ZoneOverworldHeight;
-}
+        public static bool PlayerIsInForest(Player player)
+        {
+            return !player.ZoneJungle
+                && !player.ZoneDungeon
+                && !player.ZoneCorrupt
+                && !player.ZoneCrimson
+                && !player.ZoneHoly
+                && !player.ZoneSnow
+                && !player.ZoneUndergroundDesert
+                && !player.ZoneGlowshroom
+                && !player.ZoneMeteor
+                && !player.ZoneBeach
+                && !player.ZoneDesert
+                && player.ZoneOverworldHeight;
+        }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {

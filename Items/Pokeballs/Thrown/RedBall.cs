@@ -44,7 +44,7 @@ namespace Terramon.Items.Pokeballs.Thrown // This projectile is thrown by Red, t
         {
             if (projectile.ai[0] == 0)
             {
-                if(!Main.dedServ)
+                if (!Main.dedServ)
                     Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Custom/throwball").WithVolume(.7f));
                 projectile.ai[0] = 1;
                 projectile.ai[1] = 1;
@@ -75,7 +75,7 @@ namespace Terramon.Items.Pokeballs.Thrown // This projectile is thrown by Red, t
                     Main.dust[dustIndex].fadeIn = 1.5f + Main.rand.Next(5) * 0.1f;
                     Main.dust[dustIndex].noGravity = true;
                     Main.dust[dustIndex].position = projectile.Center +
-                                                    new Vector2(0f, -(float) projectile.height / 2).RotatedBy(
+                                                    new Vector2(0f, -(float)projectile.height / 2).RotatedBy(
                                                         projectile.rotation) * 1.1f;
                 }
             }

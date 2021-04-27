@@ -13,7 +13,7 @@ using Terraria.Utilities;
 
 namespace Terramon.Network.Sync
 {
-    public class RequestSyncPacket :Packet
+    public class RequestSyncPacket : Packet
     {
         public override string PacketName => "net_reqsync";
 
@@ -32,7 +32,7 @@ namespace Terramon.Network.Sync
             p.Write(whoAmI);
             p.Write(BaseMove._seed);
             p.Send(toClient: whoAmI);
-        } 
+        }
 
         public override void HandleFromServer(BinaryReader reader)
         {

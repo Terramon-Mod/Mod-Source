@@ -17,14 +17,14 @@ namespace Terramon.Pokemon.FirstGeneration.Normal.Nidoranf
 
         public override PokemonType[] PokemonTypes => new[] { PokemonType.Poison };
 
-        public override ExpGroup ExpGroup => ExpGroup.MediumSlow;public override int MaxHP => 55; public override int PhysicalDamage => 47; public override int PhysicalDefence => 52; public override int SpecialDamage => 40; public override int SpecialDefence => 40; public override int Speed => 41;
+        public override ExpGroup ExpGroup => ExpGroup.MediumSlow; public override int MaxHP => 55; public override int PhysicalDamage => 47; public override int PhysicalDefence => 52; public override int SpecialDamage => 40; public override int SpecialDefence => 40; public override int Speed => 41;
 
         public override void SetDefaults()
         {
             base.SetDefaults();
 
-            
-            
+
+
         }
     }
 }

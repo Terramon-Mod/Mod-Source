@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Ivysaur
 {
     public class IvysaurNPC : NotCatchablePKMN
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Ivysaur/Ivysaur";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Ivysaur/Ivysaur";
         public override Type HomeClass()
         {
             return typeof(Ivysaur);

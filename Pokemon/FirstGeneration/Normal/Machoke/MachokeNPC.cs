@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Machoke
 {
     public class MachokeNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Machoke/Machoke";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Machoke/Machoke";
         public override Type HomeClass()
         {
             return typeof(Machoke);

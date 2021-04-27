@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.ThirdGeneration.Normal.Dusclops
 {
     public class DusclopsNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/ThirdGeneration/Normal/Dusclops/Dusclops";
+    {
+        public override string Texture => "Terramon/Pokemon/ThirdGeneration/Normal/Dusclops/Dusclops";
         public override Type HomeClass()
         {
             return typeof(Dusclops);

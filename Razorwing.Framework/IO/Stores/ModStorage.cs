@@ -18,8 +18,8 @@ namespace Terramon.Razorwing.Framework.IO.Stores
             if (root == null)
             {
                 //string[] arr = ModLoader.ModPath.Split('\\');
-                
-                 root = Path.Combine(ModLoader.ModPath, "Cache");
+
+                root = Path.Combine(ModLoader.ModPath, "Cache");
             }
 
             return root;
@@ -32,7 +32,7 @@ namespace Terramon.Razorwing.Framework.IO.Stores
 
         public override Stream GetStream(string path, FileAccess access = FileAccess.Read, FileMode mode = FileMode.OpenOrCreate)
         {
-            if (path.StartsWith("http")) 
+            if (path.StartsWith("http"))
                 return null;
             return base.GetStream(path, access, mode);
         }

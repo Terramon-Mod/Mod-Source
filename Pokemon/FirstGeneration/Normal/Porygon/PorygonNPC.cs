@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Porygon
 {
     public class PorygonNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Porygon/Porygon";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Porygon/Porygon";
         public override Type HomeClass()
         {
             return typeof(Porygon);

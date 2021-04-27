@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Rapidash
 {
     public class RapidashNPC : NotCatchablePKMN
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Rapidash/Rapidash";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Rapidash/Rapidash";
         public override Type HomeClass()
         {
             return typeof(Rapidash);

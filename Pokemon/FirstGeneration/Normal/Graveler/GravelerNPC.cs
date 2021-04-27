@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Graveler
 {
     public class GravelerNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Graveler/Graveler";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Graveler/Graveler";
         public override Type HomeClass()
         {
             return typeof(Graveler);

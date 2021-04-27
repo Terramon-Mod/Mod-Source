@@ -394,7 +394,7 @@ namespace Terramon.Pokemon
                 [PokemonType.Dragon] = 0f,
                 [PokemonType.Dark] = 0.5f,
                 [PokemonType.Fairy] = 1f,
-            },  
+            },
         };
     }
 

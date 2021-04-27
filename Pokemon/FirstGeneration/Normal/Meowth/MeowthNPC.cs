@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Meowth
 {
     public class MeowthNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Meowth/Meowth";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Meowth/Meowth";
         public override Type HomeClass()
         {
             return typeof(Meowth);

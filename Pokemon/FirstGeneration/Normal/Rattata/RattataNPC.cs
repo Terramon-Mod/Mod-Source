@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Rattata
 {
     public class RattataNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Rattata/Rattata";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Rattata/Rattata";
         public override Type HomeClass()
         {
             return typeof(Rattata);
@@ -21,20 +22,21 @@ namespace Terramon.Pokemon.FirstGeneration.Normal.Rattata
             npc.scale = 1f;
         }
 
-public static bool PlayerIsInForest(Player player){
-	return !player.ZoneJungle
-		&& !player.ZoneDungeon
-		&& !player.ZoneCorrupt
-		&& !player.ZoneCrimson
-		&& !player.ZoneHoly
-		&& !player.ZoneSnow
-		&& !player.ZoneUndergroundDesert
-		&& !player.ZoneGlowshroom
-		&& !player.ZoneMeteor
-		&& !player.ZoneBeach
-		&& !player.ZoneDesert
-		&& player.ZoneOverworldHeight;
-}
+        public static bool PlayerIsInForest(Player player)
+        {
+            return !player.ZoneJungle
+                && !player.ZoneDungeon
+                && !player.ZoneCorrupt
+                && !player.ZoneCrimson
+                && !player.ZoneHoly
+                && !player.ZoneSnow
+                && !player.ZoneUndergroundDesert
+                && !player.ZoneGlowshroom
+                && !player.ZoneMeteor
+                && !player.ZoneBeach
+                && !player.ZoneDesert
+                && player.ZoneOverworldHeight;
+        }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {

@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Growlithe
 {
     public class GrowlitheNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Growlithe/Growlithe";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Growlithe/Growlithe";
         public override Type HomeClass()
         {
             return typeof(Growlithe);

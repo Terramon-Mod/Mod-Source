@@ -17,14 +17,14 @@ namespace Terramon.Pokemon.FirstGeneration.Normal.Kabuto
 
         public override PokemonType[] PokemonTypes => new[] { PokemonType.Rock, PokemonType.Water };
 
-        public override ExpGroup ExpGroup => ExpGroup.MediumFast;public override int MaxHP => 30; public override int PhysicalDamage => 80; public override int PhysicalDefence => 90; public override int SpecialDamage => 55; public override int SpecialDefence => 45; public override int Speed => 55;
+        public override ExpGroup ExpGroup => ExpGroup.MediumFast; public override int MaxHP => 30; public override int PhysicalDamage => 80; public override int PhysicalDefence => 90; public override int SpecialDamage => 55; public override int SpecialDefence => 45; public override int Speed => 55;
 
         public override void SetDefaults()
         {
             base.SetDefaults();
 
-            
-            
+
+
         }
     }
 }

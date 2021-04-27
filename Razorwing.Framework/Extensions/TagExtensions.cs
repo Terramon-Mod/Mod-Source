@@ -26,7 +26,7 @@ namespace Razorwing.Framework.Extensions
                 {
                     Console.WriteLine(e);
                 }
-     
+
             }
 
             return list;

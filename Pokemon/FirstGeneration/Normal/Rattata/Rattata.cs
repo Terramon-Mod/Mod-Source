@@ -17,14 +17,14 @@ namespace Terramon.Pokemon.FirstGeneration.Normal.Rattata
 
         public override PokemonType[] PokemonTypes => new[] { PokemonType.Normal };
 
-        public override ExpGroup ExpGroup => ExpGroup.MediumFast;public override int MaxHP => 30; public override int PhysicalDamage => 56; public override int PhysicalDefence => 35; public override int SpecialDamage => 25; public override int SpecialDefence => 35; public override int Speed => 72;
+        public override ExpGroup ExpGroup => ExpGroup.MediumFast; public override int MaxHP => 30; public override int PhysicalDamage => 56; public override int PhysicalDefence => 35; public override int SpecialDamage => 25; public override int SpecialDefence => 35; public override int Speed => 72;
 
         public override void SetDefaults()
         {
             base.SetDefaults();
 
-            
-            
+
+
         }
     }
 }

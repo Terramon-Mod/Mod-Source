@@ -13,7 +13,7 @@ namespace Razorwing.Framework.IO.Stores
     /// </summary>
     public class WebStore : IResourceStore<byte[]>
     {
-        private readonly string[] accept = new []{ "image/png" };
+        private readonly string[] accept = new[] { "image/png" };
         private readonly WebClient web = new WebClient();
 
 
@@ -24,14 +24,14 @@ namespace Razorwing.Framework.IO.Stores
                 this.accept = accept;
                 foreach (var it in accept)
                 {
-                    
+
                 }
             }
         }
 
         public byte[] Get(string name)
         {
-            return ((MemoryStream) GetStream(name))?.GetBuffer(); //Just reuse code
+            return ((MemoryStream)GetStream(name))?.GetBuffer(); //Just reuse code
         }
 
         public Task<byte[]> GetAsync(string name)

@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Eevee
 {
     public class EeveeNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Eevee/Eevee";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Eevee/Eevee";
         public override Type HomeClass()
         {
             return typeof(Eevee);

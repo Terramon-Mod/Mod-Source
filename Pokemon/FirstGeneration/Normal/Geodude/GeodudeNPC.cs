@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Geodude
 {
     public class GeodudeNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Geodude/Geodude";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Geodude/Geodude";
         public override Type HomeClass()
         {
             return typeof(Geodude);

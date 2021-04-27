@@ -24,7 +24,7 @@ namespace Razorwing.Framework.Graphics
             get => texture;
             set
             {
-                if(texture == value)
+                if (texture == value)
                     return;
                 texture = value;
                 Size = texture?.Bounds.Size() ?? Vector2.Zero;

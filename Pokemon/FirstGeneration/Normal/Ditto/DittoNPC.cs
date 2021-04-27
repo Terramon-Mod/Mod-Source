@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Ditto
 {
     public class DittoNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Ditto/Ditto";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Ditto/Ditto";
         public override Type HomeClass()
         {
             return typeof(Ditto);

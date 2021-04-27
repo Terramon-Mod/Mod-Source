@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Chansey
 {
     public class ChanseyNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Chansey/Chansey";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Chansey/Chansey";
         public override Type HomeClass()
         {
             return typeof(Chansey);

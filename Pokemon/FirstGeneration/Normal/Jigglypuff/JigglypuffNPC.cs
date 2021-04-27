@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Jigglypuff
 {
     public class JigglypuffNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Jigglypuff/Jigglypuff";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Jigglypuff/Jigglypuff";
         public override Type HomeClass()
         {
             return typeof(Jigglypuff);

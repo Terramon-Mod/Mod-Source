@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Flareon
 {
     public class FlareonNPC : NotCatchablePKMN
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Flareon/Flareon";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Flareon/Flareon";
         public override Type HomeClass()
         {
             return typeof(Flareon);

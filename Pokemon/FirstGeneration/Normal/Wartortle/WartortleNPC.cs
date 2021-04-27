@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Wartortle
 {
     public class WartortleNPC : NotCatchablePKMN
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Wartortle/Wartortle";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Wartortle/Wartortle";
         public override Type HomeClass()
         {
             return typeof(Wartortle);

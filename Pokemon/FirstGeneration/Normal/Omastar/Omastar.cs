@@ -11,20 +11,20 @@ namespace Terramon.Pokemon.FirstGeneration.Normal.Omastar
 {
     public class Omastar : ParentPokemon
     {
-        
 
-        
+
+
 
         public override PokemonType[] PokemonTypes => new[] { PokemonType.Rock, PokemonType.Water };
 
-        public override ExpGroup ExpGroup => ExpGroup.MediumFast;public override int MaxHP => 70; public override int PhysicalDamage => 60; public override int PhysicalDefence => 125; public override int SpecialDamage => 115; public override int SpecialDefence => 70; public override int Speed => 55;
+        public override ExpGroup ExpGroup => ExpGroup.MediumFast; public override int MaxHP => 70; public override int PhysicalDamage => 60; public override int PhysicalDefence => 125; public override int SpecialDamage => 115; public override int SpecialDefence => 70; public override int Speed => 55;
 
         public override void SetDefaults()
         {
             base.SetDefaults();
 
-            
-            
+
+
         }
     }
 }

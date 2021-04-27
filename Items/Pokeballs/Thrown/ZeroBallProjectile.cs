@@ -17,7 +17,7 @@ namespace Terramon.Items.Pokeballs.Thrown
             for (int i = 0; i < 200; i++)
             {
                 NPC target = Main.npc[i];
-                if 
+                if
                     (
                         target.modNPC is ParentPokemonNPC parentNPC
                     )
@@ -55,7 +55,7 @@ namespace Terramon.Items.Pokeballs.Thrown
 
             if (projectile.owner == Main.myPlayer && projectile.timeLeft <= 3)
             {
-                
+
                 projectile.tileCollide = false;
 
                 projectile.alpha = 255;

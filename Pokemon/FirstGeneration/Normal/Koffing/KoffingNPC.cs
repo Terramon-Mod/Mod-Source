@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Koffing
 {
     public class KoffingNPC : ParentPokemonNPCFlying
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Koffing/Koffing";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Koffing/Koffing";
         public override Type HomeClass()
         {
             return typeof(Koffing);

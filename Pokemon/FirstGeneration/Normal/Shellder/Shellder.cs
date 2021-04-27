@@ -19,14 +19,14 @@ namespace Terramon.Pokemon.FirstGeneration.Normal.Shellder
 
         public override PokemonType[] PokemonTypes => new[] { PokemonType.Water };
 
-        public override ExpGroup ExpGroup => ExpGroup.Slow;public override int MaxHP => 30; public override int PhysicalDamage => 65; public override int PhysicalDefence => 100; public override int SpecialDamage => 45; public override int SpecialDefence => 25; public override int Speed => 40;
+        public override ExpGroup ExpGroup => ExpGroup.Slow; public override int MaxHP => 30; public override int PhysicalDamage => 65; public override int PhysicalDefence => 100; public override int SpecialDamage => 45; public override int SpecialDefence => 25; public override int Speed => 40;
 
         public override void SetDefaults()
         {
             base.SetDefaults();
 
-            
-            
+
+
         }
     }
 }

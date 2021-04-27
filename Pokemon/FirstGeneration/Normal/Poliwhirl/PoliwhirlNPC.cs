@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Poliwhirl
 {
     public class PoliwhirlNPC : NotCatchablePKMN
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Poliwhirl/Poliwhirl";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Poliwhirl/Poliwhirl";
         public override Type HomeClass()
         {
             return typeof(Poliwhirl);

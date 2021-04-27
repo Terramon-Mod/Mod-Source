@@ -17,14 +17,14 @@ namespace Terramon.Pokemon.FirstGeneration.Normal.Machop
 
         public override PokemonType[] PokemonTypes => new[] { PokemonType.Fighting };
 
-        public override ExpGroup ExpGroup => ExpGroup.MediumSlow;public override int MaxHP => 70; public override int PhysicalDamage => 80; public override int PhysicalDefence => 50; public override int SpecialDamage => 35; public override int SpecialDefence => 35; public override int Speed => 35;
+        public override ExpGroup ExpGroup => ExpGroup.MediumSlow; public override int MaxHP => 70; public override int PhysicalDamage => 80; public override int PhysicalDefence => 50; public override int SpecialDamage => 35; public override int SpecialDefence => 35; public override int Speed => 35;
 
         public override void SetDefaults()
         {
             base.SetDefaults();
 
-            
-            
+
+
         }
     }
 }

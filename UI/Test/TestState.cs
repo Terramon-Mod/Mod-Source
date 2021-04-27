@@ -40,11 +40,12 @@ namespace Terramon.UI.Test
                     .MoveToRelative(new Vector2(0.5f, 0.5f), 2000).Then()
                     .MoveToRelative(new Vector2(0), 2000);
                 shader.ScaleTo(new Vector2(10, 10), 2000, Easing.InOutElastic).Then()
-                    .ScaleTo(new Vector2(5,5), 2000).Then()
-                    .ScaleTo(new Vector2(20,20), 2000).Then()
+                    .ScaleTo(new Vector2(5, 5), 2000).Then()
+                    .ScaleTo(new Vector2(20, 20), 2000).Then()
                     .ScaleTo(1f, 2000);
                 shader.FadeInFromZero(8000);
-            }else if (Main.keyState.IsKeyUp(Keys.C))
+            }
+            else if (Main.keyState.IsKeyUp(Keys.C))
             {
                 pres = false;
             }

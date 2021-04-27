@@ -17,14 +17,14 @@ namespace Terramon.Pokemon.FirstGeneration.Normal.Squirtle
 
         public override PokemonType[] PokemonTypes => new[] { PokemonType.Water };
 
-        public override ExpGroup ExpGroup => ExpGroup.MediumSlow;public override int MaxHP => 44; public override int PhysicalDamage => 48; public override int PhysicalDefence => 65; public override int SpecialDamage => 50; public override int SpecialDefence => 64; public override int Speed => 43;
+        public override ExpGroup ExpGroup => ExpGroup.MediumSlow; public override int MaxHP => 44; public override int PhysicalDamage => 48; public override int PhysicalDefence => 65; public override int SpecialDamage => 50; public override int SpecialDefence => 64; public override int Speed => 43;
 
         public override void SetDefaults()
         {
             base.SetDefaults();
 
-            
-            
+
+
         }
     }
 }

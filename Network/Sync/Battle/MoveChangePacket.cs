@@ -33,7 +33,7 @@ namespace Terramon.Network.Sync.Battle
         public override void HandleFromClient(BinaryReader reader, int whoAmI)
         {
             var pl = Main.player[whoAmI].GetModPlayer<TerramonPlayer>();
-            if(pl.Battle != null)
+            if (pl.Battle != null)
             {
                 var s = reader.ReadString();
                 pl.Battle.SyncMove(s);

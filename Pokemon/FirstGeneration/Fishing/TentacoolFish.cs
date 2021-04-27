@@ -44,7 +44,7 @@ namespace Terramon.Pokemon.FirstGeneration.Fishing
 
         public override bool UseItem(Player player)
         {
-            NPC.NewNPC((int) player.position.X, (int) player.position.Y, mod.NPCType("TentacoolNPC"));
+            NPC.NewNPC((int)player.position.X, (int)player.position.Y, mod.NPCType("TentacoolNPC"));
             return true;
         }
     }

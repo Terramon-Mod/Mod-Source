@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Ekans
 {
     public class EkansNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Ekans/Ekans";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Ekans/Ekans";
         public override Type HomeClass()
         {
             return typeof(Ekans);

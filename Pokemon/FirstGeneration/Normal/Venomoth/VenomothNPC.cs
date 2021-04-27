@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Venomoth
 {
     public class VenomothNPC : ParentPokemonNPCFlyingBird
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Venomoth/Venomoth";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Venomoth/Venomoth";
         public override Type HomeClass()
         {
             return typeof(Venomoth);

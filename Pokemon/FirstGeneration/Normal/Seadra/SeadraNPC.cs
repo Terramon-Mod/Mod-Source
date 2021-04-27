@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Seadra
 {
     public class SeadraNPC : NotCatchablePKMN
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Seadra/Seadra";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Seadra/Seadra";
         public override Type HomeClass()
         {
             return typeof(Seadra);

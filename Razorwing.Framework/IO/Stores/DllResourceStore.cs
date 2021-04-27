@@ -79,7 +79,7 @@ namespace Razorwing.Framework.IO.Stores
             var split = name.Split('/');
             for (int i = 0; i < split.Length - 1; i++)
                 split[i] = split[i].Replace('-', '_');
-            return assembly?.GetManifestResourceStream($@"{prefix}{string.Join(".",split)}");
+            return assembly?.GetManifestResourceStream($@"{prefix}{string.Join(".", split)}");
         }
 
         #region IDisposable Support

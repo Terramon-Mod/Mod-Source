@@ -40,7 +40,7 @@ namespace Terramon.Pokemon.Moves
                 return false;
 
             player.Attacking = true;
-            Vector2 vel = (target.position + (target.Size/2)) - (mon.projectile.position + (mon.projectile.Size/2));
+            Vector2 vel = (target.position + (target.Size / 2)) - (mon.projectile.position + (mon.projectile.Size / 2));
             var l = vel.Length();
             vel += target.velocity * (l / 100);//Make predict shoot
             vel.Normalize(); //Direction
@@ -79,7 +79,8 @@ namespace Terramon.Pokemon.Moves
                 {
                     TerramonMod.ZoomAnimator.ScreenPosX(target.projectile.position.X + 12, 1, Easing.None);
                     TerramonMod.ZoomAnimator.ScreenPosY(target.projectile.position.Y + 3, 1, Easing.None);
-                } else if (shakeTimer > 4)
+                }
+                else if (shakeTimer > 4)
                 {
                     TerramonMod.ZoomAnimator.ScreenPosX(target.projectile.position.X + 12, 1, Easing.None);
                     TerramonMod.ZoomAnimator.ScreenPosY(target.projectile.position.Y - 3, 1, Easing.None);

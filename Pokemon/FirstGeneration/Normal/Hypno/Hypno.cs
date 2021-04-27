@@ -14,14 +14,14 @@ namespace Terramon.Pokemon.FirstGeneration.Normal.Hypno
 
         public override PokemonType[] PokemonTypes => new[] { PokemonType.Psychic };
 
-        public override ExpGroup ExpGroup => ExpGroup.MediumFast;public override int MaxHP => 85; public override int PhysicalDamage => 73; public override int PhysicalDefence => 70; public override int SpecialDamage => 73; public override int SpecialDefence => 115; public override int Speed => 67;
+        public override ExpGroup ExpGroup => ExpGroup.MediumFast; public override int MaxHP => 85; public override int PhysicalDamage => 73; public override int PhysicalDefence => 70; public override int SpecialDamage => 73; public override int SpecialDefence => 115; public override int Speed => 67;
 
         public override void SetDefaults()
         {
             base.SetDefaults();
 
-            
-            
+
+
         }
     }
 }

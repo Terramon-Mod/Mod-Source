@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Raichu
 {
     public class RaichuNPC : NotCatchablePKMN
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Raichu/Raichu";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Raichu/Raichu";
         public override Type HomeClass()
         {
             return typeof(Raichu);

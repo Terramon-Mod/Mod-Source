@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Psyduck
 {
     public class PsyduckNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Psyduck/Psyduck";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Psyduck/Psyduck";
         public override Type HomeClass()
         {
             return typeof(Psyduck);

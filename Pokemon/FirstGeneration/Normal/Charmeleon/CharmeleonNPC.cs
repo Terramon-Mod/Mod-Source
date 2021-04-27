@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Charmeleon
 {
     public class CharmeleonNPC : NotCatchablePKMN
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Charmeleon/Charmeleon";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Charmeleon/Charmeleon";
         public override Type HomeClass()
         {
             return typeof(Charmeleon);

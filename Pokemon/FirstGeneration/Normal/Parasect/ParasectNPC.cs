@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Parasect
 {
     public class ParasectNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Parasect/Parasect";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Parasect/Parasect";
         public override Type HomeClass()
         {
             return typeof(Parasect);

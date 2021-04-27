@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Gloom
 {
     public class GloomNPC : NotCatchablePKMN
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Gloom/Gloom";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Gloom/Gloom";
         public override Type HomeClass()
         {
             return typeof(Gloom);

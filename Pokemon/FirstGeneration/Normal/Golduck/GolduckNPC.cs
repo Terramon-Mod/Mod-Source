@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Golduck
 {
     public class GolduckNPC : NotCatchablePKMN
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Golduck/Golduck";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Golduck/Golduck";
         public override Type HomeClass()
         {
             return typeof(Golduck);

@@ -551,61 +551,61 @@ namespace Terramon.UI.SidebarParty
             if (!ModContent.GetInstance<TerramonMod>().PartySlots.partyslot1.Item.IsAir)
             {
                 //var type = TerramonMod.GetPokeballType(partyslot1.Item.modItem);
-                var pokeballCaught = (BaseCaughtClass) partyslot1.Item.modItem;
+                var pokeballCaught = (BaseCaughtClass)partyslot1.Item.modItem;
                 //modPlayer.firstslottype = pokeballCaught.PokemonNPC;
                 //old_1 = pokeballCaught.PokemonName ;
                 modPlayer.firstslotname = pokeballCaught.PokemonName;
-                modPlayer.PartySlot1 =new PokemonData(pokeballCaught.Save());
+                modPlayer.PartySlot1 = new PokemonData(pokeballCaught.Save());
             }
 
             if (!ModContent.GetInstance<TerramonMod>().PartySlots.partyslot2.Item.IsAir)
             {
                 //var type = TerramonMod.GetPokeballType(partyslot1.Item.modItem);
-                var pokeballCaught = (BaseCaughtClass) partyslot2.Item.modItem;
+                var pokeballCaught = (BaseCaughtClass)partyslot2.Item.modItem;
                 //modPlayer.secondslottype = pokeballCaught.PokemonNPC;
                 //old_2 = pokeballCaught.PokemonName;
                 modPlayer.secondslotname = pokeballCaught.PokemonName;
-                modPlayer.PartySlot2 =new PokemonData(pokeballCaught.Save());
+                modPlayer.PartySlot2 = new PokemonData(pokeballCaught.Save());
             }
 
             if (!ModContent.GetInstance<TerramonMod>().PartySlots.partyslot3.Item.IsAir)
             {
                 //var type = TerramonMod.GetPokeballType(partyslot1.Item.modItem);
-                var pokeballCaught = (BaseCaughtClass) partyslot3.Item.modItem;
+                var pokeballCaught = (BaseCaughtClass)partyslot3.Item.modItem;
                 //modPlayer.thirdslottype = pokeballCaught.PokemonNPC;
                 //old_3 = pokeballCaught.PokemonName;
                 modPlayer.thirdslotname = pokeballCaught.PokemonName;
-                modPlayer.PartySlot3 =new PokemonData(pokeballCaught.Save());
+                modPlayer.PartySlot3 = new PokemonData(pokeballCaught.Save());
             }
 
             if (!ModContent.GetInstance<TerramonMod>().PartySlots.partyslot4.Item.IsAir)
             {
                 //var type = TerramonMod.GetPokeballType(partyslot1.Item.modItem);
-                var pokeballCaught = (BaseCaughtClass) partyslot4.Item.modItem;
+                var pokeballCaught = (BaseCaughtClass)partyslot4.Item.modItem;
                 //modPlayer.fourthslottype = pokeballCaught.PokemonNPC;
                 //old_4 = pokeballCaught.PokemonName;
                 modPlayer.fourthslotname = pokeballCaught.PokemonName;
-                modPlayer.PartySlot4 =new PokemonData(pokeballCaught.Save());
+                modPlayer.PartySlot4 = new PokemonData(pokeballCaught.Save());
             }
 
             if (!ModContent.GetInstance<TerramonMod>().PartySlots.partyslot5.Item.IsAir)
             {
                 //var type = TerramonMod.GetPokeballType(partyslot1.Item.modItem);
-                var pokeballCaught = (BaseCaughtClass) partyslot5.Item.modItem;
+                var pokeballCaught = (BaseCaughtClass)partyslot5.Item.modItem;
                 //modPlayer.fifthslottype = pokeballCaught.PokemonNPC;
                 //old_5 = pokeballCaught.PokemonName;
                 modPlayer.fifthslotname = pokeballCaught.PokemonName;
-                modPlayer.PartySlot5 =new PokemonData(pokeballCaught.Save());
+                modPlayer.PartySlot5 = new PokemonData(pokeballCaught.Save());
             }
 
             if (!ModContent.GetInstance<TerramonMod>().PartySlots.partyslot6.Item.IsAir)
             {
                 //var type = TerramonMod.GetPokeballType(partyslot1.Item.modItem);
-                var pokeballCaught = (BaseCaughtClass) partyslot6.Item.modItem;
+                var pokeballCaught = (BaseCaughtClass)partyslot6.Item.modItem;
                 //modPlayer.sixthslottype = pokeballCaught.PokemonNPC;
                 //old_6 = pokeballCaught.PokemonName;
                 modPlayer.sixthslotname = pokeballCaught.PokemonName;
-                modPlayer.PartySlot6 =new PokemonData(pokeballCaught.Save());
+                modPlayer.PartySlot6 = new PokemonData(pokeballCaught.Save());
             }
 
             //Main.NewText("Party Saved!");
@@ -651,7 +651,8 @@ namespace Terramon.UI.SidebarParty
             if (ContainsPoint(Main.MouseScreen)) Main.LocalPlayer.mouseInterface = true;
 
             // Fainted Pokemon appear semi transparent
-            if (stored != null) {
+            if (stored != null)
+            {
                 if (stored.HP != 0) minisprite._visibilityActive = _visibilityActive;
                 else minisprite._visibilityActive = _visibilityActive * 0.4f;
             }
@@ -777,7 +778,7 @@ namespace Terramon.UI.SidebarParty
                 return;
             }
 
-            if (stored.HP != 0) HoverText = 
+            if (stored.HP != 0) HoverText =
                 $"[c/a1a1a1:{stored.PokemonName} (Lv. {stored.Level})]" +
                 $" \nHP: {stored.HP}/{stored.MaxHP}" +
                 $" \nEXP: {stored.Exp}/{stored.ExpToNext}";
@@ -933,7 +934,8 @@ namespace Terramon.UI.SidebarParty
                         PartySlots.toSwapSlotNumber = 0;
                         PartySlots.swapWith = null;
                         PartySlots.swapWithSlotNumber = 0;
-                    } else
+                    }
+                    else
                     {
                         if (stored == null)
                         {

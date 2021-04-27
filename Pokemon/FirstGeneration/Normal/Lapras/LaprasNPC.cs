@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Lapras
 {
     public class LaprasNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Lapras/Lapras";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Lapras/Lapras";
         public override Type HomeClass()
         {
             return typeof(Lapras);

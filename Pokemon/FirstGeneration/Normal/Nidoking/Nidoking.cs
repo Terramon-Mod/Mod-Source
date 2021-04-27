@@ -11,20 +11,20 @@ namespace Terramon.Pokemon.FirstGeneration.Normal.Nidoking
 {
     public class Nidoking : ParentPokemon
     {
-        
 
-        
+
+
 
         public override PokemonType[] PokemonTypes => new[] { PokemonType.Poison, PokemonType.Ground };
 
-        public override ExpGroup ExpGroup => ExpGroup.MediumSlow;public override int MaxHP => 81; public override int PhysicalDamage => 102; public override int PhysicalDefence => 77; public override int SpecialDamage => 85; public override int SpecialDefence => 75; public override int Speed => 85;
+        public override ExpGroup ExpGroup => ExpGroup.MediumSlow; public override int MaxHP => 81; public override int PhysicalDamage => 102; public override int PhysicalDefence => 77; public override int SpecialDamage => 85; public override int SpecialDefence => 75; public override int Speed => 85;
 
         public override void SetDefaults()
         {
             base.SetDefaults();
 
-            
-            
+
+
         }
     }
 }

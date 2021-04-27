@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Venonat
 {
     public class VenonatNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Venonat/Venonat";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Venonat/Venonat";
         public override Type HomeClass()
         {
             return typeof(Venonat);

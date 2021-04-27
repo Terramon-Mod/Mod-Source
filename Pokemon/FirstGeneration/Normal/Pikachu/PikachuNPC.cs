@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Pikachu
 {
     public class PikachuNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Pikachu/Pikachu";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Pikachu/Pikachu";
         public override Type HomeClass()
         {
             return typeof(Pikachu);

@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Rhyhorn
 {
     public class RhyhornNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Rhyhorn/Rhyhorn";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Rhyhorn/Rhyhorn";
         public override Type HomeClass()
         {
             return typeof(Rhyhorn);

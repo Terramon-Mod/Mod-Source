@@ -40,7 +40,7 @@ namespace Terramon.Pokemon.Moves
                 return false;
 
             player.Attacking = true;
-            Vector2 vel = (target.position + (target.Size/2)) - (mon.projectile.position + (mon.projectile.Size/2));
+            Vector2 vel = (target.position + (target.Size / 2)) - (mon.projectile.position + (mon.projectile.Size / 2));
             var l = vel.Length();
             vel += target.velocity * (l / 100);//Make predict shoot
             vel.Normalize(); //Direction
@@ -84,7 +84,7 @@ namespace Terramon.Pokemon.Moves
                 Main.projectile[acidBubble1].penetrate = 99;
                 Main.projectile[acidBubble].timeLeft = 0;
             }
-            else if(AnimationFrame == 300)//At Last frame we destroy new proj
+            else if (AnimationFrame == 300)//At Last frame we destroy new proj
             {
                 InflictDamage(mon, target, player, attacker, deffender, state, opponent);
 
@@ -98,7 +98,7 @@ namespace Terramon.Pokemon.Moves
                 }
 
                 var id = acidBubble1;
-                if(PostTextLoc.Args.Length >= 4)//If we can extract damage number
+                if (PostTextLoc.Args.Length >= 4)//If we can extract damage number
                     CombatText.NewText(target.projectile.Hitbox, CombatText.DamagedHostile, (int)PostTextLoc.Args[3]);//Print combat text at attacked mon position
                 Main.projectile[id].timeLeft = 0;
                 Main.projectile[id].active = false;
@@ -154,17 +154,21 @@ namespace Terramon.Pokemon.Moves
 
     public class AcidBubble : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            Main.projFrames[projectile.type] = 4;
+        }
         public override void SetDefaults()
         {
-            projectile.width = 18;
-            projectile.height = 18;
+            projectile.width = 28;
+            projectile.height = 28;
             projectile.friendly = true;
             projectile.alpha = 255;
             projectile.penetrate = -1;
             projectile.tileCollide = false;
             projectile.ignoreWater = true;
             projectile.timeLeft = 20000;
-            projectile.scale = 1f;
+            projectile.scale = 0.8f;
         }
 
         private int spawntimer;
@@ -182,7 +186,7 @@ namespace Terramon.Pokemon.Moves
             timer++;
             pulse++;
             if (projectile.alpha != 0) projectile.alpha -= 15;
-            if (projectile.scale < 1.5f && !growing)
+            if (projectile.scale < 1.3f && !growing)
             {
                 projectile.scale += 0.05f;
             }
@@ -207,6 +211,12 @@ namespace Terramon.Pokemon.Moves
                     dust.noGravity = true;
                 }
                 timer = 0;
+            }
+
+            if (++projectile.frameCounter >= 10)
+            {
+                projectile.frameCounter = 0;
+                projectile.frame = ++projectile.frame % Main.projFrames[projectile.type];
             }
         }
     }

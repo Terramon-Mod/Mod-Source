@@ -20,7 +20,7 @@ namespace Terramon.Items
         protected TerramonItem(string displayName, string tooltip, int width, int height, int value = 0, int defense = 0, int rarity = ItemRarityID.White, int maxStack = 999) : this(new Dictionary<GameCulture, string>() { [GameCulture.English] = displayName },
             new Dictionary<GameCulture, string>() { [GameCulture.English] = tooltip }, width, height, value, defense, rarity, maxStack)
         {
-            
+
         }
 
         public override void SetStaticDefaults()

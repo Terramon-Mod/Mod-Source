@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Snorlax
 {
     public class SnorlaxNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Snorlax/Snorlax";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Snorlax/Snorlax";
         public override Type HomeClass()
         {
             return typeof(Snorlax);

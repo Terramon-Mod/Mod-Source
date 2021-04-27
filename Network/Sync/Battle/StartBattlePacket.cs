@@ -57,7 +57,7 @@ namespace Terramon.Network.Sync.Battle
         public override void HandleFromClient(BinaryReader reader, int whoAmI)
         {
             BattleState state = (BattleState)reader.ReadInt32();
-            if(state == BattleState.BattleWithPlayer)
+            if (state == BattleState.BattleWithPlayer)
             {
                 int battleWith = reader.ReadInt32();
                 var pl1 = Main.player[whoAmI]?.GetModPlayer<TerramonPlayer>();
@@ -72,7 +72,7 @@ namespace Terramon.Network.Sync.Battle
                     pl2.Battle = new BattleMode(pl2, state, pl1?.ActivePet, null, pl1, true);
                 Resend(state, pl2.player, whoAmI);
             }
-            else if(state == BattleState.BattleWithWild)
+            else if (state == BattleState.BattleWithWild)
             {
                 var pl1 = Main.player[whoAmI]?.GetModPlayer<TerramonPlayer>();
                 var tag = new PokemonData(reader.ReadTag());
@@ -124,7 +124,7 @@ namespace Terramon.Network.Sync.Battle
                     pl1.Battle.WildNPC = (ParentPokemon)Main.projectile[projID].modProjectile;
                     pl1.Battle.awaitSync = true;
                 }
-                    
+
             }
             else if (state == BattleState.BattleWithTrainer)
             {

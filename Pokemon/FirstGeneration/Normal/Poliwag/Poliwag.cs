@@ -17,14 +17,14 @@ namespace Terramon.Pokemon.FirstGeneration.Normal.Poliwag
 
         public override PokemonType[] PokemonTypes => new[] { PokemonType.Water };
 
-        public override ExpGroup ExpGroup => ExpGroup.MediumSlow;public override int MaxHP => 40; public override int PhysicalDamage => 50; public override int PhysicalDefence => 40; public override int SpecialDamage => 40; public override int SpecialDefence => 40; public override int Speed => 90;
+        public override ExpGroup ExpGroup => ExpGroup.MediumSlow; public override int MaxHP => 40; public override int PhysicalDamage => 50; public override int PhysicalDefence => 40; public override int SpecialDamage => 40; public override int SpecialDefence => 40; public override int Speed => 90;
 
         public override void SetDefaults()
         {
             base.SetDefaults();
 
-            
-            
+
+
         }
     }
 }

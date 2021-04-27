@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Venusaur
 {
     public class VenusaurNPC : NotCatchablePKMN
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Venusaur/Venusaur";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Venusaur/Venusaur";
         public override Type HomeClass()
         {
             return typeof(Venusaur);

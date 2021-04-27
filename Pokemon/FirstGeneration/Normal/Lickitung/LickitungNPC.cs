@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Lickitung
 {
     public class LickitungNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Lickitung/Lickitung";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Lickitung/Lickitung";
         public override Type HomeClass()
         {
             return typeof(Lickitung);

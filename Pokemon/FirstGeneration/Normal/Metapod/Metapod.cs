@@ -17,14 +17,14 @@ namespace Terramon.Pokemon.FirstGeneration.Normal.Metapod
 
         public override PokemonType[] PokemonTypes => new[] { PokemonType.Bug };
 
-        public override ExpGroup ExpGroup => ExpGroup.MediumFast;public override int MaxHP => 50; public override int PhysicalDamage => 20; public override int PhysicalDefence => 55; public override int SpecialDamage => 25; public override int SpecialDefence => 25; public override int Speed => 30;
+        public override ExpGroup ExpGroup => ExpGroup.MediumFast; public override int MaxHP => 50; public override int PhysicalDamage => 20; public override int PhysicalDefence => 55; public override int SpecialDamage => 25; public override int SpecialDefence => 25; public override int Speed => 30;
 
         public override void SetDefaults()
         {
             base.SetDefaults();
 
-            
-            
+
+
         }
     }
 }

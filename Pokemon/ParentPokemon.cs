@@ -71,7 +71,7 @@ namespace Terramon.Pokemon
 
         public int SpawnTime = 32;
         public virtual string IconName => iconName ?? (iconName = $"Terramon/Minisprites/Regular/mini{GetType().Name}");
-	    private readonly string nameMatcher = "([a-z](?=[A-Z]|[0-9])|[A-Z](?=[A-Z][a-z]|[0-9])|[0-9](?=[^0-9]))";
+        private readonly string nameMatcher = "([a-z](?=[A-Z]|[0-9])|[A-Z](?=[A-Z][a-z]|[0-9])|[0-9](?=[^0-9]))";
 
         public int AttackDuration;
 
@@ -123,7 +123,7 @@ namespace Terramon.Pokemon
                 path += path.Length > 0 ? $"/{arr[i]}" : arr[i];
             }
 
-	        string n = Regex.Replace(projectile.Name, nameMatcher, "$1 ");
+            string n = Regex.Replace(projectile.Name, nameMatcher, "$1 ");
 
             if (n == "Nidoran ♂") n = "Nidoranm";
             if (n == "Nidoran ♀") n = "Nidoranf";
@@ -418,7 +418,7 @@ namespace Terramon.Pokemon
             /// <summary>
             /// Battling animations
             /// </summary>
-       
+
             // Damage received
 
             if (damageReceived)
@@ -466,7 +466,8 @@ namespace Terramon.Pokemon
                         dust1.velocity.Y = -3f;
                         dust1.noGravity = true;
                     }
-                } else
+                }
+                else
                 {
                     healedHealthTimer = 0;
                     healedHealth = false;
@@ -533,7 +534,7 @@ namespace Terramon.Pokemon
                 lockedPosX = projectile.position.X;
             }
 
-            if (Wild)
+            if (Wild && useAi)
             {
                 hopTimer++;
                 projectile.timeLeft = 5;
@@ -654,7 +655,8 @@ namespace Terramon.Pokemon
             return false;
         }
 
-        public bool HoldingUsableItem() {
+        public bool HoldingUsableItem()
+        {
             if (HoldingPotion() ||
                 HoldingSuperPotion() ||
                 HoldingHyperPotion() ||
@@ -745,13 +747,13 @@ namespace Terramon.Pokemon
                 projectile.timeLeft = 2;
             }
 
-            if (Main.player[projectile.owner].position.X + (float) (Main.player[projectile.owner].width / 2) <
-                projectile.position.X + (float) (projectile.width / 2) - (float) num)
+            if (Main.player[projectile.owner].position.X + (float)(Main.player[projectile.owner].width / 2) <
+                projectile.position.X + (float)(projectile.width / 2) - (float)num)
             {
                 flag = true;
             }
-            else if (Main.player[projectile.owner].position.X + (float) (Main.player[projectile.owner].width / 2) >
-                     projectile.position.X + (float) (projectile.width / 2) + (float) num)
+            else if (Main.player[projectile.owner].position.X + (float)(Main.player[projectile.owner].width / 2) >
+                     projectile.position.X + (float)(projectile.width / 2) + (float)num)
             {
                 flag2 = true;
             }
@@ -765,23 +767,23 @@ namespace Terramon.Pokemon
                     projectile.ai[0] = 1f;
                 }
 
-                Vector2 vector6 = new Vector2(projectile.position.X + (float) projectile.width * 0.5f,
-                    projectile.position.Y + (float) projectile.height * 0.5f);
+                Vector2 vector6 = new Vector2(projectile.position.X + (float)projectile.width * 0.5f,
+                    projectile.position.Y + (float)projectile.height * 0.5f);
                 float num37 = Main.player[projectile.owner].position.X +
-                              (float) (Main.player[projectile.owner].width / 2) - vector6.X;
+                              (float)(Main.player[projectile.owner].width / 2) - vector6.X;
                 float num38 = Main.player[projectile.owner].position.Y +
-                              (float) (Main.player[projectile.owner].height / 2) - vector6.Y;
-                float num39 = (float) Math.Sqrt((double) (num37 * num37 + num38 * num38));
+                              (float)(Main.player[projectile.owner].height / 2) - vector6.Y;
+                float num39 = (float)Math.Sqrt((double)(num37 * num37 + num38 * num38));
                 if (num39 > 2000f)
                 {
                     projectile.position.X = Main.player[projectile.owner].position.X +
-                                            (float) (Main.player[projectile.owner].width / 2) -
-                                            (float) (projectile.width / 2);
+                                            (float)(Main.player[projectile.owner].width / 2) -
+                                            (float)(projectile.width / 2);
                     projectile.position.Y = Main.player[projectile.owner].position.Y +
-                                            (float) (Main.player[projectile.owner].height / 2) -
-                                            (float) (projectile.height / 2);
+                                            (float)(Main.player[projectile.owner].height / 2) -
+                                            (float)(projectile.height / 2);
                 }
-                else if (num39 > (float) num36 || (Math.Abs(num38) > 300f))
+                else if (num39 > (float)num36 || (Math.Abs(num38) > 300f))
                 {
                     if (num38 > 0f && projectile.velocity.Y < 0f)
                     {
@@ -802,18 +804,18 @@ namespace Terramon.Pokemon
                 float num40 = 0.2f;
                 int num41 = 200;
                 projectile.tileCollide = false;
-                Vector2 vector7 = new Vector2(projectile.position.X + (float) projectile.width * 0.5f,
-                    projectile.position.Y + (float) projectile.height * 0.5f);
+                Vector2 vector7 = new Vector2(projectile.position.X + (float)projectile.width * 0.5f,
+                    projectile.position.Y + (float)projectile.height * 0.5f);
                 float num42 = Main.player[projectile.owner].position.X +
-                              (float) (Main.player[projectile.owner].width / 4) - vector7.X;
+                              (float)(Main.player[projectile.owner].width / 4) - vector7.X;
                 float num48 = Main.player[projectile.owner].position.Y +
-                              (float) (Main.player[projectile.owner].height / 4) - vector7.Y;
-                float num49 = (float) Math.Sqrt((double) (num42 * num42 + num48 * num48));
+                              (float)(Main.player[projectile.owner].height / 4) - vector7.Y;
+                float num49 = (float)Math.Sqrt((double)(num42 * num42 + num48 * num48));
                 float num50 = 10f;
                 float num51 = num49;
-                if (num49 < (float) num41 && Main.player[projectile.owner].velocity.Y == 0f &&
-                    projectile.position.Y + (float) projectile.height <= Main.player[projectile.owner].position.Y +
-                    (float) Main.player[projectile.owner].height &&
+                if (num49 < (float)num41 && Main.player[projectile.owner].velocity.Y == 0f &&
+                    projectile.position.Y + (float)projectile.height <= Main.player[projectile.owner].position.Y +
+                    (float)Main.player[projectile.owner].height &&
                     !Collision.SolidCollision(projectile.position, projectile.width, projectile.height))
                 {
                     projectile.ai[0] = 0f;
@@ -903,7 +905,7 @@ namespace Terramon.Pokemon
                 float num104 = 8f;
                 if (flag)
                 {
-                    if ((double) projectile.velocity.X > -3.5)
+                    if ((double)projectile.velocity.X > -3.5)
                     {
                         projectile.velocity.X = projectile.velocity.X - num103;
                     }
@@ -914,7 +916,7 @@ namespace Terramon.Pokemon
                 }
                 else if (flag2)
                 {
-                    if ((double) projectile.velocity.X < 3.5)
+                    if ((double)projectile.velocity.X < 3.5)
                     {
                         projectile.velocity.X = projectile.velocity.X + num103;
                     }
@@ -934,8 +936,8 @@ namespace Terramon.Pokemon
 
                 if (flag || flag2)
                 {
-                    int num105 = (int) (projectile.position.X + (float) (projectile.width / 2)) / 16;
-                    int j2 = (int) (projectile.position.Y + (float) (projectile.height / 2)) / 16;
+                    int num105 = (int)(projectile.position.X + (float)(projectile.width / 2)) / 16;
+                    int j2 = (int)(projectile.position.Y + (float)(projectile.height / 2)) / 16;
                     if (flag)
                     {
                         num105--;
@@ -946,15 +948,15 @@ namespace Terramon.Pokemon
                         num105++;
                     }
 
-                    num105 += (int) projectile.velocity.X;
+                    num105 += (int)projectile.velocity.X;
                     if (WorldGen.SolidTile(num105, j2))
                     {
                         flag4 = true;
                     }
                 }
 
-                if (Main.player[projectile.owner].position.Y + (float) Main.player[projectile.owner].height - 8f >
-                    projectile.position.Y + (float) projectile.height)
+                if (Main.player[projectile.owner].position.Y + (float)Main.player[projectile.owner].height - 8f >
+                    projectile.position.Y + (float)projectile.height)
                 {
                     flag3 = true;
                 }
@@ -965,8 +967,8 @@ namespace Terramon.Pokemon
                 {
                     if (!flag3 && (projectile.velocity.X < 0f || projectile.velocity.X > 0f))
                     {
-                        int num106 = (int) (projectile.position.X + (float) (projectile.width / 2)) / 16;
-                        int j3 = (int) (projectile.position.Y + (float) (projectile.height / 2)) / 16 + 1;
+                        int num106 = (int)(projectile.position.X + (float)(projectile.width / 2)) / 16;
+                        int j3 = (int)(projectile.position.Y + (float)(projectile.height / 2)) / 16 + 1;
                         if (flag)
                         {
                             num106--;
@@ -982,16 +984,16 @@ namespace Terramon.Pokemon
 
                     if (flag4)
                     {
-                        int num107 = (int) (projectile.position.X + (float) (projectile.width / 2)) / 16;
-                        int num108 = (int) (projectile.position.Y + (float) projectile.height) / 16 + 1;
+                        int num107 = (int)(projectile.position.X + (float)(projectile.width / 2)) / 16;
+                        int num108 = (int)(projectile.position.Y + (float)projectile.height) / 16 + 1;
                         if (WorldGen.SolidTile(num107, num108) || Main.tile[num107, num108].halfBrick() ||
                             Main.tile[num107, num108].slope() > 0 || ProjectileID.Puppy == 200)
                         {
                             {
                                 try
                                 {
-                                    num107 = (int) (projectile.position.X + (float) (projectile.width / 2)) / 16;
-                                    num108 = (int) (projectile.position.Y + (float) (projectile.height / 2)) / 16;
+                                    num107 = (int)(projectile.position.X + (float)(projectile.width / 2)) / 16;
+                                    num108 = (int)(projectile.position.Y + (float)(projectile.height / 2)) / 16;
                                     if (flag)
                                     {
                                         num107--;
@@ -1002,7 +1004,7 @@ namespace Terramon.Pokemon
                                         num107++;
                                     }
 
-                                    num107 += (int) projectile.velocity.X;
+                                    num107 += (int)projectile.velocity.X;
                                     if (!WorldGen.SolidTile(num107, num108 - 1) &&
                                         !WorldGen.SolidTile(num107, num108 - 2))
                                     {
@@ -1097,9 +1099,9 @@ namespace Terramon.Pokemon
                             projectile.frame = 0;
                             projectile.frameCounter = 0;
                         }
-                        else if ((double) projectile.velocity.X < -0.8 || (double) projectile.velocity.X > 0.8)
+                        else if ((double)projectile.velocity.X < -0.8 || (double)projectile.velocity.X > 0.8)
                         {
-                            projectile.frameCounter += (int) Math.Abs(projectile.velocity.X);
+                            projectile.frameCounter += (int)Math.Abs(projectile.velocity.X);
                             projectile.frameCounter++;
                             if (projectile.frameCounter > 6)
                             {
@@ -1168,9 +1170,9 @@ namespace Terramon.Pokemon
                             projectile.frameCounter = 0;
                         }
                     }
-                    else if ((double) projectile.velocity.X < -0.8 || (double) projectile.velocity.X > 0.8)
+                    else if ((double)projectile.velocity.X < -0.8 || (double)projectile.velocity.X > 0.8)
                     {
-                        projectile.frameCounter += (int) Math.Abs((double) projectile.velocity.X * 0.75);
+                        projectile.frameCounter += (int)Math.Abs((double)projectile.velocity.X * 0.75);
                         projectile.frameCounter++;
                         if (projectile.frameCounter > 6)
                         {

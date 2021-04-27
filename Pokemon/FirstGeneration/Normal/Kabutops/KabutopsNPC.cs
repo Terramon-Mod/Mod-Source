@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Kabutops
 {
     public class KabutopsNPC : NotCatchablePKMN
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Kabutops/Kabutops";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Kabutops/Kabutops";
         public override Type HomeClass()
         {
             return typeof(Kabutops);

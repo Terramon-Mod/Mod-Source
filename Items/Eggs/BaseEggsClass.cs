@@ -58,29 +58,29 @@ namespace Terramon.Items.Eggs
             switch (Main.netMode)
             {
                 case NetmodeID.MultiplayerClient:
-                {
-                    var packet = new BaseCatchPacket();
-                    packet.Send((TerramonMod) mod, pokemonName, pokemonName, player.getRect(),
-                        ItemType<PokeballCaught>());
-                    break;
-                }
+                    {
+                        var packet = new BaseCatchPacket();
+                        packet.Send((TerramonMod)mod, pokemonName, pokemonName, player.getRect(),
+                            ItemType<PokeballCaught>());
+                        break;
+                    }
 
                 case NetmodeID.Server:
-                {
-                    BaseCaughtClass.writeDetour(pokemonName, pokemonName,
-                        GetSmallSpritePath(pokemonName), 1, "", false); //This force server to write data when SetDefault() was called
-                    Item.NewItem(player.position, ItemType<PokeballCaught>()); // Within this call SetDefault was called
-                    break;
-                }
+                    {
+                        BaseCaughtClass.writeDetour(pokemonName, pokemonName,
+                            GetSmallSpritePath(pokemonName), 1, "", false); //This force server to write data when SetDefault() was called
+                        Item.NewItem(player.position, ItemType<PokeballCaught>()); // Within this call SetDefault was called
+                        break;
+                    }
 
                 default:
-                {
-                    int pokeballIndex = Item.NewItem(player.position, ItemType<PokeballCaught>());
-                    BaseCaughtClass pokeballItem = Main.item[pokeballIndex].modItem as BaseCaughtClass;
-                    pokeballItem.PokemonName = pokeballItem.CapturedPokemon = pokemonName;
-                    pokeballItem.SmallSpritePath = GetSmallSpritePath(pokemonName);
-                    break;
-                }
+                    {
+                        int pokeballIndex = Item.NewItem(player.position, ItemType<PokeballCaught>());
+                        BaseCaughtClass pokeballItem = Main.item[pokeballIndex].modItem as BaseCaughtClass;
+                        pokeballItem.PokemonName = pokeballItem.CapturedPokemon = pokemonName;
+                        pokeballItem.SmallSpritePath = GetSmallSpritePath(pokemonName);
+                        break;
+                    }
             }
 
             Main.NewText(player.name + " the " + pokemonName + " Egg has hatched!", Color.Orange);
@@ -115,7 +115,7 @@ namespace Terramon.Items.Eggs
 
         public override ModItem Clone()
         {
-            var it = ((BaseEggsClass) this.MemberwiseClone());
+            var it = ((BaseEggsClass)this.MemberwiseClone());
             it.PokemonName = PokemonName;
             it.PokemonToDropType = PokemonToDropType;
             it.currentWaitTime = currentWaitTime;

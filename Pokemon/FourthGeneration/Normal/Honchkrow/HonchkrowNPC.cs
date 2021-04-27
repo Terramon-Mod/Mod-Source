@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FourthGeneration.Normal.Honchkrow
 {
     public class HonchkrowNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FourthGeneration/Normal/Honchkrow/Honchkrow";
+    {
+        public override string Texture => "Terramon/Pokemon/FourthGeneration/Normal/Honchkrow/Honchkrow";
         public override Type HomeClass()
         {
             return typeof(Honchkrow);
@@ -21,20 +22,21 @@ namespace Terramon.Pokemon.FourthGeneration.Normal.Honchkrow
             npc.scale = 1f;
         }
 
-public static bool PlayerIsInForest(Player player){
-	return !player.ZoneJungle
-		&& !player.ZoneDungeon
-		&& !player.ZoneCorrupt
-		&& !player.ZoneCrimson
-		&& !player.ZoneHoly
-		&& !player.ZoneSnow
-		&& !player.ZoneUndergroundDesert
-		&& !player.ZoneGlowshroom
-		&& !player.ZoneMeteor
-		&& !player.ZoneBeach
-		&& !player.ZoneDesert
-		&& player.ZoneOverworldHeight;
-}
+        public static bool PlayerIsInForest(Player player)
+        {
+            return !player.ZoneJungle
+                && !player.ZoneDungeon
+                && !player.ZoneCorrupt
+                && !player.ZoneCrimson
+                && !player.ZoneHoly
+                && !player.ZoneSnow
+                && !player.ZoneUndergroundDesert
+                && !player.ZoneGlowshroom
+                && !player.ZoneMeteor
+                && !player.ZoneBeach
+                && !player.ZoneDesert
+                && player.ZoneOverworldHeight;
+        }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {

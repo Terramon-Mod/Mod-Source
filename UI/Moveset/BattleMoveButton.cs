@@ -36,7 +36,7 @@ namespace Terramon.UI.Moveset
             get => move;
             set
             {
-                if(value == move)
+                if (value == move)
                     return;
                 move = value;
 
@@ -124,7 +124,7 @@ namespace Terramon.UI.Moveset
         public override void Click(UIMouseEvent evt)
         {
             base.Click(evt);
-            if(ContainsPoint(Main.MouseScreen))
+            if (ContainsPoint(Main.MouseScreen))
             {
                 BattleMode.inMainMenu = true;
                 Main.PlaySound(ModContent.GetInstance<TerramonMod>().GetLegacySoundSlot(SoundType.Custom, "Sounds/UI/uiselect").WithVolume(.55f));
@@ -147,7 +147,8 @@ namespace Terramon.UI.Moveset
                     if (HasChild(mask))
                     {
                         mask.SetImage(ModContent.GetTexture($"Terramon/UI/Battling/Masks/{move.MoveType}"));
-                    } else
+                    }
+                    else
                     {
                         var masktexture = ModContent.GetTexture($"Terramon/UI/Battling/Masks/{move.MoveType}");
                         mask = new UIImagez(masktexture);

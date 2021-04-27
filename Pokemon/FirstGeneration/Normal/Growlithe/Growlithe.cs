@@ -19,14 +19,14 @@ namespace Terramon.Pokemon.FirstGeneration.Normal.Growlithe
 
         public override PokemonType[] PokemonTypes => new[] { PokemonType.Fire };
 
-        public override ExpGroup ExpGroup => ExpGroup.Slow;public override int MaxHP => 55; public override int PhysicalDamage => 70; public override int PhysicalDefence => 45; public override int SpecialDamage => 70; public override int SpecialDefence => 50; public override int Speed => 60;
+        public override ExpGroup ExpGroup => ExpGroup.Slow; public override int MaxHP => 55; public override int PhysicalDamage => 70; public override int PhysicalDefence => 45; public override int SpecialDamage => 70; public override int SpecialDefence => 50; public override int Speed => 60;
 
         public override void SetDefaults()
         {
             base.SetDefaults();
 
-            
-            
+
+
         }
     }
 }

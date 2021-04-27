@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Cubone
 {
     public class CuboneNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Cubone/Cubone";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Cubone/Cubone";
         public override Type HomeClass()
         {
             return typeof(Cubone);

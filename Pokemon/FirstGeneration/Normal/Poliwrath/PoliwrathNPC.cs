@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Poliwrath
 {
     public class PoliwrathNPC : NotCatchablePKMN
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Poliwrath/Poliwrath";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Poliwrath/Poliwrath";
         public override Type HomeClass()
         {
             return typeof(Poliwrath);

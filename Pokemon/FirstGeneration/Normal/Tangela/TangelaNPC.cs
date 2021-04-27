@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Tangela
 {
     public class TangelaNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Tangela/Tangela";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Tangela/Tangela";
         public override Type HomeClass()
         {
             return typeof(Tangela);

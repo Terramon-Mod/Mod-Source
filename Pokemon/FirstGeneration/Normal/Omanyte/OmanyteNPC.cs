@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Omanyte
 {
     public class OmanyteNPC : NotCatchablePKMN
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Omanyte/Omanyte";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Omanyte/Omanyte";
         public override Type HomeClass()
         {
             return typeof(Omanyte);

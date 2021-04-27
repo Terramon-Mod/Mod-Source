@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Slowbro
 {
     public class SlowbroNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Slowbro/Slowbro";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Slowbro/Slowbro";
         public override Type HomeClass()
         {
             return typeof(Slowbro);

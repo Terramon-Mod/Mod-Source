@@ -11,20 +11,20 @@ namespace Terramon.Pokemon.FirstGeneration.Normal.Ditto
 {
     public class Ditto : ParentPokemon
     {
-        
 
-        
+
+
 
         public override PokemonType[] PokemonTypes => new[] { PokemonType.Normal };
 
-        public override ExpGroup ExpGroup => ExpGroup.MediumFast;public override int MaxHP => 48; public override int PhysicalDamage => 48; public override int PhysicalDefence => 48; public override int SpecialDamage => 48; public override int SpecialDefence => 48; public override int Speed => 48;
+        public override ExpGroup ExpGroup => ExpGroup.MediumFast; public override int MaxHP => 48; public override int PhysicalDamage => 48; public override int PhysicalDefence => 48; public override int SpecialDamage => 48; public override int SpecialDefence => 48; public override int Speed => 48;
 
         public override void SetDefaults()
         {
             base.SetDefaults();
 
-            
-            
+
+
         }
     }
 }

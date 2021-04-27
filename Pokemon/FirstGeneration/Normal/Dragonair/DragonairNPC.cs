@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Dragonair
 {
     public class DragonairNPC : NotCatchablePKMN
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Dragonair/Dragonair";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Dragonair/Dragonair";
         public override Type HomeClass()
         {
             return typeof(Dragonair);

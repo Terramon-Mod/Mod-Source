@@ -6,7 +6,7 @@ using Terramon.Items.MiscItems.GameBoys;
 
 namespace Terramon.Items.MiscItems.GameBoys
 {
-     public abstract class GameBoy : TerramonItem
+    public abstract class GameBoy : TerramonItem
     {
         /// <summary></summary>
         /// <param name="color"></param>
@@ -36,6 +36,6 @@ namespace Terramon.Items.MiscItems.GameBoys
             item.accessory = false;
             item.autoReuse = false;
             item.consumable = true;
-        } 
-    } 
+        }
+    }
 }

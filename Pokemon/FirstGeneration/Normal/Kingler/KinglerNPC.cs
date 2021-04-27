@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Kingler
 {
     public class KinglerNPC : NotCatchablePKMN
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Kingler/Kingler";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Kingler/Kingler";
         public override Type HomeClass()
         {
             return typeof(Kingler);

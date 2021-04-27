@@ -37,7 +37,7 @@ namespace Terramon.Network.Sync.Battle
                         break;
                 }
             }
-            
+
         }
 
         public override void HandleFromClient(BinaryReader reader, int whoAmI)

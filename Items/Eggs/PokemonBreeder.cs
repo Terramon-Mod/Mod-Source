@@ -12,7 +12,7 @@ namespace Terramon.Items.Eggs
     public class PokemonBreeder : ModNPC
     {
         public override string Texture => "Terramon/Items/Eggs/PokemonBreeder";
-        
+
         public override bool Autoload(ref string name)
         {
             name = "Pokémon Breeder";
@@ -77,19 +77,17 @@ namespace Terramon.Items.Eggs
                 case 0:
                     return "I'd love to visit Kalos some day. The Pokémon there are so cute!";
                 case 1:
-                    return "Sometimes when you catch a Pokémon, you discover it was raising an egg! You should help welcome its baby into the world.";
+                    return "Two Pokémon are able to breed and produce an egg, but only if they're compatible with each other!";
                 case 2:
                     return "These are not shorts! These are half-pants!";
                 case 3:
-                    return "If the Pokémon I liked were there, I’d go anywhere.";  //'that's what a real trainer does'
+                    return "Aren't baby Pokémon so cute?";
                 case 4:
-                    return "Aren't young Pokémon cute?";
+                    return "I love to watch my Pokémon grow, and learn the power that's inside of them!";
                 case 5:
-                    return "I love to watch my Pokémon grow, and learn the power that's inside all of them!";
-                case 6:
-                    return "Did you know that Pokémon have preferred biomes? Rock Pokémon like to live in Deserts.";
-                case 7:
-                    return "My Pokémon like to chew on the apricorns found in trees. I should juice it for them.";
+                    return "Did you know that Pokémon have preferred biomes? Rock-type Pokémon like to live in deserts.";
+		case 6:
+                    return "Pokémon that hatch from eggs are able to inherit moves, stats and more from their parents!";
                 default:
                     return "missingno.";
             }
@@ -102,7 +100,7 @@ namespace Terramon.Items.Eggs
 
         public override void OnChatButtonClicked(bool firstButton, ref bool shop)
         {
-                shop = true;
+            shop = true;
         }
 
         public override void TownNPCAttackStrength(ref int damage, ref float knockback)

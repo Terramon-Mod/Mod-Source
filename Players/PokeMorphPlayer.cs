@@ -34,7 +34,7 @@ namespace Terramon.Players
             base.SetControls();
         }
 
-        public override void PostUpdateEquips()     
+        public override void PostUpdateEquips()
         {
             if (pikachuMorph)
             {

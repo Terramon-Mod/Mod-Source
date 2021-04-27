@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Magnemite
 {
     public class MagnemiteNPC : ParentPokemonNPCFlying
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Magnemite/Magnemite";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Magnemite/Magnemite";
         public override Type HomeClass()
         {
             return typeof(Magnemite);

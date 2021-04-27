@@ -17,14 +17,14 @@ namespace Terramon.Pokemon.FirstGeneration.Normal.Venonat
 
         public override PokemonType[] PokemonTypes => new[] { PokemonType.Bug, PokemonType.Poison };
 
-        public override ExpGroup ExpGroup => ExpGroup.MediumFast;public override int MaxHP => 60; public override int PhysicalDamage => 55; public override int PhysicalDefence => 50; public override int SpecialDamage => 40; public override int SpecialDefence => 55; public override int Speed => 45;
+        public override ExpGroup ExpGroup => ExpGroup.MediumFast; public override int MaxHP => 60; public override int PhysicalDamage => 55; public override int PhysicalDefence => 50; public override int SpecialDamage => 40; public override int SpecialDefence => 55; public override int Speed => 45;
 
         public override void SetDefaults()
         {
             base.SetDefaults();
 
-            
-            
+
+
         }
     }
 }
