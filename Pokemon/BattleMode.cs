@@ -164,7 +164,7 @@ namespace Terramon.Pokemon
                         UI.MovesPanel.PokeData = new PokemonData()
                         {
                             Pokemon = npc.HomeClass().Name,
-                            Moves = new BaseMove[] { new QuickAttack(), null, null, null }
+                            Moves = new BaseMove[] { new CometPunch(), null, null, null }
                         };
                         wildChallenge.Args = new object[] { second?.Pokemon };
                         //Text(wildChallenge.Value);
@@ -460,7 +460,7 @@ namespace Terramon.Pokemon
             if (State != BattleState.BattleWithPlayer && oMove == null) // If this is single player
             {
                 //Need an advanced AI for trainers
-                if (1 == 1) // Force move.
+                if (1 == 0) // Force move.
                 {
                     oMove = new Agility();
                 } else
