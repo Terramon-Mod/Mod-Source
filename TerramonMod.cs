@@ -206,7 +206,7 @@ namespace Terramon
             if (!Main.dedServ)
             {
                 client = new DiscordRpcClient("790364236554829824");
-                client.Logger = new ConsoleLogger() { Level = LogLevel.Warning };
+                client.Logger = new ConsoleLogger() {Level = LogLevel.Warning};
                 //
 
                 Logger.Info("Attempting to establish Discord RP connection");
@@ -218,15 +218,9 @@ namespace Terramon
                     Console.WriteLine("Received Ready from user {0}", e.User.Username);
                 };
 
-                client.OnPresenceUpdate += (sender, e) =>
-                {
-                    Console.WriteLine("Received Update! {0}", e.Presence);
-                };
+                client.OnPresenceUpdate += (sender, e) => { Console.WriteLine("Received Update! {0}", e.Presence); };
 
-                client.OnError += (sender, e) =>
-                {
-                    Logger.Error("Could not start Discord RP. Reason: " + e.Message);
-                };
+                client.OnError += (sender, e) => { Logger.Error("Could not start Discord RP. Reason: " + e.Message); };
 
                 //Connect to the RPC
                 client.Initialize();
@@ -254,27 +248,40 @@ namespace Terramon
                 {
                     Localisation = new LocalisationManager(locale);
                 }
+
                 locale = new Bindable<string>(Language.ActiveCulture.Name);
 
-                storage = new ModStorage("Terramon");//Initialise local resource store
-                Store = new ResourceStore<byte[]>(new EmbeddedStore());//Make new instance of ResourceStore with dependency what loads data from ModStore
-                Store.AddStore(new StorageCachableStore(storage, new WebStore()));//Add second dependency what checks if data exist in local store.
-                                                                                  //If not and provided URL load data from web and save it on drive
-                Textures = new Texture2DStore(Store);//Initialise cachable texture store in order not creating new texture each call
+                storage = new ModStorage("Terramon"); //Initialise local resource store
+                Store = new ResourceStore<byte[]>(
+                    new EmbeddedStore()); //Make new instance of ResourceStore with dependency what loads data from ModStore
+                Store.AddStore(new StorageCachableStore(storage,
+                    new WebStore())); //Add second dependency what checks if data exist in local store.
+                //If not and provided URL load data from web and save it on drive
+                Textures = new Texture2DStore(
+                    Store); //Initialise cachable texture store in order not creating new texture each call
 
-                Localisation.AddLanguage(GameCulture.English.Name, new LocalisationStore(Store, GameCulture.English));//Adds en-US.lang file handling
-                Localisation.AddLanguage(GameCulture.Russian.Name, new LocalisationStore(Store, GameCulture.Russian));//Adds ru-RU.lang file handling
+                Localisation.AddLanguage(GameCulture.English.Name,
+                    new LocalisationStore(Store, GameCulture.English)); //Adds en-US.lang file handling
+                Localisation.AddLanguage(GameCulture.Russian.Name,
+                    new LocalisationStore(Store, GameCulture.Russian)); //Adds ru-RU.lang file handling
 #if DEBUG
                 UseWebAssets = true;
-                var ss = Localisation.GetLocalisedString(new LocalisedString(("title", "Powered by broken code")));//It's terrible checking in ui from phone, so i can ensure everything works from version string
+                var ss = Localisation.GetLocalisedString(new LocalisedString(("title",
+                    "Powered by broken code"))); //It's terrible checking in ui from phone, so i can ensure everything works from version string
                 //Main.versionNumber = ss.Value + "\n" + Main.versionNumber;
 #endif
-                Ref<Effect> screenRef = new Ref<Effect>(GetEffect("Effects/ShockwaveEffect")); // The path to the compiled shader file.
-                Ref<Effect> whiteShaderRef = new Ref<Effect>(GetEffect("Effects/whiteshader")); // The path to the compiled shader file.
-                Ref<Effect> battleIntroRef = new Ref<Effect>(GetEffect("Effects/BattleIntro")); // The path to the compiled shader file.
-                Filters.Scene["Shockwave"] = new Filter(new ScreenShaderData(screenRef, "Shockwave"), EffectPriority.VeryHigh);
+                Ref<Effect>
+                    screenRef = new Ref<Effect>(
+                        GetEffect("Effects/ShockwaveEffect")); // The path to the compiled shader file.
+                Ref<Effect> whiteShaderRef =
+                    new Ref<Effect>(GetEffect("Effects/whiteshader")); // The path to the compiled shader file.
+                Ref<Effect> battleIntroRef =
+                    new Ref<Effect>(GetEffect("Effects/BattleIntro")); // The path to the compiled shader file.
+                Filters.Scene["Shockwave"] =
+                    new Filter(new ScreenShaderData(screenRef, "Shockwave"), EffectPriority.VeryHigh);
                 Filters.Scene["Shockwave"].Load();
-                Filters.Scene["BattleIntro"] = new Filter(new ScreenShaderData(battleIntroRef, "Shade"), EffectPriority.VeryHigh);
+                Filters.Scene["BattleIntro"] =
+                    new Filter(new ScreenShaderData(battleIntroRef, "Shade"), EffectPriority.VeryHigh);
                 Filters.Scene["BattleIntro"].Load();
                 GameShaders.Misc["WhiteTint"] = new MiscShaderData(whiteShaderRef, "ArmorBasic");
 
@@ -319,7 +326,7 @@ namespace Terramon
                 _uiSidebar.SetState(UISidebar);
                 _moves.SetState(Moves);
                 _partySlots.SetState(PartySlots);
-                _battle.SetState(BattleMode.UI = new BattleUI());// Automatically assign shortcut
+                _battle.SetState(BattleMode.UI = new BattleUI()); // Automatically assign shortcut
 
                 summaryUI = new AnimatorUI();
                 summaryUI.Activate();
@@ -453,7 +460,7 @@ namespace Terramon
 #if DEBUG
             if (TestState.Visible) _exampleUserInterface?.Update(gameTime);
 #endif
-            Scheduler.Update();//Update all transform sequences after updates
+            Scheduler.Update(); //Update all transform sequences after updates
         }
 
         public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers)
@@ -467,16 +474,19 @@ namespace Terramon
                     {
                         if (ChooseStarter.Visible) _exampleUserInterface.Draw(Main.spriteBatch, GameClock?.GameTime);
                         if (PokegearUI.Visible) _exampleUserInterfaceNew.Draw(Main.spriteBatch, GameClock?.GameTime);
-                        if (PokegearUIEvents.Visible) PokegearUserInterfaceNew.Draw(Main.spriteBatch, GameClock?.GameTime);
+                        if (PokegearUIEvents.Visible)
+                            PokegearUserInterfaceNew.Draw(Main.spriteBatch, GameClock?.GameTime);
                         if (EvolveUI.Visible) evolveUserInterfaceNew.Draw(Main.spriteBatch, GameClock?.GameTime);
                         if (ChooseStarterBulbasaur.Visible)
                             _exampleUserInterface.Draw(Main.spriteBatch, GameClock?.GameTime);
                         if (ChooseStarterCharmander.Visible)
                             _exampleUserInterface.Draw(Main.spriteBatch, GameClock?.GameTime);
-                        if (ChooseStarterSquirtle.Visible) _exampleUserInterface.Draw(Main.spriteBatch, GameClock?.GameTime);
+                        if (ChooseStarterSquirtle.Visible)
+                            _exampleUserInterface.Draw(Main.spriteBatch, GameClock?.GameTime);
                         if (UISidebar.Visible) _uiSidebar.Draw(Main.spriteBatch, GameClock?.GameTime);
                         if (Moves.Visible) _moves.Draw(Main.spriteBatch, new GameTime());
-                        if (PartySlots.Visible && !BattleUI.Visible) _partySlots.Draw(Main.spriteBatch, GameClock?.GameTime);
+                        if (PartySlots.Visible && !BattleUI.Visible)
+                            _partySlots.Draw(Main.spriteBatch, GameClock?.GameTime);
                         if (BattleUI.Visible) _battle.Draw(Main.spriteBatch, GameClock?.GameTime);
                         if (AnimatorUI.Visible) summaryUIInterface.Draw(Main.spriteBatch, GameClock?.GameTime);
 
@@ -523,6 +533,7 @@ namespace Terramon
                 priority = MusicPriority.BossHigh;
                 music = GetSoundSlot(SoundType.Music, null);
             }
+
             if (MyUIStateActive(Main.LocalPlayer) && ChooseStarter.movieFinished)
             {
                 priority = MusicPriority.BossHigh;
@@ -658,22 +669,22 @@ namespace Terramon
                 switch (type)
                 {
                     case SpawnStarterPacket.NAME:
-                        {
-                            //Server can't have any UI
-                            if (whoAmI == 256)
-                                return;
-                            SpawnStarterPacket packet = new SpawnStarterPacket();
-                            packet.HandleFromClient(reader, whoAmI);
-                        }
+                    {
+                        //Server can't have any UI
+                        if (whoAmI == 256)
+                            return;
+                        SpawnStarterPacket packet = new SpawnStarterPacket();
+                        packet.HandleFromClient(reader, whoAmI);
+                    }
                         break;
                     case BaseCatchPacket.NAME:
-                        {
-                            //Server should handle it from client
-                            if (whoAmI == 256)
-                                return;
-                            BaseCatchPacket packet = new BaseCatchPacket();
-                            packet.HandleFromClient(reader, whoAmI);
-                        }
+                    {
+                        //Server should handle it from client
+                        if (whoAmI == 256)
+                            return;
+                        BaseCatchPacket packet = new BaseCatchPacket();
+                        packet.HandleFromClient(reader, whoAmI);
+                    }
                         break;
                     default:
                         if (packetStore.ContainsKey(type))
@@ -683,6 +694,7 @@ namespace Terramon
                             else
                                 packetStore[type].HandleFromClient(reader, whoAmI);
                         }
+
                         break;
                 }
 
@@ -769,14 +781,14 @@ namespace Terramon
                     try
                     {
                         if (baseType == typeof(ParentPokemon))
-                            pokemonStore.Add(it.Name, (ParentPokemon)Activator.CreateInstance(it));
+                            pokemonStore.Add(it.Name, (ParentPokemon) Activator.CreateInstance(it));
                         else if (baseType == typeof(ParentPokemonNPC))
-                            wildPokemonStore.Add(it.Name, (ParentPokemonNPC)Activator.CreateInstance(it));
+                            wildPokemonStore.Add(it.Name, (ParentPokemonNPC) Activator.CreateInstance(it));
                         else if (baseType == typeof(BaseMove))
-                            movesStore.Add(it.Name, (BaseMove)Activator.CreateInstance(it));
+                            movesStore.Add(it.Name, (BaseMove) Activator.CreateInstance(it));
                         else if (baseType == typeof(Packet))
                         {
-                            var p = (Packet)Activator.CreateInstance(it);
+                            var p = (Packet) Activator.CreateInstance(it);
                             packetStore.Add(p.PacketName, p);
                         }
                     }
@@ -789,6 +801,7 @@ namespace Terramon
                     }
             }
         }
+
         public static bool UseWebAssets = false;
         public static bool WebResourceAvailable(string name) => Store.Get(name) != null;
     }
