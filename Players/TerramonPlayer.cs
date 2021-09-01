@@ -40,6 +40,7 @@ namespace Terramon.Players
         public List<Item> loadList = new List<Item>();
 
         public BattleMode Battle = null;
+        public BattleModeV2 Battlev2 = null;
 
         //public int deletepokecase = 0;
         public int premierBallRewardCounter;
@@ -720,6 +721,14 @@ namespace Terramon.Players
                     if (Battle.State == BattleState.None)
                     {
                         Battle.Cleanup();
+                        Battle = null;
+                    }
+                }else if (Battlev2 != null)
+                {
+                    Battlev2.Update();
+                    if (Battlev2.State == BattleModeV2.BattleState.Ended)
+                    {
+                        Battlev2.Cleanup();
                         Battle = null;
                     }
                 }

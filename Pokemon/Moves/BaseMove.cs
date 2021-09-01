@@ -106,6 +106,41 @@ namespace Terramon.Pokemon.Moves
             return false;
         }
 
+        #region BattleV2
+
+        /// <summary>
+        /// Called at first time move executed in battle.
+        /// Basically here you want to write defaults to <see cref="PokemonData.CustomData"/>
+        /// </summary>
+        /// <param name="atacker">Pokemon what use move and it's trainer (it not wild)</param>
+        /// <param name="deffender">Opponent active pokemon and it's trainer (if not wild)</param>
+        /// <param name="battle">Current Battle instance</param>
+        /// <returns>true if move can be executed</returns>
+        public virtual bool PerformInBattle(BattleOpponent atacker, BattleOpponent deffender, BattleModeV2 battle)
+        {
+            return false;
+        }
+
+        /// <summary>
+        /// Called each battle update call and used to animate moves
+        /// At moment of dealing damage to enemy call <see cref="BattleModeV2.DealDamage"/>
+        /// It automatically will pause animation frame increase
+        /// And starts UI animation (text)
+        /// </summary>
+        /// <param name="atacker">Pokemon what use move and it's trainer (it not wild)</param>
+        /// <param name="deffender">Opponent active pokemon and it's trainer (if not wild)</param>
+        /// <param name="battle">Current Battle instance</param>
+        /// <param name="frame">Animation frame (starts from 0, now fully manipulated inside BattleMode)</param>
+        /// <param name="skipBtnPressed">Is skip button pressed this frame.
+        /// Allow skipping animation fragments</param>
+        /// <returns>If true returned this method will be called next frame</returns>
+        public virtual bool AnimateTurn(BattleOpponent atacker, BattleOpponent deffender, BattleModeV2 battle, int frame, bool skipBtnPressed = false)
+        {
+            return false;
+        }
+
+        #endregion
+
         public virtual void CheckIfAffects(ParentPokemon target, PokemonData deffender, BattleState state, bool opponent)
         {
 

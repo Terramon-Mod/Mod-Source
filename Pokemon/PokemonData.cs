@@ -643,6 +643,21 @@ namespace Terramon.Pokemon
             [BaseCaughtClass.POKEBAL_PROPERTY] = this.pokeballType
         };
 
+        public List<KeyValuePair<BaseMove, int>> GetAvailableMoves()
+        {
+            var dict = new List<KeyValuePair<BaseMove, int>>();
+            
+            for(int i = 0; i < 4; i++)
+            {
+                if (MovesPP[i] > 0)
+                {
+                    dict.Add(new KeyValuePair<BaseMove, int>(Moves[i], MovesPP[i]));
+                }
+            }
+
+            return dict;
+        }
+
         public enum NonVolatileStatus
         {
             Burn,
