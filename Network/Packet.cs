@@ -16,6 +16,13 @@ namespace Terramon.Network
             return packet;
         }
 
+        public ModPacket GetPacket()
+        {
+            var packet = TerramonMod.Instance.GetPacket();
+            packet.Write(PacketName);
+            return packet;
+        }
+
         public virtual void HandleFromClient(BinaryReader reader, int whoAmI)
         {
         }
