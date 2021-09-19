@@ -895,12 +895,20 @@ namespace Terramon.Players
                 }
         }
 
+        public bool battleScreenShake = false;
+        public float battleShakeIntensity = 0.75f;
+
         public override void ModifyScreenPosition()
         {
             if (GetInstance<TerramonMod>().battleCamera != Vector2.Zero && Battle != null)
             {
                 Main.screenPosition = GetInstance<TerramonMod>().battleCamera - new Vector2(Main.screenWidth / 2, Main.screenHeight / 2);
             }
+
+            // Battle camera shake
+
+            if (battleScreenShake) Main.screenPosition += Utils.RandomVector2(Main.rand, Main.rand.Next(-6, 5), Main.rand.Next(-6, 5)) * battleShakeIntensity;
+
             base.ModifyScreenPosition();
         }
 

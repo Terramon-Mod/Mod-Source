@@ -73,7 +73,7 @@ namespace Terramon.Pokemon.Moves
                 for (int i = 0; i < 18; i++)
                 {
                     Dust.NewDust(stored, Main.projectile[kchop].width, Main.projectile[kchop].height,
-                        53, 0, 0, 0, Color.DarkGray);
+                        DustID.Silt, 0, 0, 0, Color.DarkGray);
                 }
             }
             else if (AnimationFrame == 200)
