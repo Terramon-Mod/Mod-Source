@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading;
 using Microsoft.Xna.Framework.Graphics;
 using Razorwing.Framework.Configuration;
+using Razorwing.Framework.Graphics.DebugDrawing;
 using Razorwing.Framework.IO.Stores;
 using Razorwing.Framework.Localisation;
 using Razorwing.Framework.Threading;
@@ -32,6 +33,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.UI;
 using Terramon.Players;
+using Terramon.UI.Battling.v2;
 using Terramon.UI.Test;
 using Terraria.Utilities;
 using Terraria.Graphics.Effects;
@@ -75,17 +77,22 @@ namespace Terramon
         internal EvolveUI evolveUI;
         public UserInterface _exampleUserInterface; // Choose Starter
         private UserInterface _exampleUserInterfaceNew; // Pokegear Main Menu
+        private UserInterface _debugDrawings; // Pokegear Main Menu
         private UserInterface PokegearUserInterfaceNew;
         private UserInterface evolveUserInterfaceNew; // Pokegear Events Menu
         public UserInterface _uiSidebar;
         private UserInterface _moves;
         public UserInterface _battle;
+        public UserInterface _battlev2;
         public UserInterface _partySlots;
 
         public static ModHotKey PartyCycle;
         public static LocalisationManager Localisation;
         public static ResourceStore<byte[]> Store;
         public static Texture2DStore Textures;
+#if DEBUG
+        public static DebugUX DebugUX; 
+#endif
         public Storage storage;
         public Scheduler Scheduler;
         private GameTimeClock schedulerClock;
@@ -305,6 +312,7 @@ namespace Terramon
                 Moves.Activate();
                 PartySlots = new PartySlots();
                 PartySlots.Activate();
+                _debugDrawings = new UserInterface();
                 _exampleUserInterface = new UserInterface();
                 _exampleUserInterfaceNew = new UserInterface();
                 PokegearUserInterfaceNew = new UserInterface();
@@ -313,13 +321,12 @@ namespace Terramon
                 _moves = new UserInterface();
                 _partySlots = new UserInterface();
                 _battle = new UserInterface();
+                _battlev2 = new UserInterface();
                 ParentPokemonNPC.HighlightTexture = new Dictionary<string, Texture2D>();
                 ParentPokemon.HighlightTexture = new Dictionary<string, Texture2D>();
 
                 //_exampleUserInterface.SetState(ChooseStarter); // Choose Starter
-#if DEBUG
-                _exampleUserInterface.SetState(new TestState());
-#endif
+
                 _exampleUserInterfaceNew.SetState(PokegearUI); // Pokegear Main Menu
                 PokegearUserInterfaceNew.SetState(PokegearUIEvents); // Pokegear Events Menu
                 evolveUserInterfaceNew.SetState(evolveUI);
@@ -327,12 +334,19 @@ namespace Terramon
                 _moves.SetState(Moves);
                 _partySlots.SetState(PartySlots);
                 _battle.SetState(BattleMode.UI = new BattleUI()); // Automatically assign shortcut
+                _battlev2.SetState(V2Battle = new BattleV2UI()); // Automatically assign shortcut
+
 
                 summaryUI = new AnimatorUI();
                 summaryUI.Activate();
 
                 summaryUIInterface = new UserInterface();
                 summaryUIInterface.SetState(summaryUI);
+
+#if DEBUG
+                _exampleUserInterface.SetState(new TestState());
+                _debugDrawings.SetState(DebugUX = new DebugUX());
+#endif
             }
 
 
@@ -351,6 +365,8 @@ namespace Terramon
             PartyCycle = RegisterHotKey("Quick Spawn First Party Pokémon", Keys.RightAlt.ToString());
         }
 
+        public BattleV2UI V2Battle { get; private set; }
+
         public override void Unload()
         {
             client?.Dispose();
@@ -358,6 +374,7 @@ namespace Terramon
             Instance = null;
             _exampleUserInterface?.SetState(null); // Choose Starter
             _exampleUserInterfaceNew?.SetState(null); // Pokegear Main Menu
+            _debugDrawings?.SetState(null);
             PokegearUserInterfaceNew?.SetState(null); // Pokegear Events Menu
             evolveUserInterfaceNew?.SetState(null);
             summaryUIInterface?.SetState(null);
@@ -365,11 +382,13 @@ namespace Terramon
             _partySlots?.SetState(null);
             _moves?.SetState(null);
             _battle?.SetState(null);
+            _battlev2?.SetState(null);
             BattleMode.UI = null;
             PartySlots = null;
             pokemonStore = null;
             wildPokemonStore = null;
             movesStore = null;
+            _debugDrawings = null;
             _exampleUserInterface = null;
             _exampleUserInterfaceNew = null;
             PokegearUserInterfaceNew = null;
@@ -377,6 +396,7 @@ namespace Terramon
             _partySlots = null;
             _moves = null;
             _battle = null;
+            _battlev2 = null;
             BaseMove._mrand = null;
 
 
@@ -456,9 +476,11 @@ namespace Terramon
             if (Moves.Visible) _moves?.Update(gameTime);
             if (PartySlots.Visible && !BattleUI.Visible) _partySlots?.Update(gameTime);
             if (BattleUI.Visible) _battle.Update(gameTime);
+            if (BattleV2UI.Visible) _battlev2.Update(gameTime);
             if (AnimatorUI.Visible) summaryUI.Update(gameTime);
 #if DEBUG
             if (TestState.Visible) _exampleUserInterface?.Update(gameTime);
+            _debugDrawings?.Update(gameTime);
 #endif
             Scheduler.Update(); //Update all transform sequences after updates
         }
@@ -488,10 +510,12 @@ namespace Terramon
                         if (PartySlots.Visible && !BattleUI.Visible)
                             _partySlots.Draw(Main.spriteBatch, GameClock?.GameTime);
                         if (BattleUI.Visible) _battle.Draw(Main.spriteBatch, GameClock?.GameTime);
+                        if (BattleV2UI.Visible) _battlev2.Draw(Main.spriteBatch, GameClock?.GameTime);
                         if (AnimatorUI.Visible) summaryUIInterface.Draw(Main.spriteBatch, GameClock?.GameTime);
 
 #if DEBUG
                         if (TestState.Visible) _exampleUserInterface?.Draw(Main.spriteBatch, GameClock?.GameTime);
+                        _debugDrawings?.Draw(Main.spriteBatch, GameClock?.GameTime);
 #endif
                         return true;
                     },

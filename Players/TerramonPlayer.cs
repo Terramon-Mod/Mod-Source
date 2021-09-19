@@ -582,7 +582,7 @@ namespace Terramon.Players
                 new RequestSyncPacket().Send();
 
             // Check if update is available!
-
+#if !DEBUG
             var mod_version = Get("https://pokeparser.projectagon.repl.co/mod/ver");
             var current_version = $"v{mod.Version}";
 
@@ -593,7 +593,10 @@ namespace Terramon.Players
                 else Main.NewText($"[c/f3cc61:Terramon >] A new update is available to download ({mod_version})");
                 Main.NewText($"Go the the Mod Browser to update!");
             }
+#endif
         }
+
+
 
         public string Get(string uri)
         {
@@ -711,28 +714,30 @@ namespace Terramon.Players
                 Cooldown--;
 #endif
 
+            if (Battle != null)
+            {
+                Battle.Update();
+                if (Battle.State == BattleState.None)
+                {
+                    Battle.Cleanup();
+                    Battle = null;
+                }
+            }
+            else if (Battlev2 != null)
+            {
+                Battlev2.Update();
+                if (Battlev2.State == BattleModeV2.BattleState.None)
+                {
+                    Battlev2.Cleanup();
+                    Battlev2 = null;
+                }
+            }
+
             //Moves logic
             if (Main.LocalPlayer == player && CombatReady && ActivePartySlot > 0 && ActivePartySlot <= 6 && ActivePetId != -1
                 && Main.projectile[ActivePetId].modProjectile is ParentPokemon) //Integrity check
-            {
-                if (Battle != null)
-                {
-                    Battle.Update();
-                    if (Battle.State == BattleState.None)
-                    {
-                        Battle.Cleanup();
-                        Battle = null;
-                    }
-                }else if (Battlev2 != null)
-                {
-                    Battlev2.Update();
-                    if (Battlev2.State == BattleModeV2.BattleState.Ended)
-                    {
-                        Battlev2.Cleanup();
-                        Battle = null;
-                    }
-                }
-                else if (ActiveMove != null)
+            { 
+                if (ActiveMove != null)
                 {
                     if (!ActiveMove.Update((ParentPokemon)Main.projectile[ActivePetId].modProjectile, this))
                         ActiveMove = null;

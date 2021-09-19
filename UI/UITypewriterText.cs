@@ -61,10 +61,10 @@ namespace Terramon.UI
         public void SetText(string text)
         {
             if (text == _textTarget) return;
-            letterCount = text.ToString().Length;
+            letterCount = text.Length;
             needReset = true;
             _text = "";
-            _textTarget = text.ToString();
+            _textTarget = text;
             InternalSetText(text, _textScale, _isLarge);
         }
 

@@ -11,6 +11,7 @@ using System.Globalization;
 using Newtonsoft.Json.Converters;
 using Terraria.ModLoader;
 using System.Text;
+using Terraria.ID;
 using static Terramon.Pokemon.Moves.DamageMove;
 
 namespace Terramon.Pokemon.Moves
@@ -156,6 +157,27 @@ namespace Terramon.Pokemon.Moves
         public virtual bool Update(ParentPokemon mon, TerramonPlayer player)
         {
             return false;
+        }
+
+        public static int NewProjectile(Vector2 position, Vector2 velocity, int type)
+        {
+            var id = Projectile.NewProjectile(position, velocity, type, 0, 0);
+            if (Main.netMode != NetmodeID.SinglePlayer)
+            {
+                for (int id2 = Main.maxProjectiles; id2 > 0; id2++)
+                {
+                    if (!Main.projectile[id2].active)
+                    {
+                        Main.projectile[id2] = Main.projectile[id];
+                        Main.projectile[id] = new Projectile
+                        {
+                            active = false,
+                        };
+                    }
+                }
+            }
+
+            return id;
         }
 
         /// <summary>

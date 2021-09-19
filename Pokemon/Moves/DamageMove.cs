@@ -173,6 +173,109 @@ namespace Terramon.Pokemon.Moves
             return d;
         }
 
+        public float InflictDamage(BattleOpponent atacker, BattleOpponent defender)
+        {
+            Mod mod = TerramonMod.Instance;
+
+            int attackerphysDefModifier = 0;
+            int attackerspDefModifier = 0;
+            int attackercritRatioModifier = 0;
+
+            int deffenderphysDefModifier = 0;
+            int deffenderspDefModifier = 0;
+
+            bool critical = false;
+            bool stab = false;
+
+            if (atacker.PokeData.CustomData.ContainsKey("CritRatioModifier")) attackercritRatioModifier = int.Parse(atacker.PokeData.CustomData["CritRatioModifier"]);
+
+            if (defender.PokeData.CustomData.ContainsKey("PhysDefModifier")) deffenderphysDefModifier = int.Parse(defender.PokeData.CustomData["PhysDefModifier"]);
+            if (defender.PokeData.CustomData.ContainsKey("SpDefModifier")) deffenderspDefModifier = int.Parse(defender.PokeData.CustomData["SpDefModifier"]);
+
+            // Same type attack bonus (STAB)
+            if (atacker.PokeProj.PokemonTypes.Length > 1)
+            {
+                if (atacker.PokeProj.PokemonTypes[0] == MoveType || atacker.PokeProj.PokemonTypes[1] == MoveType) stab = true;
+            }
+            else
+            {
+                if (atacker.PokeProj.PokemonTypes[0] == MoveType) stab = true;
+            }
+
+            var p = Damage; // p = Power
+            float d;
+
+            // critical hit chance
+            if (GetCritChance(attackercritRatioModifier) == 1)
+            {
+                critical = true;
+                // ignore attackers negative attack/spatk stat stages
+                if (attackerphysDefModifier < 0) attackerphysDefModifier = 0;
+                if (attackerspDefModifier < 0) attackerspDefModifier = 0;
+                // ignore defenders positive defense/spdef stat stages
+                if (deffenderphysDefModifier > 0) deffenderphysDefModifier = 0;
+                if (deffenderspDefModifier > 0) deffenderspDefModifier = 0;
+                CombatText.NewText(defender.PokeProj.projectile.Hitbox, Microsoft.Xna.Framework.Color.LightGray, "Critical hit!");
+            }
+            else
+            if (_mrand.Next(1, GetCritChance(attackercritRatioModifier)) == 1)
+            {
+                critical = true;
+                // ignore attackers negative attack/spatk stat stages
+                if (attackerphysDefModifier < 0) attackerphysDefModifier = 0;
+                if (attackerspDefModifier < 0) attackerspDefModifier = 0;
+                // ignore defenders positive defense/spdef stat stages
+                if (deffenderphysDefModifier > 0) deffenderphysDefModifier = 0;
+                if (deffenderspDefModifier > 0) deffenderspDefModifier = 0;
+                CombatText.NewText(defender.PokeProj.projectile.Hitbox, Microsoft.Xna.Framework.Color.LightGray, "Critical hit!");
+            }
+
+            // Move resist
+            float r1 = 1f, r2 = 1f;
+            r1 = defender.PokeData.Types[0].GetResist(MoveType);
+            if (defender.PokeData.Types.Length > 1) r2 = defender.PokeData.Types[1].GetResist(MoveType);
+
+            float Modifier; // Modifier = Targets * Weather * Badge * Critical * random * STAB * Type * Burn * other
+
+            float Targets = 1f; // Targets is 0.75 if the move has more than one target, and 1 otherwise.
+            float Weather = 1f; // Weather is 1.5 if a Water-type move is being used during rain or a Fire-type move during harsh sunlight, and 0.5 if a Water-type move is used during harsh sunlight or a Fire-type move during rain, and 1 otherwise.
+            float Critical = critical ? 1.5f : 1f; // Critical is 1.5 for a critical hit, and 1 otherwise.
+            float random = _mrand.NextFloat(0.85f, 1f); // random is a random factor between 0.85 and 1.00 (inclusive)
+            float STAB = stab ? 1.5f : 1f; // STAB is the same-type attack bonus. This is equal to 1.5 if the move's type matches any of the user's types, 2 if the user of the move additionally has Adaptability, and 1 if otherwise.
+            float Type = r1 * r2; // Type is the type effectiveness. This can be 0 (ineffective); 0.25, 0.5 (not very effective); 1 (normally effective); 2, or 4 (super effective), depending on both the move's and target's types.
+            float Burn = 1f; // Burn is 0.5 (from Generation III onward) if the attacker is burned, its Ability is not Guts, and the used move is a physical move (other than Facade from Generation VI onward), and 1 otherwise.
+            float other = 1f; // Add later
+
+            Modifier = Targets * Weather * Critical * random * STAB * Type * Burn * other;
+
+            if (!Special)
+            {
+                float A = atacker.PokeData.PhysDmg;
+                float D = Sam(defender.PokeData.PhysDef, deffenderphysDefModifier, GetStat.Defense, critical);
+                mod.Logger.Debug(A + " " + D + " " + p);
+                d = (float)(Math.Floor(Math.Floor(Math.Floor(2 * (float)atacker.PokeData.Level / 5 + 2) * A * p / D) / 50) + 2) * Modifier;
+            }
+            else
+            {
+                float A = atacker.PokeData.SpDmg;
+                float D = Sam(defender.PokeData.SpDef, deffenderspDefModifier, GetStat.SpDef, critical);
+                mod.Logger.Debug(A + " " + D + " " + p);
+                d = (float)(Math.Floor(Math.Floor(Math.Floor(2 * (float)atacker.PokeData.Level / 5 + 2) * A * p / D) / 50) + 2) * Modifier;
+            }
+
+            if (r1 * r2 < 0.6f) Main.PlaySound(ModContent.GetInstance<TerramonMod>().GetLegacySoundSlot(SoundType.Custom, "Sounds/UI/BattleSFX/Damage0").WithVolume(.8f));
+            else if (r1 * r2 > 3.9f) Main.PlaySound(ModContent.GetInstance<TerramonMod>().GetLegacySoundSlot(SoundType.Custom, "Sounds/UI/BattleSFX/Damage2").WithVolume(.8f));
+            else Main.PlaySound(ModContent.GetInstance<TerramonMod>().GetLegacySoundSlot(SoundType.Custom, "Sounds/UI/BattleSFX/Damage1").WithVolume(.8f));
+
+            float oldD = d;
+            d = defender.PokeData.Damage((int)Math.Abs(d));
+            defender.PokeProj.damageReceived = true;
+            PostTextLoc.Args = new object[] { atacker.PokeData.PokemonName, defender.PokeData.PokemonName, MoveName, (int)d };
+            mod.Logger.Debug($"{atacker.PokeData.PokemonName} attacked {defender.PokeData.PokemonName} with {MoveName} for {oldD} damage internally. Actually dealt: {d}. Critical = {critical}. Has STAB = {stab}. [Modifier information] Targets = {Targets}. Weather = {Weather}. Critical Boost = {Critical}. Random Factor = {random}. STAB Boost = {STAB}. Type Effectiveness Multiplier = {Type}.");
+
+            return d;
+        }
+
         /// <summary>
         /// Sam = Stat after multiplier.
         /// Use Aesam() for accuracy + evasion, as it follows a different system for multiplier calculations.

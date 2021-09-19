@@ -111,5 +111,75 @@ namespace Terramon.Pokemon.Moves
 
             return true;
         }
+
+        public override bool PerformInBattle(BattleOpponent atacker, BattleOpponent deffender, BattleModeV2 battle)
+        {
+            //Vector2 vel = (atacker.PokeProj.projectile.position + (deffender.PokeProj.projectile.Size / 2)) - (atacker.PokeProj.projectile.position + (atacker.PokeProj.projectile.Size / 2));
+            //vel.Normalize();
+            //vel *= 15;
+
+            //atacker.PokeData.CustomData["projId"] = NewProjectile(atacker.PokeProj.projectile.position, vel, ProjectileID.DD2PhoenixBowShot).ToString();
+
+            return true;
+        }
+
+        public override bool AnimateTurn(BattleOpponent atacker, BattleOpponent deffender, BattleModeV2 battle, int frame,
+            bool skipBtnPressed = false)
+        {
+            if (frame == 1) //At initial frame we pan camera to attacker
+            {
+                TerramonMod.ZoomAnimator.ScreenPosX(atacker.PokeProj.projectile.position.X + 12, 500, Easing.OutExpo);
+                TerramonMod.ZoomAnimator.ScreenPosY(atacker.PokeProj.projectile.position.Y, 500, Easing.OutExpo);
+            }
+            else if (frame == 140) //Move animation begin after 140 frames
+            {
+                BattleMode.UI.splashText.SetText("");
+
+                Vector2 vel = (deffender.PokeProj.projectile.position + (deffender.PokeProj.projectile.Size / 2)) - (atacker.PokeProj.projectile.position + (atacker.PokeProj.projectile.Size / 2));
+                vel.Normalize();
+                vel *= 15;
+                int id = NewProjectile(atacker.PokeProj.projectile.position, vel, ProjectileID.DD2PhoenixBowShot);
+                Main.projectile[id].maxPenetrate = 99;
+                Main.projectile[id].penetrate = 99;
+                Main.projectile[id].tileCollide = false;
+
+                if (atacker.PokeData.CustomData.ContainsKey(PROJID_KEY))
+                {
+                    atacker.PokeData.CustomData[PROJID_KEY] = id.ToString();
+                }
+                else
+                {
+                    atacker.PokeData.CustomData.Add(PROJID_KEY, id.ToString());
+                }
+            }
+            else if (frame == 260)//At Last frame we destroy new proj
+            {
+                var dmg = InflictDamage(atacker, deffender);
+
+                battle.DealDamage(deffender, (int)dmg);
+                var id = int.Parse(atacker.PokeData.CustomData[PROJID_KEY]);
+                if (PostTextLoc.Args.Length >= 4)//If we can extract damage number
+                    CombatText.NewText(atacker.PokeProj.projectile.Hitbox, CombatText.DamagedHostile, (int)dmg);//Print combat text at attacked mon position
+                Main.projectile[id].timeLeft = 0;
+                Main.projectile[id].active = false;
+                BattleMode.queueEndMove = true;
+
+                return false;//End animation
+            }
+            else if (frame > 140 && frame < 260)
+            {
+                var id = int.Parse(atacker.PokeData.CustomData[PROJID_KEY]);
+                //Vector2 vel = (target.projectile.position + (target.projectile.Size / 2)) - (mon.projectile.position + (mon.projectile.Size / 2));
+                //var l = vel.Length();
+                //vel.Normalize();
+                //Main.projectile[id].position = mon.projectile.position + (vel * (l * (AnimationFrame / 120)));
+                Main.projectile[id].position = Interpolation.ValueAt(frame, atacker.PokeProj.projectile.position, deffender.PokeProj.projectile.position, 140, 260,
+                    Easing.Out);
+                TerramonMod.ZoomAnimator.ScreenPosX(Main.projectile[id].position.X, 1, Easing.None);
+                TerramonMod.ZoomAnimator.ScreenPosY(Main.projectile[id].position.Y, 1, Easing.None);
+            }
+
+            return true;
+        }
     }
 }
