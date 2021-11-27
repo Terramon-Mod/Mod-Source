@@ -2,17 +2,17 @@
 
 ✧ Currently in the mod, there's...
 • Over 100 Pokémon!
+• Full Pokemon Battles!
 • New UI and mechanics!
 • Various decorations!
 
 [c/4de857:== ✧ Credits ✧ ==]
-Jamz: Team Founder & Developer
+Jamz: Team Leader & Developer
 InfinaMii: Developer, Spriter, misc.
 KindRed-Sand: Developer, Mod Networking
 AnotherGuy: Developer
-Sylvium: Spriter
 Mello: Trial Developer
-Grayson Conagher: Trial Spriter
-Lobster123: Trial Spriter
+Lobster123: Spriter
+Rocketlauncher269: Spriter
 
 
