@@ -106,13 +106,12 @@ namespace Terramon.Pokemon
                     shop.item[nextSlot].SetDefaults(modExpanse.ItemType("GameBoyGreen"));
                     nextSlot++;
                 }
-                int nurse = NPC.FindFirstNPC(NPCID.Nurse);
-                if (nurse >= 0)
+                if (NPC.downedBoss2)
                 {
                     shop.item[nextSlot].SetDefaults(modExpanse.ItemType("GameBoyPink"));
                     nextSlot++;
                 }
-                if (Main.bloodMoon || NPC.downedHalloweenKing)
+                if (Main.bloodMoon || NPC.downedHalloweenKing || Main.eclipse)
                 {
                     shop.item[nextSlot].SetDefaults(modExpanse.ItemType("GameBoyDark"));
                     nextSlot++;
@@ -144,10 +143,14 @@ namespace Terramon.Pokemon
                     return "Buy 10 Poké Balls at once, and you might get a surprise...";
                 case 9:
                     return "Different Pokémon like living in different places. If you travel around, you may find new Pokemon!";
-                case 10:
+                /*case 10:
                     return "Recently I saw a trainer in a green robe. She looked to be in a hurry.";
                 case 11:
-                    return "Earlier I spotted a trainer wearing green whilst I was looking after Ivysaur. It looked like she was carrying some sort of egg.";
+                    return "Earlier I spotted a trainer wearing green whilst I was looking after Ivysaur. It looked like she was carrying some sort of egg.";*/
+                case 10:
+                    return "A remake of Mobile Creatures has been announced! Though I'm not sure how I feel about the art style...";
+                case 11:
+                    return "Words are unnecessary!";
                 case 12:
                     return "There are many different regions in the world. One day I hope to visit all of them!";
                 case 13:

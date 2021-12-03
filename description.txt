@@ -1,21 +1,18 @@
-﻿[c/ff7857:== Christmas content update! ==]
-
-✧ Terramon is a cross between Terraria and the awesome Pokémon franchise. The mod adds many Pokémon and your mission is to catch 'em all! Featuring 145+ diverse Pokémon to catch with a wide range of different Poké Balls, Terramon is the perfect mod to spice up your playthrough.
+﻿✧ Terramon is a cross between Terraria and the awesome Pokémon franchise. The mod adds many Pokémon and your mission is to catch 'em all! Featuring 145+ diverse Pokémon to catch with a wide range of different Poké Balls, Terramon is the perfect mod to spice up your playthrough.
 
 ✧ Currently in the mod, there's...
 • Over 100 Pokémon!
+• Full Pokemon Battles!
 • New UI and mechanics!
 • Various decorations!
 
 [c/4de857:== ✧ Credits ✧ ==]
-Jamz: Team Founder & Developer
-InfinaMii: Developer, Spriter, ^
+Jamz: Team Leader & Developer
+InfinaMii: Developer, Spriter, misc.
 KindRed-Sand: Developer, Mod Networking
 AnotherGuy: Developer
-ItzSylvium: Spriter
 Mello: Trial Developer
-Aeterna: Trial Developer
-Solemn: Music, Trial Developer
-
+Lobster123: Spriter
+Rocketlauncher269: Spriter
 
 
