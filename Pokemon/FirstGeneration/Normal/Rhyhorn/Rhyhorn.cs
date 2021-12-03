@@ -17,14 +17,14 @@ namespace Terramon.Pokemon.FirstGeneration.Normal.Rhyhorn
 
         public override PokemonType[] PokemonTypes => new[] { PokemonType.Ground, PokemonType.Rock };
 
-        public override ExpGroup ExpGroup => ExpGroup.Slow;public override int MaxHP => 80; public override int PhysicalDamage => 85; public override int PhysicalDefence => 95; public override int SpecialDamage => 30; public override int SpecialDefence => 30; public override int Speed => 25;
+        public override ExpGroup ExpGroup => ExpGroup.Slow; public override int MaxHP => 80; public override int PhysicalDamage => 85; public override int PhysicalDefence => 95; public override int SpecialDamage => 30; public override int SpecialDefence => 30; public override int Speed => 25;
 
         public override void SetDefaults()
         {
             base.SetDefaults();
 
-            
-            
+
+
         }
     }
 }

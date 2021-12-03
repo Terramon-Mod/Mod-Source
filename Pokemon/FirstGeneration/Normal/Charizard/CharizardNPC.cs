@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Charizard
 {
     public class CharizardNPC : NotCatchablePKMN
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Charizard/Charizard";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Charizard/Charizard";
         public override Type HomeClass()
         {
             return typeof(Charizard);

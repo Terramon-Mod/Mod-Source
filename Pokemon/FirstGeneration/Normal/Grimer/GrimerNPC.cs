@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Grimer
 {
     public class GrimerNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Grimer/Grimer";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Grimer/Grimer";
         public override Type HomeClass()
         {
             return typeof(Grimer);

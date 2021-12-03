@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Voltorb
 {
     public class VoltorbNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Voltorb/Voltorb";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Voltorb/Voltorb";
         public override Type HomeClass()
         {
             return typeof(Voltorb);

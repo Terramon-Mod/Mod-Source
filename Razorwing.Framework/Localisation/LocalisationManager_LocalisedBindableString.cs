@@ -47,7 +47,7 @@ namespace Razorwing.Framework.Localisation
                         // Prevent crashes if the formatting fails. The string will be in a non-formatted state.
                     }
                 }
-                
+
                 Value = newText;
             }
 

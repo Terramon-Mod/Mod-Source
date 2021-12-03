@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Dugtrio
 {
     public class DugtrioNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Dugtrio/Dugtrio";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Dugtrio/Dugtrio";
         public override Type HomeClass()
         {
             return typeof(Dugtrio);

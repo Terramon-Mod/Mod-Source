@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Arbok
 {
     public class ArbokNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Arbok/Arbok";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Arbok/Arbok";
         public override Type HomeClass()
         {
             return typeof(Arbok);

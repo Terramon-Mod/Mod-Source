@@ -38,7 +38,7 @@ namespace Terramon.UI.SidebarParty
         public ILocalisedBindableString pressEvolveText = TerramonMod.Localisation.GetLocalisedString(new LocalisedString(("evolveUI.pressEvolve", "Great! Press the evolve button!")));
         public ILocalisedBindableString cannotEvolveText = TerramonMod.Localisation.GetLocalisedString(new LocalisedString(("evolveUI.cannotEvolve", "This Pokémon cannot evolve!")));
         public ILocalisedBindableString rareCandyText = TerramonMod.Localisation.GetLocalisedString(new LocalisedString(("rareCandy", "Rare Candy")));
-        public ILocalisedBindableString linkCableText = TerramonMod.Localisation.GetLocalisedString(new LocalisedString(("linkCable","Link Cable")));
+        public ILocalisedBindableString linkCableText = TerramonMod.Localisation.GetLocalisedString(new LocalisedString(("linkCable", "Link Cable")));
 
 
         // In OnInitialize, we place various UIElements onto our UIState (this class).
@@ -148,7 +148,7 @@ namespace Terramon.UI.SidebarParty
                             //Set preference to RareCandy
                             partyslot2.ValidItemFunc = item => item.IsAir || item.modItem is RareCandy;
                             //PokemonGoesHere.SetText($"Place {mon.EvolveCost} Rare Candies in the second slot.");
-                            placeCandyText.Args = new object[] {mon.EvolveCost, rareCandyText.Value};
+                            placeCandyText.Args = new object[] { mon.EvolveCost, rareCandyText.Value };
                             PokemonGoesHere.SetText(placeCandyText.Value);
                             PokemonGoesHere.TextColor = Color.White;
                             mainPanel.Append(partyslot2);
@@ -313,10 +313,12 @@ namespace Terramon.UI.SidebarParty
                                 if (partyslot2.Item.modItem is FireStone)
                                 {
                                     eeveelution = 1; // Evolve to Flareon
-                                } else if (partyslot2.Item.modItem is ThunderStone)
+                                }
+                                else if (partyslot2.Item.modItem is ThunderStone)
                                 {
                                     eeveelution = 2; // Evolve to Jolteon
-                                } else
+                                }
+                                else
                                 {
                                     eeveelution = 3; // Evolve to Vaporeon
                                 }
@@ -363,10 +365,12 @@ namespace Terramon.UI.SidebarParty
                     if (eeveelution == 1)
                     {
                         evolvedname = "Flareon";
-                    } else if (eeveelution == 2)
+                    }
+                    else if (eeveelution == 2)
                     {
                         evolvedname = "Jolteon";
-                    } else
+                    }
+                    else
                     {
                         evolvedname = "Vaporeon";
                     }

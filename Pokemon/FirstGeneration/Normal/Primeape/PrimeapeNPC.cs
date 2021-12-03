@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Primeape
 {
     public class PrimeapeNPC : NotCatchablePKMN
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Primeape/Primeape";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Primeape/Primeape";
         public override Type HomeClass()
         {
             return typeof(Primeape);

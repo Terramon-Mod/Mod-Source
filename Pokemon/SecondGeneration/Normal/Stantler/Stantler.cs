@@ -21,8 +21,8 @@ namespace Terramon.Pokemon.SecondGeneration.Normal.Stantler
         {
             base.SetDefaults();
 
-            
-            
+
+
         }
     }
 }

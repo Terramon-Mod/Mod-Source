@@ -11,14 +11,14 @@ namespace Terramon.Pokemon.FourthGeneration.Normal.Dusknoir
     public class Dusknoir : ParentPokemon
     {
 
-        public override PokemonType[] PokemonTypes => new[] { PokemonType.Ghost};
+        public override PokemonType[] PokemonTypes => new[] { PokemonType.Ghost };
 
         public override void SetDefaults()
         {
             base.SetDefaults();
 
-            
-            
+
+
         }
     }
 }

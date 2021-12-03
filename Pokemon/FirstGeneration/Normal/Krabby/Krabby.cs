@@ -17,14 +17,14 @@ namespace Terramon.Pokemon.FirstGeneration.Normal.Krabby
 
         public override PokemonType[] PokemonTypes => new[] { PokemonType.Water };
 
-        public override ExpGroup ExpGroup => ExpGroup.MediumFast;public override int MaxHP => 30; public override int PhysicalDamage => 105; public override int PhysicalDefence => 90; public override int SpecialDamage => 25; public override int SpecialDefence => 25; public override int Speed => 50;
+        public override ExpGroup ExpGroup => ExpGroup.MediumFast; public override int MaxHP => 30; public override int PhysicalDamage => 105; public override int PhysicalDefence => 90; public override int SpecialDamage => 25; public override int SpecialDefence => 25; public override int Speed => 50;
 
         public override void SetDefaults()
         {
             base.SetDefaults();
 
-            
-            
+
+
         }
     }
 }

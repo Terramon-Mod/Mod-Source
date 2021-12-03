@@ -17,14 +17,14 @@ namespace Terramon.Pokemon.FirstGeneration.Normal.Kakuna
 
         public override PokemonType[] PokemonTypes => new[] { PokemonType.Bug, PokemonType.Poison };
 
-        public override ExpGroup ExpGroup => ExpGroup.MediumFast;public override int MaxHP => 45; public override int PhysicalDamage => 25; public override int PhysicalDefence => 50; public override int SpecialDamage => 25; public override int SpecialDefence => 25; public override int Speed => 35;
+        public override ExpGroup ExpGroup => ExpGroup.MediumFast; public override int MaxHP => 45; public override int PhysicalDamage => 25; public override int PhysicalDefence => 50; public override int SpecialDamage => 25; public override int SpecialDefence => 25; public override int Speed => 35;
 
         public override void SetDefaults()
         {
             base.SetDefaults();
 
-            
-            
+
+
         }
     }
 }

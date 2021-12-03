@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Weepinbell
 {
     public class WeepinbellNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Weepinbell/Weepinbell";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Weepinbell/Weepinbell";
         public override Type HomeClass()
         {
             return typeof(Weepinbell);

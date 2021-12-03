@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Machamp
 {
     public class MachampNPC : NotCatchablePKMN
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Machamp/Machamp";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Machamp/Machamp";
         public override Type HomeClass()
         {
             return typeof(Machamp);

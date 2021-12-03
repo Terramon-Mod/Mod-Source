@@ -43,7 +43,7 @@ namespace Terramon
                 {
                     Following = TerramonMod.Localisation.GetLocalisedString(new LocalisedString(("buff.following", "A {0} is following you around!")));
                 }
-                Following.Args = new object[] {PokeName.Value};
+                Following.Args = new object[] { PokeName.Value };
             }
 
 
@@ -69,7 +69,7 @@ namespace Terramon
                     player.position.Y - 8, 0f, 0f, mod.ProjectileType(ProjectileName), 0, 0f,
                     player.whoAmI, 0f, 0f);
                 }
-                if(Main.netMode == NetmodeID.MultiplayerClient)
+                if (Main.netMode == NetmodeID.MultiplayerClient)
                     new PetIDSyncPacket().Send((TerramonMod)mod, modPlayer.ActivePetId);
             }
         }

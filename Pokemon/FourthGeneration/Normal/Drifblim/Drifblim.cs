@@ -16,8 +16,8 @@ namespace Terramon.Pokemon.FourthGeneration.Normal.Drifblim
         {
             base.SetDefaults();
 
-            
-            
+
+
         }
     }
 }

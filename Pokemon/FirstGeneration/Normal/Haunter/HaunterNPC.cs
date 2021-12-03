@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Haunter
 {
     public class HaunterNPC : ParentPokemonNPCFlying
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Haunter/Haunter";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Haunter/Haunter";
         public override Type HomeClass()
         {
             return typeof(Haunter);

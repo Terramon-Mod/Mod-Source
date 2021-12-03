@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Clefable
 {
     public class ClefableNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Clefable/Clefable";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Clefable/Clefable";
         public override Type HomeClass()
         {
             return typeof(Clefable);

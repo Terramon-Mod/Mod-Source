@@ -17,14 +17,14 @@ namespace Terramon.Pokemon.FirstGeneration.Normal.Zubat
 
         public override PokemonType[] PokemonTypes => new[] { PokemonType.Poison, PokemonType.Flying };
 
-        public override ExpGroup ExpGroup => ExpGroup.MediumFast;public override int MaxHP => 40; public override int PhysicalDamage => 45; public override int PhysicalDefence => 35; public override int SpecialDamage => 30; public override int SpecialDefence => 40; public override int Speed => 55;
+        public override ExpGroup ExpGroup => ExpGroup.MediumFast; public override int MaxHP => 40; public override int PhysicalDamage => 45; public override int PhysicalDefence => 35; public override int SpecialDamage => 30; public override int SpecialDefence => 40; public override int Speed => 55;
 
         public override void SetDefaults()
         {
             base.SetDefaults();
 
-            
-            
+
+
         }
     }
 }

@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Machop
 {
     public class MachopNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Machop/Machop";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Machop/Machop";
         public override Type HomeClass()
         {
             return typeof(Machop);

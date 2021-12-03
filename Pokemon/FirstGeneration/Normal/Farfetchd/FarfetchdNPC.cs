@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Farfetchd
 {
     public class FarfetchdNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Farfetchd/Farfetchd";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Farfetchd/Farfetchd";
         public override Type HomeClass()
         {
             return typeof(Farfetchd);

@@ -40,7 +40,7 @@ namespace Terramon.Pokemon.Moves
                 return false;
 
             player.Attacking = true;
-            Vector2 vel = (target.position + (target.Size/2)) - (mon.projectile.position + (mon.projectile.Size/2));
+            Vector2 vel = (target.position + (target.Size / 2)) - (mon.projectile.position + (mon.projectile.Size / 2));
             var l = vel.Length();
             vel += target.velocity * (l / 100);//Make predict shoot
             vel.Normalize(); //Direction
@@ -74,25 +74,15 @@ namespace Terramon.Pokemon.Moves
 
             if (AnimationFrame > 155 && AnimationFrame < 260)
             {
-                shakeTimer++;
-                if (shakeTimer <= 4)
-                {
-                    TerramonMod.ZoomAnimator.ScreenPosX(target.projectile.position.X + 12, 1, Easing.None);
-                    TerramonMod.ZoomAnimator.ScreenPosY(target.projectile.position.Y + 3, 1, Easing.None);
-                } else if (shakeTimer > 4)
-                {
-                    TerramonMod.ZoomAnimator.ScreenPosX(target.projectile.position.X + 12, 1, Easing.None);
-                    TerramonMod.ZoomAnimator.ScreenPosY(target.projectile.position.Y - 3, 1, Easing.None);
-                }
-                if (shakeTimer >= 8)
-                {
-                    shakeTimer = 0;
-                }
+                Main.LocalPlayer.GetModPlayer<TerramonPlayer>().battleScreenShake = true;
 
                 if (!inflictedDmg)
                 {
                     Dust bubbleDust = Dust.NewDustDirect(target.projectile.position + new Vector2(0, 20), target.projectile.width, target.projectile.height, ModContent.GetInstance<TerramonMod>().DustType("SmokeTransformDust"), 0f, 0f, 0, new Color(189, 165, 100));
                 }
+            } else
+            {
+                Main.LocalPlayer.GetModPlayer<TerramonPlayer>().battleScreenShake = false;
             }
 
             if (AnimationFrame == 190)

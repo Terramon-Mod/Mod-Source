@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Electabuzz
 {
     public class ElectabuzzNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Electabuzz/Electabuzz";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Electabuzz/Electabuzz";
         public override Type HomeClass()
         {
             return typeof(Electabuzz);

@@ -43,5 +43,4 @@ namespace Terramon.Items.Pokeballs.Parts
         }
     }
 }
- 
- 
+

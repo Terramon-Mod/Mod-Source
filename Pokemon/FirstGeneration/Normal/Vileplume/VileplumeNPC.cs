@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Vileplume
 {
     public class VileplumeNPC : NotCatchablePKMN
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Vileplume/Vileplume";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Vileplume/Vileplume";
         public override Type HomeClass()
         {
             return typeof(Vileplume);

@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Drowzee
 {
     public class DrowzeeNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Drowzee/Drowzee";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Drowzee/Drowzee";
         public override Type HomeClass()
         {
             return typeof(Drowzee);

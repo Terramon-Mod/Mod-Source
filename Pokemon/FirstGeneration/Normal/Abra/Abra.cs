@@ -17,14 +17,14 @@ namespace Terramon.Pokemon.FirstGeneration.Normal.Abra
 
         public override PokemonType[] PokemonTypes => new[] { PokemonType.Psychic };
 
-        public override ExpGroup ExpGroup => ExpGroup.MediumSlow;public override int MaxHP => 25; public override int PhysicalDamage => 20; public override int PhysicalDefence => 15; public override int SpecialDamage => 105; public override int SpecialDefence => 55; public override int Speed => 90;
+        public override ExpGroup ExpGroup => ExpGroup.MediumSlow; public override int MaxHP => 25; public override int PhysicalDamage => 20; public override int PhysicalDefence => 15; public override int SpecialDamage => 105; public override int SpecialDefence => 55; public override int Speed => 90;
 
         public override void SetDefaults()
         {
             base.SetDefaults();
 
-            
-            
+
+
         }
     }
 }

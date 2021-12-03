@@ -379,7 +379,8 @@ namespace Terramon.UI
             if (range[17] >= 151)
             {
                 pokedexShowingNumbers.SetText($"Showing No. {paddedStart}-151");
-            } else
+            }
+            else
             {
                 pokedexShowingNumbers.SetText($"Showing No. {paddedStart}-{paddedEnd}");
             }
@@ -516,7 +517,7 @@ namespace Terramon.UI
             get => Main.screenPosition;
             set => TerramonMod.Instance.battleCamera = value;
         }
-        
+
         public float ButtonMenuPanelX
         {
             get => BattleMode.UI.ButtonMenuPanel.Top.Pixels;

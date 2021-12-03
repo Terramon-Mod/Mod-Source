@@ -35,7 +35,7 @@ namespace Terramon.Pokemon.Moves
                 return false;
 
             player.Attacking = true;
-            Vector2 vel = (target.position + (target.Size/2)) - (mon.projectile.position + (mon.projectile.Size/2));
+            Vector2 vel = (target.position + (target.Size / 2)) - (mon.projectile.position + (mon.projectile.Size / 2));
             var l = vel.Length();
             vel += target.velocity * (l / 100);//Make predict shoot
             vel.Normalize(); //Direction
@@ -75,11 +75,11 @@ namespace Terramon.Pokemon.Moves
                     attacker.CustomData.Add(PROJID_KEY, id.ToString());
                 }
             }
-            else if(AnimationFrame == 260)//At Last frame we destroy new proj
+            else if (AnimationFrame == 260)//At Last frame we destroy new proj
             {
                 InflictDamage(mon, target, player, attacker, deffender, state, opponent);
                 var id = int.Parse(attacker.CustomData[PROJID_KEY]);
-                if(PostTextLoc.Args.Length >= 4)//If we can extract damage number
+                if (PostTextLoc.Args.Length >= 4)//If we can extract damage number
                     CombatText.NewText(target.projectile.Hitbox, CombatText.DamagedHostile, (int)PostTextLoc.Args[3]);//Print combat text at attacked mon position
                 Main.projectile[id].timeLeft = 0;
                 Main.projectile[id].active = false;

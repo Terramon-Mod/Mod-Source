@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Poliwag
 {
     public class PoliwagNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Poliwag/Poliwag";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Poliwag/Poliwag";
         public override Type HomeClass()
         {
             return typeof(Poliwag);

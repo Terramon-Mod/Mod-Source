@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Omastar
 {
     public class OmastarNPC : NotCatchablePKMN
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Omastar/Omastar";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Omastar/Omastar";
         public override Type HomeClass()
         {
             return typeof(Omastar);

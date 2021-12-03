@@ -208,7 +208,7 @@ namespace Terramon.Pokemon.Moves
         /// </summary>
         public void EndMove()
         {
-           // obsolete
+            // obsolete
         }
 
         // Get Movedb class if needed

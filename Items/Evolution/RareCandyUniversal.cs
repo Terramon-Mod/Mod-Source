@@ -20,7 +20,7 @@ namespace Terramon.Items.Evolution
                 Item.NewItem(npc.getRect(), mod.ItemType("RareCandy"), 4);
             if (npc.type == NPCID.EyeofCthulhu)
                 Item.NewItem(npc.getRect(), mod.ItemType("RareCandy"), 5);
-            if (Array.IndexOf(new int[] {NPCID.EaterofWorldsBody, NPCID.EaterofWorldsHead, NPCID.EaterofWorldsTail},
+            if (Array.IndexOf(new int[] { NPCID.EaterofWorldsBody, NPCID.EaterofWorldsHead, NPCID.EaterofWorldsTail },
                     npc.type) > -1 && npc.boss)
                 Item.NewItem(npc.getRect(), mod.ItemType("RareCandy"), 6);
             if (npc.type == NPCID.BrainofCthulhu)

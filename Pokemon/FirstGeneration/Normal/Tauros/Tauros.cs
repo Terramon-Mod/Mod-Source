@@ -11,20 +11,20 @@ namespace Terramon.Pokemon.FirstGeneration.Normal.Tauros
 {
     public class Tauros : ParentPokemon
     {
-        
 
-        
+
+
 
         public override PokemonType[] PokemonTypes => new[] { PokemonType.Normal };
 
-        public override ExpGroup ExpGroup => ExpGroup.Slow;public override int MaxHP => 75; public override int PhysicalDamage => 100; public override int PhysicalDefence => 95; public override int SpecialDamage => 40; public override int SpecialDefence => 70; public override int Speed => 110;
+        public override ExpGroup ExpGroup => ExpGroup.Slow; public override int MaxHP => 75; public override int PhysicalDamage => 100; public override int PhysicalDefence => 95; public override int SpecialDamage => 40; public override int SpecialDefence => 70; public override int Speed => 110;
 
         public override void SetDefaults()
         {
             base.SetDefaults();
 
-            
-            
+
+
         }
     }
 }

@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Magmar
 {
     public class MagmarNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Magmar/Magmar";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Magmar/Magmar";
         public override Type HomeClass()
         {
             return typeof(Magmar);

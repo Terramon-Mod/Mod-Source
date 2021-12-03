@@ -152,7 +152,7 @@ namespace Terramon.UI.Starter
             if (Main.netMode == NetmodeID.MultiplayerClient)
             {
                 SpawnStarterPacket packet = new SpawnStarterPacket();
-                packet.Send((TerramonMod) mod, SpawnStarterPacket.SQUIRTLE);
+                packet.Send((TerramonMod)mod, SpawnStarterPacket.SQUIRTLE);
             }
             else
             {

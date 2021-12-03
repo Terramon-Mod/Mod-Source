@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FourthGeneration.Normal.Dusknoir
 {
     public class DusknoirNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FourthGeneration/Normal/Dusknoir/Dusknoir";
+    {
+        public override string Texture => "Terramon/Pokemon/FourthGeneration/Normal/Dusknoir/Dusknoir";
         public override Type HomeClass()
         {
             return typeof(Dusknoir);

@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Horsea
 {
     public class HorseaNPC : NotCatchablePKMN
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Horsea/Horsea";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Horsea/Horsea";
         public override Type HomeClass()
         {
             return typeof(Horsea);

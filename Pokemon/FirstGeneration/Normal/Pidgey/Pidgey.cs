@@ -17,14 +17,14 @@ namespace Terramon.Pokemon.FirstGeneration.Normal.Pidgey
 
         public override PokemonType[] PokemonTypes => new[] { PokemonType.Normal, PokemonType.Flying };
 
-        public override ExpGroup ExpGroup => ExpGroup.MediumSlow;public override int MaxHP => 40; public override int PhysicalDamage => 45; public override int PhysicalDefence => 40; public override int SpecialDamage => 35; public override int SpecialDefence => 35; public override int Speed => 56;
+        public override ExpGroup ExpGroup => ExpGroup.MediumSlow; public override int MaxHP => 40; public override int PhysicalDamage => 45; public override int PhysicalDefence => 40; public override int SpecialDamage => 35; public override int SpecialDefence => 35; public override int Speed => 56;
 
         public override void SetDefaults()
         {
             base.SetDefaults();
 
-            
-            
+
+
         }
     }
 }

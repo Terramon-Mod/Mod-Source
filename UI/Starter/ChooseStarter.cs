@@ -115,12 +115,12 @@ namespace Terramon.UI.Starter
 
             Texture2D shaderBarTexture = ModContent.GetTexture("Terramon/UI/Starter/ShaderBar");
 
-                    shaderBar1 =
-                        new UIImagez(shaderBarTexture);
-                    shaderBar2 =
-                        new UIImagez(shaderBarTexture);
-                    shaderBar3 =
-                        new UIImagez(shaderBarTexture);
+            shaderBar1 =
+                new UIImagez(shaderBarTexture);
+            shaderBar2 =
+                new UIImagez(shaderBarTexture);
+            shaderBar3 =
+                new UIImagez(shaderBarTexture);
 
             shaderBar1.HAlign = -0.5f;
             shaderBar1.VAlign = 0.1f;
@@ -236,7 +236,7 @@ namespace Terramon.UI.Starter
             gengarBattle._visibilityActive = 0f;
             mainPanel.Append(gengarBattle);
 
-Texture2D smallbushtexture = ModContent.GetTexture("Terramon/UI/IntroMovie/SmallBush");
+            Texture2D smallbushtexture = ModContent.GetTexture("Terramon/UI/IntroMovie/SmallBush");
             smallBush = new UIImagez(smallbushtexture);
             smallBush.HAlign = 1f;
             smallBush.Top.Set(-196, 1f);
@@ -302,8 +302,8 @@ Texture2D smallbushtexture = ModContent.GetTexture("Terramon/UI/IntroMovie/Small
             // Grass types
 
             Texture2D bulbasaurTexture = ModContent.GetTexture("Terramon/UI/Starter/PKMN/Bulbasaur");
-                bulbasaurTextureButton =
-                    new UIHoverImageButton(bulbasaurTexture, "Bulbasaur");
+            bulbasaurTextureButton =
+                new UIHoverImageButton(bulbasaurTexture, "Bulbasaur");
             bulbasaurTextureButton.HAlign = 0.265f;
             bulbasaurTextureButton.VAlign = 0.35f;
             bulbasaurTextureButton.Width.Set(50, 0f);
@@ -313,8 +313,8 @@ Texture2D smallbushtexture = ModContent.GetTexture("Terramon/UI/IntroMovie/Small
             bulbasaurTextureButton.OnClick += bulbasaurTextureButtonClicked;
 
             Texture2D chikoritaTexture = ModContent.GetTexture("Terramon/UI/Starter/PKMN/Chikorita");
-                chikoritaTextureButton =
-                    new UIHoverImageButtonDisabled(chikoritaTexture, "Coming Soon...");
+            chikoritaTextureButton =
+                new UIHoverImageButtonDisabled(chikoritaTexture, "Coming Soon...");
             chikoritaTextureButton.HAlign = 0.345f;
             chikoritaTextureButton.VAlign = 0.35f;
             chikoritaTextureButton.Width.Set(50, 0f);
@@ -322,8 +322,8 @@ Texture2D smallbushtexture = ModContent.GetTexture("Terramon/UI/IntroMovie/Small
             //chikoritaTextureButton.OnClick += bulbasaurTextureButtonClicked;
 
             Texture2D treeckoTexture = ModContent.GetTexture("Terramon/UI/Starter/PKMN/Treecko");
-                treeckoTextureButton =
-                    new UIHoverImageButtonDisabled(treeckoTexture, "Coming Soon...");
+            treeckoTextureButton =
+                new UIHoverImageButtonDisabled(treeckoTexture, "Coming Soon...");
             treeckoTextureButton.HAlign = 0.425f;
             treeckoTextureButton.VAlign = 0.35f;
             treeckoTextureButton.Width.Set(50, 0f);
@@ -331,8 +331,8 @@ Texture2D smallbushtexture = ModContent.GetTexture("Terramon/UI/IntroMovie/Small
             //treeckoTextureButton.OnClick += bulbasaurTextureButtonClicked;
 
             Texture2D turtwigTexture = ModContent.GetTexture("Terramon/UI/Starter/PKMN/Turtwig");
-                turtwigTextureButton =
-                    new UIHoverImageButtonDisabled(turtwigTexture, "Coming Soon...");
+            turtwigTextureButton =
+                new UIHoverImageButtonDisabled(turtwigTexture, "Coming Soon...");
             turtwigTextureButton.HAlign = 0.505f;
             turtwigTextureButton.VAlign = 0.35f;
             turtwigTextureButton.Width.Set(50, 0f);
@@ -340,8 +340,8 @@ Texture2D smallbushtexture = ModContent.GetTexture("Terramon/UI/IntroMovie/Small
             //turtwigTextureButton.OnClick += bulbasaurTextureButtonClicked;
 
             Texture2D snivyTexture = ModContent.GetTexture("Terramon/UI/Starter/PKMN/Snivy");
-                snivyTextureButton =
-                    new UIHoverImageButtonDisabled(snivyTexture, "Coming Soon...");
+            snivyTextureButton =
+                new UIHoverImageButtonDisabled(snivyTexture, "Coming Soon...");
             snivyTextureButton.HAlign = 0.585f;
             snivyTextureButton.VAlign = 0.35f;
             snivyTextureButton.Width.Set(50, 0f);
@@ -349,8 +349,8 @@ Texture2D smallbushtexture = ModContent.GetTexture("Terramon/UI/IntroMovie/Small
             //snivyTextureButton.OnClick += bulbasaurTextureButtonClicked;
 
             Texture2D chespinTexture = ModContent.GetTexture("Terramon/UI/Starter/PKMN/Chespin");
-                chespinTextureButton =
-                    new UIHoverImageButtonDisabled(chespinTexture, "Coming Soon...");
+            chespinTextureButton =
+                new UIHoverImageButtonDisabled(chespinTexture, "Coming Soon...");
             chespinTextureButton.HAlign = 0.665f;
             chespinTextureButton.VAlign = 0.35f;
             chespinTextureButton.Width.Set(50, 0f);
@@ -358,8 +358,8 @@ Texture2D smallbushtexture = ModContent.GetTexture("Terramon/UI/IntroMovie/Small
             //chespinTextureButton.OnClick += bulbasaurTextureButtonClicked;
 
             Texture2D rowletTexture = ModContent.GetTexture("Terramon/UI/Starter/PKMN/Rowlet");
-                rowletTextureButton =
-                    new UIHoverImageButtonDisabled(rowletTexture, "Coming Soon...");
+            rowletTextureButton =
+                new UIHoverImageButtonDisabled(rowletTexture, "Coming Soon...");
             rowletTextureButton.HAlign = 0.745f;
             rowletTextureButton.VAlign = 0.35f;
             rowletTextureButton.Width.Set(50, 0f);
@@ -369,8 +369,8 @@ Texture2D smallbushtexture = ModContent.GetTexture("Terramon/UI/IntroMovie/Small
             // Water types
 
             Texture2D squirtleTexture = ModContent.GetTexture("Terramon/UI/Starter/PKMN/Squirtle");
-                squirtleTextureButton =
-                    new UIHoverImageButton(squirtleTexture, "Squirtle");
+            squirtleTextureButton =
+                new UIHoverImageButton(squirtleTexture, "Squirtle");
             squirtleTextureButton.HAlign = 0.265f;
             squirtleTextureButton.VAlign = 0.45f;
             squirtleTextureButton.Width.Set(50, 0f);
@@ -380,8 +380,8 @@ Texture2D smallbushtexture = ModContent.GetTexture("Terramon/UI/IntroMovie/Small
             squirtleTextureButton.OnClick += squirtleTextureButtonClicked;
 
             Texture2D totodileTexture = ModContent.GetTexture("Terramon/UI/Starter/PKMN/Totodile");
-                totodileTextureButton =
-                    new UIHoverImageButtonDisabled(totodileTexture, "Coming Soon...");
+            totodileTextureButton =
+                new UIHoverImageButtonDisabled(totodileTexture, "Coming Soon...");
             totodileTextureButton.HAlign = 0.345f;
             totodileTextureButton.VAlign = 0.45f;
             totodileTextureButton.Width.Set(50, 0f);
@@ -389,8 +389,8 @@ Texture2D smallbushtexture = ModContent.GetTexture("Terramon/UI/IntroMovie/Small
             //totodileTextureButton.OnClick += squirtleTextureButtonClicked;
 
             Texture2D mudkipTexture = ModContent.GetTexture("Terramon/UI/Starter/PKMN/Mudkip");
-                mudkipTextureButton =
-                    new UIHoverImageButtonDisabled(mudkipTexture, "Coming Soon...");
+            mudkipTextureButton =
+                new UIHoverImageButtonDisabled(mudkipTexture, "Coming Soon...");
             mudkipTextureButton.HAlign = 0.425f;
             mudkipTextureButton.VAlign = 0.45f;
             mudkipTextureButton.Width.Set(50, 0f);
@@ -398,8 +398,8 @@ Texture2D smallbushtexture = ModContent.GetTexture("Terramon/UI/IntroMovie/Small
             //mudkipTextureButton.OnClick += squirtleTextureButtonClicked;
 
             Texture2D piplupTexture = ModContent.GetTexture("Terramon/UI/Starter/PKMN/Piplup");
-                piplupTextureButton =
-                    new UIHoverImageButtonDisabled(piplupTexture, "Coming Soon...");
+            piplupTextureButton =
+                new UIHoverImageButtonDisabled(piplupTexture, "Coming Soon...");
             piplupTextureButton.HAlign = 0.505f;
             piplupTextureButton.VAlign = 0.45f;
             piplupTextureButton.Width.Set(50, 0f);
@@ -407,8 +407,8 @@ Texture2D smallbushtexture = ModContent.GetTexture("Terramon/UI/IntroMovie/Small
             //piplupTextureButton.OnClick += squirtleTextureButtonClicked;
 
             Texture2D oshawottTexture = ModContent.GetTexture("Terramon/UI/Starter/PKMN/Oshawott");
-                oshawottTextureButton =
-                    new UIHoverImageButtonDisabled(oshawottTexture, "Coming Soon...");
+            oshawottTextureButton =
+                new UIHoverImageButtonDisabled(oshawottTexture, "Coming Soon...");
             oshawottTextureButton.HAlign = 0.585f;
             oshawottTextureButton.VAlign = 0.45f;
             oshawottTextureButton.Width.Set(50, 0f);
@@ -416,8 +416,8 @@ Texture2D smallbushtexture = ModContent.GetTexture("Terramon/UI/IntroMovie/Small
             //oshawottTextureButton.OnClick += squirtleTextureButtonClicked;
 
             Texture2D froakieTexture = ModContent.GetTexture("Terramon/UI/Starter/PKMN/Froakie");
-                froakieTextureButton =
-                    new UIHoverImageButtonDisabled(froakieTexture, "Coming Soon...");
+            froakieTextureButton =
+                new UIHoverImageButtonDisabled(froakieTexture, "Coming Soon...");
             froakieTextureButton.HAlign = 0.665f;
             froakieTextureButton.VAlign = 0.45f;
             froakieTextureButton.Width.Set(50, 0f);
@@ -425,8 +425,8 @@ Texture2D smallbushtexture = ModContent.GetTexture("Terramon/UI/IntroMovie/Small
             //froakieTextureButton.OnClick += squirtleTextureButtonClicked;
 
             Texture2D popplioTexture = ModContent.GetTexture("Terramon/UI/Starter/PKMN/Popplio");
-                popplioTextureButton =
-                    new UIHoverImageButtonDisabled(popplioTexture, "Coming Soon...");
+            popplioTextureButton =
+                new UIHoverImageButtonDisabled(popplioTexture, "Coming Soon...");
             popplioTextureButton.HAlign = 0.745f;
             popplioTextureButton.VAlign = 0.45f;
             popplioTextureButton.Width.Set(50, 0f);
@@ -436,8 +436,8 @@ Texture2D smallbushtexture = ModContent.GetTexture("Terramon/UI/IntroMovie/Small
             // Fire types
 
             Texture2D charmanderTexture = ModContent.GetTexture("Terramon/UI/Starter/PKMN/Charmander");
-                charmanderTextureButton =
-                    new UIHoverImageButton(charmanderTexture, "Charmander");
+            charmanderTextureButton =
+                new UIHoverImageButton(charmanderTexture, "Charmander");
             charmanderTextureButton.HAlign = 0.265f;
             charmanderTextureButton.VAlign = 0.55f;
             charmanderTextureButton.Width.Set(50, 0f);
@@ -447,8 +447,8 @@ Texture2D smallbushtexture = ModContent.GetTexture("Terramon/UI/IntroMovie/Small
             charmanderTextureButton.OnClick += charmanderTextureButtonClicked;
 
             Texture2D cyndaquilTexture = ModContent.GetTexture("Terramon/UI/Starter/PKMN/Cyndaquil");
-                cyndaquilTextureButton =
-                    new UIHoverImageButtonDisabled(cyndaquilTexture, "Coming Soon...");
+            cyndaquilTextureButton =
+                new UIHoverImageButtonDisabled(cyndaquilTexture, "Coming Soon...");
             cyndaquilTextureButton.HAlign = 0.345f;
             cyndaquilTextureButton.VAlign = 0.55f;
             cyndaquilTextureButton.Width.Set(50, 0f);
@@ -456,8 +456,8 @@ Texture2D smallbushtexture = ModContent.GetTexture("Terramon/UI/IntroMovie/Small
             //cyndaquilTextureButton.OnClick += charmanderTextureButtonClicked;
 
             Texture2D torchicTexture = ModContent.GetTexture("Terramon/UI/Starter/PKMN/Torchic");
-                torchicTextureButton =
-                    new UIHoverImageButtonDisabled(torchicTexture, "Coming Soon...");
+            torchicTextureButton =
+                new UIHoverImageButtonDisabled(torchicTexture, "Coming Soon...");
             torchicTextureButton.HAlign = 0.425f;
             torchicTextureButton.VAlign = 0.55f;
             torchicTextureButton.Width.Set(50, 0f);
@@ -465,8 +465,8 @@ Texture2D smallbushtexture = ModContent.GetTexture("Terramon/UI/IntroMovie/Small
             //torchicTextureButton.OnClick += charmanderTextureButtonClicked;
 
             Texture2D chimcharTexture = ModContent.GetTexture("Terramon/UI/Starter/PKMN/Chimchar");
-                chimcharTextureButton =
-                    new UIHoverImageButtonDisabled(chimcharTexture, "Coming Soon...");
+            chimcharTextureButton =
+                new UIHoverImageButtonDisabled(chimcharTexture, "Coming Soon...");
             chimcharTextureButton.HAlign = 0.505f;
             chimcharTextureButton.VAlign = 0.55f;
             chimcharTextureButton.Width.Set(50, 0f);
@@ -474,8 +474,8 @@ Texture2D smallbushtexture = ModContent.GetTexture("Terramon/UI/IntroMovie/Small
             //chimcharTextureButton.OnClick += charmanderTextureButtonClicked;
 
             Texture2D tepigTexture = ModContent.GetTexture("Terramon/UI/Starter/PKMN/Tepig");
-                tepigTextureButton =
-                    new UIHoverImageButtonDisabled(tepigTexture, "Coming Soon...");
+            tepigTextureButton =
+                new UIHoverImageButtonDisabled(tepigTexture, "Coming Soon...");
             tepigTextureButton.HAlign = 0.585f;
             tepigTextureButton.VAlign = 0.55f;
             tepigTextureButton.Width.Set(50, 0f);
@@ -483,8 +483,8 @@ Texture2D smallbushtexture = ModContent.GetTexture("Terramon/UI/IntroMovie/Small
             //tepigTextureButton.OnClick += charmanderTextureButtonClicked;
 
             Texture2D fennekinTexture = ModContent.GetTexture("Terramon/UI/Starter/PKMN/Fennekin");
-                fennekinTextureButton =
-                    new UIHoverImageButtonDisabled(fennekinTexture, "Coming Soon...");
+            fennekinTextureButton =
+                new UIHoverImageButtonDisabled(fennekinTexture, "Coming Soon...");
             fennekinTextureButton.HAlign = 0.665f;
             fennekinTextureButton.VAlign = 0.55f;
             fennekinTextureButton.Width.Set(50, 0f);
@@ -492,8 +492,8 @@ Texture2D smallbushtexture = ModContent.GetTexture("Terramon/UI/IntroMovie/Small
             //fennekinTextureButton.OnClick += charmanderTextureButtonClicked;
 
             Texture2D littenTexture = ModContent.GetTexture("Terramon/UI/Starter/PKMN/Litten");
-                littenTextureButton =
-                    new UIHoverImageButtonDisabled(littenTexture, "Coming Soon...");
+            littenTextureButton =
+                new UIHoverImageButtonDisabled(littenTexture, "Coming Soon...");
             littenTextureButton.HAlign = 0.745f;
             littenTextureButton.VAlign = 0.55f;
             littenTextureButton.Width.Set(50, 0f);
@@ -687,7 +687,8 @@ Texture2D smallbushtexture = ModContent.GetTexture("Terramon/UI/IntroMovie/Small
                 {
                     treesScrolling1.HAlign += 0.01f;
                     smallBush.HAlign -= 0.019f;
-                } else
+                }
+                else
                 {
                     treesScrolling1.HAlign += 0.001f;
                     smallBush.HAlign -= 0.002f;
@@ -905,7 +906,7 @@ Texture2D smallbushtexture = ModContent.GetTexture("Terramon/UI/IntroMovie/Small
                     nidorinoBattle._visibilityActive = 0f;
                     gengarBattle._visibilityActive = 0f;
                     whiteFlash._visibilityActive = 0f;
-		            treesScrolling1._visibilityActive = 0f;
+                    treesScrolling1._visibilityActive = 0f;
                 }
 
                 if (scrollFastTimer > 10.5 && !movieFinished)
@@ -983,7 +984,7 @@ Texture2D smallbushtexture = ModContent.GetTexture("Terramon/UI/IntroMovie/Small
             {
                 fanMadeModText.SetText("");
                 fanMadeModTextShown = true;
-                
+
                 //append everything else!
 
                 testmenu.SetText("Welcome to the world of Pokémon! Thank you for downloading this mod!", 1.1f, false);
@@ -1038,7 +1039,7 @@ Texture2D smallbushtexture = ModContent.GetTexture("Terramon/UI/IntroMovie/Small
                 bartop.VAlign = (float)Interpolation.ValueAt(gameTime.TotalGameTime.TotalSeconds, 0, -0.2, start, end, Easing.Out);
                 barbottom.VAlign = (float)Interpolation.ValueAt(gameTime.TotalGameTime.TotalSeconds, 1, 1.2, start, end, Easing.Out);
                 mainPanel.BackgroundColor = new Color(97, 97, 97) * (float)Interpolation.ValueAt(gameTime.TotalGameTime.TotalSeconds, 0.7, 0, start, end, Easing.None);
-                
+
                 starterselectmenu._visibilityActive = Interpolation.ValueAt(gameTime.TotalGameTime.TotalSeconds, 1f, 0f, start, end, Easing.None);
                 shaderBar1._visibilityActive = Interpolation.ValueAt(gameTime.TotalGameTime.TotalSeconds, 1f, 0f, start, end, Easing.None);
                 shaderBar2._visibilityActive = Interpolation.ValueAt(gameTime.TotalGameTime.TotalSeconds, 1f, 0f, start, end, Easing.None);

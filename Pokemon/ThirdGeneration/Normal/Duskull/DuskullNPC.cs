@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.ThirdGeneration.Normal.Duskull
 {
     public class DuskullNPC : ParentPokemonNPCFlying
-    { public override string Texture => "Terramon/Pokemon/ThirdGeneration/Normal/Duskull/Duskull";
+    {
+        public override string Texture => "Terramon/Pokemon/ThirdGeneration/Normal/Duskull/Duskull";
         public override Type HomeClass()
         {
             return typeof(Duskull);

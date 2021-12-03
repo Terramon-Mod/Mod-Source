@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Hypno
 {
     public class HypnoNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Hypno/Hypno";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Hypno/Hypno";
         public override Type HomeClass()
         {
             return typeof(Hypno);

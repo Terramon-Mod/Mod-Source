@@ -17,14 +17,14 @@ namespace Terramon.Pokemon.FirstGeneration.Normal.Paras
 
         public override PokemonType[] PokemonTypes => new[] { PokemonType.Bug, PokemonType.Grass };
 
-        public override ExpGroup ExpGroup => ExpGroup.MediumFast;public override int MaxHP => 35; public override int PhysicalDamage => 70; public override int PhysicalDefence => 55; public override int SpecialDamage => 45; public override int SpecialDefence => 55; public override int Speed => 25;
+        public override ExpGroup ExpGroup => ExpGroup.MediumFast; public override int MaxHP => 35; public override int PhysicalDamage => 70; public override int PhysicalDefence => 55; public override int SpecialDamage => 45; public override int SpecialDefence => 55; public override int Speed => 25;
 
         public override void SetDefaults()
         {
             base.SetDefaults();
 
-            
-            
+
+
         }
     }
 }

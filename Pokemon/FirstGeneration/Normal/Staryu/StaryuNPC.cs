@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Staryu
 {
     public class StaryuNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Staryu/Staryu";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Staryu/Staryu";
         public override Type HomeClass()
         {
             return typeof(Staryu);

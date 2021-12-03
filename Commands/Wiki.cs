@@ -1,6 +1,8 @@
 ﻿using System.Diagnostics;
 using Terramon.Players;
+using Terramon.Pokemon;
 using Terramon.UI;
+using Terramon.UI.SidebarParty;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -21,9 +23,10 @@ namespace Terramon.Commands
             if (args.Length == 0)
             {
                 TerramonMod terramonMod = ModContent.GetInstance<TerramonMod>();
-                terramonMod.summaryUI = new AnimatorUI();
-                terramonMod.summaryUIInterface.SetState(terramonMod.summaryUI);
+                terramonMod._battle.SetState(BattleMode.UI = new BattleUI());
+                terramonMod.summaryUIInterface.SetState(terramonMod.summaryUI = new AnimatorUI());
                 //Process.Start("https://terrariamods.gamepedia.com/Terramon");
+
             }
         }
     }

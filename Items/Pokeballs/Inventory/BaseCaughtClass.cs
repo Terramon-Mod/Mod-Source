@@ -75,7 +75,7 @@ namespace Terramon.Items.Pokeballs.Inventory
 
         public override void SetDefaults()
         {
-            if(PokeData == null)
+            if (PokeData == null)
                 PokeData = new PokemonData();
 
             item.damage = 20;
@@ -136,7 +136,8 @@ namespace Terramon.Items.Pokeballs.Inventory
                 if (isShiny)
                 {
                     SmallSpritePath = mon.IconName + "_Shiny";
-                } else
+                }
+                else
                 {
                     SmallSpritePath = mon.IconName;
                 }
@@ -167,7 +168,8 @@ namespace Terramon.Items.Pokeballs.Inventory
                 if (isShiny)
                 {
                     modPlayer.ActivePetShiny = true;
-                } else
+                }
+                else
                 {
                     modPlayer.ActivePetShiny = false;
                 }
@@ -253,7 +255,7 @@ namespace Terramon.Items.Pokeballs.Inventory
                 return;
             }
 
-            ((TerramonMod) mod).PartySlots.UpdateUI(null);
+            ((TerramonMod)mod).PartySlots.UpdateUI(null);
         }
 
         public const string POKEBAL_PROPERTY = "PokebalType";
@@ -341,7 +343,7 @@ namespace Terramon.Items.Pokeballs.Inventory
             for (int i = 0; i < tooltips.Count;)
                 //if (tooltips[i].text.Contains("damage") || tooltips[i].text.Contains("knockback") ||
                 //    tooltips[i].text.Contains("critical strike") || tooltips[i].text.Contains("speed"))
-                if(tooltips[i].Name != "ItemName" && tooltips[i].Name != "Tooltip0")
+                if (tooltips[i].Name != "ItemName" && tooltips[i].Name != "Tooltip0")
                     tooltips.RemoveAt(i);
                 else
                     i++;

@@ -19,14 +19,14 @@ namespace Terramon.Pokemon.FirstGeneration.Normal.Staryu
 
         public override PokemonType[] PokemonTypes => new[] { PokemonType.Water };
 
-        public override ExpGroup ExpGroup => ExpGroup.Slow;public override int MaxHP => 30; public override int PhysicalDamage => 45; public override int PhysicalDefence => 55; public override int SpecialDamage => 70; public override int SpecialDefence => 55; public override int Speed => 85;
+        public override ExpGroup ExpGroup => ExpGroup.Slow; public override int MaxHP => 30; public override int PhysicalDamage => 45; public override int PhysicalDefence => 55; public override int SpecialDamage => 70; public override int SpecialDefence => 55; public override int Speed => 85;
 
         public override void SetDefaults()
         {
             base.SetDefaults();
 
-            
-            
+
+
         }
     }
 }

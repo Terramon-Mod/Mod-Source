@@ -25,7 +25,7 @@ namespace Terramon.Pokemon
     /// </summary>
     public class PokemonData : ITagLoadable
     {
-        
+
         internal bool needUpdate = false;
         internal byte pokeballType;
         private int level;
@@ -50,7 +50,7 @@ namespace Terramon.Pokemon
             get => pokemon;
             set
             {
-                if(pokemon == value)
+                if (pokemon == value)
                     return;
 
                 pokemon = value;
@@ -72,14 +72,14 @@ namespace Terramon.Pokemon
         /// <summary>
         /// Used to store some local data what don't be saved
         /// </summary>
-        public Dictionary<string, string> CustomData { get; set; } = new Dictionary<string, string>(); 
+        public Dictionary<string, string> CustomData { get; set; } = new Dictionary<string, string>();
 
         public int Level
         {
             get => level;
             set
             {
-                if(value == level)
+                if (value == level)
                     return;
                 level = value;
                 needUpdate = true;
@@ -91,7 +91,7 @@ namespace Terramon.Pokemon
             get => exp;
             set
             {
-                if(exp == value)
+                if (exp == value)
                     return;
                 exp = value;
                 while (exp >= expToNext)
@@ -121,9 +121,9 @@ namespace Terramon.Pokemon
             get => TotalStatValue(GetStat.HP);
             set
             {
-                if(maxHp == value)
+                if (maxHp == value)
                     return;
-                
+
                 maxHp = value;
                 needUpdate = true;
             }
@@ -209,7 +209,8 @@ namespace Terramon.Pokemon
             }
 
             float otherStat = 0;
-            if (stat == GetStat.Attack) {
+            if (stat == GetStat.Attack)
+            {
                 float a = (float)Math.Floor((float)PhysDmgEV / 4f); // Add EVs division here later
                 float b = (float)Math.Floor(2 * (float)BaseMove.GetBaseAttack(this) + PhysDmgIV + a);
                 float c = (float)Math.Floor(b * Level / 100);
@@ -285,7 +286,7 @@ namespace Terramon.Pokemon
             foreach (PokemonType it in Types)
             {
                 // ReSharper disable once CompareOfFloatsByEqualityOperator // Disable this warning bc we have precise values
-                if(it.GetResist(damageType) == 1f)
+                if (it.GetResist(damageType) == 1f)
                     continue;
                 delta = (int)(delta * it.GetResist(damageType));
             }
@@ -334,7 +335,7 @@ namespace Terramon.Pokemon
             if (state == BattleState.BattleWithWild) a = 1;
             else a = 1.5f;
 
-            gain = (int)(a * t * b * e * l * p * f * v)/(7 * s);
+            gain = (int)(a * t * b * e * l * p * f * v) / (7 * s);
 
             pokemon.Exp += gain;
 
@@ -399,8 +400,8 @@ namespace Terramon.Pokemon
 
         public PokemonData()
         {
-            Moves = new BaseMove[] {null, null, null, null};
-            Types = new [] {PokemonType.Normal};
+            Moves = new BaseMove[] { null, null, null, null };
+            Types = new[] { PokemonType.Normal };
             ExperienceGroup = ExpGroup.MediumFast;
             MaxHP = 45 + Main.rand?.Next(20) ?? 0;
             HP = 45 + Main.rand?.Next(20) ?? 0;
@@ -482,7 +483,7 @@ namespace Terramon.Pokemon
                 }
             }
 
-            pokeballType = (byte) TerramonMod.PokeballFactory.GetEnum(tag);
+            pokeballType = (byte)TerramonMod.PokeballFactory.GetEnum(tag);
         }
 
 

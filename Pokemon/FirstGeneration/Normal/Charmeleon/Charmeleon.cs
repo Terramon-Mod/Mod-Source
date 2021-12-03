@@ -17,14 +17,14 @@ namespace Terramon.Pokemon.FirstGeneration.Normal.Charmeleon
 
         public override PokemonType[] PokemonTypes => new[] { PokemonType.Fire };
 
-        public override ExpGroup ExpGroup => ExpGroup.MediumSlow;public override int MaxHP => 58; public override int PhysicalDamage => 64; public override int PhysicalDefence => 58; public override int SpecialDamage => 80; public override int SpecialDefence => 65; public override int Speed => 80;
+        public override ExpGroup ExpGroup => ExpGroup.MediumSlow; public override int MaxHP => 58; public override int PhysicalDamage => 64; public override int PhysicalDefence => 58; public override int SpecialDamage => 80; public override int SpecialDefence => 65; public override int Speed => 80;
 
         public override void SetDefaults()
         {
             base.SetDefaults();
 
-            
-            
+
+
         }
     }
 }

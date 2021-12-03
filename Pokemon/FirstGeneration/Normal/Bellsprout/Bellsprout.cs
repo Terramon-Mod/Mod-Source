@@ -17,14 +17,14 @@ namespace Terramon.Pokemon.FirstGeneration.Normal.Bellsprout
 
         public override PokemonType[] PokemonTypes => new[] { PokemonType.Grass, PokemonType.Poison };
 
-        public override ExpGroup ExpGroup => ExpGroup.MediumSlow;public override int MaxHP => 50; public override int PhysicalDamage => 75; public override int PhysicalDefence => 35; public override int SpecialDamage => 70; public override int SpecialDefence => 30; public override int Speed => 40;
+        public override ExpGroup ExpGroup => ExpGroup.MediumSlow; public override int MaxHP => 50; public override int PhysicalDamage => 75; public override int PhysicalDefence => 35; public override int SpecialDamage => 70; public override int SpecialDefence => 30; public override int Speed => 40;
 
         public override void SetDefaults()
         {
             base.SetDefaults();
 
-            
-            
+
+
         }
     }
 }

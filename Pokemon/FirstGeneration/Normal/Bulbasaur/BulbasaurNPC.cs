@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Bulbasaur
 {
     public class BulbasaurNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Bulbasaur/Bulbasaur";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Bulbasaur/Bulbasaur";
         public override Type HomeClass()
         {
             return typeof(Bulbasaur);

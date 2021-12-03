@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Persian
 {
     public class PersianNPC : NotCatchablePKMN
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Persian/Persian";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Persian/Persian";
         public override Type HomeClass()
         {
             return typeof(Persian);

@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Weezing
 {
     public class WeezingNPC : NotCatchablePKMNFlying
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Weezing/Weezing";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Weezing/Weezing";
         public override Type HomeClass()
         {
             return typeof(Weezing);

@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Kangaskhan
 {
     public class KangaskhanNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Kangaskhan/Kangaskhan";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Kangaskhan/Kangaskhan";
         public override Type HomeClass()
         {
             return typeof(Kangaskhan);

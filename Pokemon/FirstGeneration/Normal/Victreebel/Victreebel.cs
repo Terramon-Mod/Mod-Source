@@ -11,20 +11,20 @@ namespace Terramon.Pokemon.FirstGeneration.Normal.Victreebel
 {
     public class Victreebel : ParentPokemon
     {
-        
 
-        
+
+
 
         public override PokemonType[] PokemonTypes => new[] { PokemonType.Grass, PokemonType.Poison };
 
-        public override ExpGroup ExpGroup => ExpGroup.MediumSlow;public override int MaxHP => 80; public override int PhysicalDamage => 105; public override int PhysicalDefence => 65; public override int SpecialDamage => 100; public override int SpecialDefence => 70; public override int Speed => 70;
+        public override ExpGroup ExpGroup => ExpGroup.MediumSlow; public override int MaxHP => 80; public override int PhysicalDamage => 105; public override int PhysicalDefence => 65; public override int SpecialDamage => 100; public override int SpecialDefence => 70; public override int Speed => 70;
 
         public override void SetDefaults()
         {
             base.SetDefaults();
 
-            
-            
+
+
         }
     }
 }

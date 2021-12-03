@@ -15,8 +15,8 @@ namespace Razorwing.Framework.Timing
         public double CurrentTime
         {
             get => GameTime.TotalGameTime.TotalMilliseconds;
-            private set 
-            { 
+            private set
+            {
                 //We can't change in game timers, so no needed
             }
 
@@ -39,7 +39,7 @@ namespace Razorwing.Framework.Timing
 
         public void Dispose()
         {
-            
+
         }
     }
 }

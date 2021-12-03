@@ -20,8 +20,8 @@ namespace Terramon.Pokemon.FourthGeneration.Normal.Drifloon
         {
             base.SetDefaults();
 
-            
-            
+
+
         }
     }
 }

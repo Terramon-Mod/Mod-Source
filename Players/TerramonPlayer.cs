@@ -26,6 +26,8 @@ using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using static Terraria.ModLoader.ModContent;
 using Terraria.DataStructures;
+using System.Management;
+using System.Text;
 // ReSharper disable ParameterHidesMember
 // ReSharper disable LocalVariableHidesMember
 
@@ -44,7 +46,7 @@ namespace Terramon.Players
 
         private Dictionary<string, bool> ActivePets = new Dictionary<string, bool>();
         private List<PokemonData> pokemonStorage = new List<PokemonData>();
-        public List<PokemonData> PokemonStore => pokemonStorage; 
+        public List<PokemonData> PokemonStore => pokemonStorage;
         public int ActivePetId = -1;
         public bool ActivePetShiny;
         public string ActivePetName = string.Empty;
@@ -490,8 +492,8 @@ namespace Terramon.Players
         {
             //var modItem = ((TerramonMod)mod).PartySlots.partyslot1.Item.modItem;
             TerramonMod.PokeballFactory.Pokebals en = TerramonMod.PokeballFactory.Pokebals.Nothing;
-            if(value != null)
-                en = (TerramonMod.PokeballFactory.Pokebals) value.GetByte(BaseCaughtClass.POKEBAL_PROPERTY);
+            if (value != null)
+                en = (TerramonMod.PokeballFactory.Pokebals)value.GetByte(BaseCaughtClass.POKEBAL_PROPERTY);
             if (en == 0)
             {
                 modItem.TurnToAir();
@@ -591,6 +593,7 @@ namespace Terramon.Players
                 Main.NewText($"Go the the Mod Browser to update!");
             }
         }
+
         public string Get(string uri)
         {
             try
@@ -892,12 +895,20 @@ namespace Terramon.Players
                 }
         }
 
+        public bool battleScreenShake = false;
+        public float battleShakeIntensity = 0.75f;
+
         public override void ModifyScreenPosition()
         {
             if (GetInstance<TerramonMod>().battleCamera != Vector2.Zero && Battle != null)
             {
                 Main.screenPosition = GetInstance<TerramonMod>().battleCamera - new Vector2(Main.screenWidth / 2, Main.screenHeight / 2);
             }
+
+            // Battle camera shake
+
+            if (battleScreenShake) Main.screenPosition += Utils.RandomVector2(Main.rand, Main.rand.Next(-6, 5), Main.rand.Next(-6, 5)) * battleShakeIntensity;
+
             base.ModifyScreenPosition();
         }
 
@@ -1138,7 +1149,8 @@ namespace Terramon.Players
                 if (Battle.ForceDirection != 0)
                 {
                     player.direction = Battle.ForceDirection;
-                } else
+                }
+                else
                 {
                     player.direction = Battle.WildNPC.projectile.position.X > player.position.X ? 1 : -1;
                 }

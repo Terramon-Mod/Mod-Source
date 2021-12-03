@@ -17,14 +17,14 @@ namespace Terramon.Pokemon.FirstGeneration.Normal.Charmander
 
         public override PokemonType[] PokemonTypes => new[] { PokemonType.Fire };
 
-        public override ExpGroup ExpGroup => ExpGroup.MediumSlow;public override int MaxHP => 39; public override int PhysicalDamage => 52; public override int PhysicalDefence => 43; public override int SpecialDamage => 60; public override int SpecialDefence => 50; public override int Speed => 65;
+        public override ExpGroup ExpGroup => ExpGroup.MediumSlow; public override int MaxHP => 39; public override int PhysicalDamage => 52; public override int PhysicalDefence => 43; public override int SpecialDamage => 60; public override int SpecialDefence => 50; public override int Speed => 65;
 
         public override void SetDefaults()
         {
             base.SetDefaults();
 
-            
-            
+
+
         }
     }
 }

@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Magikarp
 {
     public class MagikarpNPC : NotCatchablePKMN
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Magikarp/Magikarp";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Magikarp/Magikarp";
         public override Type HomeClass()
         {
             return typeof(Magikarp);

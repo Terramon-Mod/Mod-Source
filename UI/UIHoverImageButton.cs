@@ -14,7 +14,7 @@ namespace Terramon.UI
         internal string HoverText;
 
 
-        public UIHoverImageButton(Texture2D texture, string hoverText) 
+        public UIHoverImageButton(Texture2D texture, string hoverText)
         {
             HoverText = hoverText;
             Texture = texture;

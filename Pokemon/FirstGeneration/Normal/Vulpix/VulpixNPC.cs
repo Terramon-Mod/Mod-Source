@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Vulpix
 {
     public class VulpixNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Vulpix/Vulpix";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Vulpix/Vulpix";
         public override Type HomeClass()
         {
             return typeof(Vulpix);
@@ -21,24 +22,26 @@ namespace Terramon.Pokemon.FirstGeneration.Normal.Vulpix
             npc.scale = 1f;
         }
 
-public static bool PlayerIsInForest(Player player){
-	return !player.ZoneJungle
-		&& !player.ZoneDungeon
-		&& !player.ZoneCorrupt
-		&& !player.ZoneCrimson
-		&& !player.ZoneHoly
-		&& !player.ZoneSnow
-		&& !player.ZoneUndergroundDesert
-		&& !player.ZoneGlowshroom
-		&& !player.ZoneMeteor
-		&& !player.ZoneBeach
-		&& !player.ZoneDesert;
-}
+        public static bool PlayerIsInForest(Player player)
+        {
+            return !player.ZoneJungle
+                && !player.ZoneDungeon
+                && !player.ZoneCorrupt
+                && !player.ZoneCrimson
+                && !player.ZoneHoly
+                && !player.ZoneSnow
+                && !player.ZoneUndergroundDesert
+                && !player.ZoneGlowshroom
+                && !player.ZoneMeteor
+                && !player.ZoneBeach
+                && !player.ZoneDesert;
+        }
 
-public static bool PlayerIsInEvils(Player player){
-	return player.ZoneCrimson
-		|| player.ZoneCorrupt;
-}
+        public static bool PlayerIsInEvils(Player player)
+        {
+            return player.ZoneCrimson
+                || player.ZoneCorrupt;
+        }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {

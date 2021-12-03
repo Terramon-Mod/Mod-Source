@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Clefairy
 {
     public class ClefairyNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Clefairy/Clefairy";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Clefairy/Clefairy";
         public override Type HomeClass()
         {
             return typeof(Clefairy);

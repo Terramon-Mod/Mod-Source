@@ -77,9 +77,9 @@ namespace Terramon
         private UserInterface _exampleUserInterfaceNew; // Pokegear Main Menu
         private UserInterface PokegearUserInterfaceNew;
         private UserInterface evolveUserInterfaceNew; // Pokegear Events Menu
-        private UserInterface _uiSidebar;
+        public UserInterface _uiSidebar;
         private UserInterface _moves;
-        private UserInterface _battle;
+        public UserInterface _battle;
         public UserInterface _partySlots;
 
         public static ModHotKey PartyCycle;
@@ -119,7 +119,7 @@ namespace Terramon
             "PumpkinBall"
         };
 
-      // catch chance of the ball refers to the same index as the ball
+        // catch chance of the ball refers to the same index as the ball
         private static readonly float[][] catchChances =
         {
             new[] {.1190f}, //Pokeball
@@ -154,63 +154,27 @@ namespace Terramon
             return;
 #endif
             timestamp = Timestamps.Now;
-                client.SetPresence(new RichPresence()
-                {
-                    Details = "In-Game",
-                    State = "Playing v0.4.2",
-                    Assets = new Assets()
-                    {
-                        LargeImageKey = "largeimage2",
-                        LargeImageText = "Terramon Mod",
-                        SmallImageKey = "pokeball",
-                        SmallImageText = "No Pokémon Selected"
-                    },
-                    Timestamps = timestamp
-                });
-        }
-
-        public virtual void DisplayPokemonNameRP(string name, bool shinyness)
-        {
-#if DEBUG
-            return;   
-#endif
-            if (shinyness)
-            {
-                name = name += " ✨";
-            }
-            client?.SetPresence(new RichPresence()
+            client.SetPresence(new RichPresence()
             {
                 Details = "In-Game",
-                State = "Playing v0.4.2",
+                State = $"Playing v{ModContent.GetInstance<TerramonMod>().Version}",
                 Assets = new Assets()
                 {
                     LargeImageKey = "largeimage2",
                     LargeImageText = "Terramon Mod",
-                    SmallImageKey = "pokeball",
-                    SmallImageText = "Using " + name
                 },
                 Timestamps = timestamp
             });
         }
 
+        public virtual void DisplayPokemonNameRP(string name, bool shinyness)
+        {
+            return;
+        }
+
         public virtual void RemoveDisplayPokemonNameRP()
         {
-#if DEBUG
             return;
-#endif
-            client?.SetPresence(new RichPresence()
-                {
-                    Details = "In-Game",
-                    State = "Playing v0.4.2",
-                    Assets = new Assets()
-                    {
-                        LargeImageKey = "largeimage2",
-                        LargeImageText = "Terramon Mod",
-                        SmallImageKey = "pokeball",
-                        SmallImageText = "No Pokémon Selected"
-                    },
-                    Timestamps = timestamp
-                });
         }
 
         public override void PreSaveAndQuit()
@@ -218,17 +182,17 @@ namespace Terramon
             TerramonPlayer p = Main.LocalPlayer.GetModPlayer<TerramonPlayer>();
             p.openingSfx?.Stop();
             client?.SetPresence(new RichPresence()
+            {
+                Details = "In Menu",
+                State = $"Playing v{ModContent.GetInstance<TerramonMod>().Version}",
+                Assets = new Assets()
                 {
-                    Details = "In Menu",
-                    State = "Playing v0.4.2",
-                    Assets = new Assets()
-                    {
-                        LargeImageKey = "largeimage2",
-                        LargeImageText = "Terramon Mod"
-                    }
-                });
+                    LargeImageKey = "largeimage2",
+                    LargeImageText = "Terramon Mod"
+                }
+            });
         }
-		
+
         protected DllResourceStore man;
         protected Bindable<string> locale = new Bindable<string>(Language.ActiveCulture.Name);
 
@@ -270,11 +234,11 @@ namespace Terramon
                 client.SetPresence(new RichPresence()
                 {
                     Details = "In Menu",
-                    State = "Playing v0.4.2",
+                    State = $"Playing v{ModContent.GetInstance<TerramonMod>().Version}",
                     Assets = new Assets()
                     {
                         LargeImageKey = "largeimage2",
-                        LargeImageText = "Terramon Mod"
+                        LargeImageText = "Merry Christmas!"
                     }
                 });
             }
@@ -302,7 +266,7 @@ namespace Terramon
                 Localisation.AddLanguage(GameCulture.Russian.Name, new LocalisationStore(Store, GameCulture.Russian));//Adds ru-RU.lang file handling
 #if DEBUG
                 UseWebAssets = true;
-                var ss = Localisation.GetLocalisedString(new LocalisedString(("title","Powered by broken code")));//It's terrible checking in ui from phone, so i can ensure everything works from version string
+                var ss = Localisation.GetLocalisedString(new LocalisedString(("title", "Powered by broken code")));//It's terrible checking in ui from phone, so i can ensure everything works from version string
                 //Main.versionNumber = ss.Value + "\n" + Main.versionNumber;
 #endif
                 Ref<Effect> screenRef = new Ref<Effect>(GetEffect("Effects/ShockwaveEffect")); // The path to the compiled shader file.
@@ -540,9 +504,8 @@ namespace Terramon
             if (Main.myPlayer == -1 || Main.gameMenu || !Main.LocalPlayer.active) return;
 
             var player = Main.LocalPlayer.GetModPlayer<TerramonPlayer>();
-            var modExpanse = ModLoader.GetMod("tmonadds");
 
-            if (player.Battle != null && modExpanse == null)
+            if (player.Battle != null)
             {
                 priority = MusicPriority.BossHigh;
                 music = GetSoundSlot(SoundType.Music, "Sounds/Music/Battling/wildbattle");
@@ -560,7 +523,7 @@ namespace Terramon
                 priority = MusicPriority.BossHigh;
                 music = GetSoundSlot(SoundType.Music, null);
             }
-            if (MyUIStateActive(Main.LocalPlayer) && ChooseStarter.movieFinished && modExpanse == null)
+            if (MyUIStateActive(Main.LocalPlayer) && ChooseStarter.movieFinished)
             {
                 priority = MusicPriority.BossHigh;
                 music = GetSoundSlot(SoundType.Music, "Sounds/Music/wifi");
@@ -570,14 +533,14 @@ namespace Terramon
         // END UI STUFF
 
 
-#region HotKeys
+        #region HotKeys
 
         public ModHotKey FirstPKMAbility { get; private set; }
         public ModHotKey SecondPKMAbility { get; private set; }
         public ModHotKey ThirdPKMAbility { get; private set; }
         public ModHotKey FourthPKMAbility { get; private set; }
 
-#endregion
+        #endregion
 
 
         /// <summary>
@@ -695,22 +658,22 @@ namespace Terramon
                 switch (type)
                 {
                     case SpawnStarterPacket.NAME:
-                    {
-                        //Server can't have any UI
-                        if (whoAmI == 256)
-                            return;
-                        SpawnStarterPacket packet = new SpawnStarterPacket();
-                        packet.HandleFromClient(reader, whoAmI);
-                    }
+                        {
+                            //Server can't have any UI
+                            if (whoAmI == 256)
+                                return;
+                            SpawnStarterPacket packet = new SpawnStarterPacket();
+                            packet.HandleFromClient(reader, whoAmI);
+                        }
                         break;
                     case BaseCatchPacket.NAME:
-                    {
-                        //Server should handle it from client
-                        if (whoAmI == 256)
-                            return;
-                        BaseCatchPacket packet = new BaseCatchPacket();
-                        packet.HandleFromClient(reader, whoAmI);
-                    }
+                        {
+                            //Server should handle it from client
+                            if (whoAmI == 256)
+                                return;
+                            BaseCatchPacket packet = new BaseCatchPacket();
+                            packet.HandleFromClient(reader, whoAmI);
+                        }
                         break;
                     default:
                         if (packetStore.ContainsKey(type))
@@ -722,7 +685,7 @@ namespace Terramon
                         }
                         break;
                 }
-                
+
             }
             catch (Exception e)
             {
@@ -806,14 +769,14 @@ namespace Terramon
                     try
                     {
                         if (baseType == typeof(ParentPokemon))
-                            pokemonStore.Add(it.Name, (ParentPokemon) Activator.CreateInstance(it));
+                            pokemonStore.Add(it.Name, (ParentPokemon)Activator.CreateInstance(it));
                         else if (baseType == typeof(ParentPokemonNPC))
-                            wildPokemonStore.Add(it.Name, (ParentPokemonNPC) Activator.CreateInstance(it));
+                            wildPokemonStore.Add(it.Name, (ParentPokemonNPC)Activator.CreateInstance(it));
                         else if (baseType == typeof(BaseMove))
-                            movesStore.Add(it.Name, (BaseMove) Activator.CreateInstance(it));
+                            movesStore.Add(it.Name, (BaseMove)Activator.CreateInstance(it));
                         else if (baseType == typeof(Packet))
                         {
-                            var p = (Packet) Activator.CreateInstance(it);
+                            var p = (Packet)Activator.CreateInstance(it);
                             packetStore.Add(p.PacketName, p);
                         }
                     }

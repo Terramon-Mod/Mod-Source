@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Scyther
 {
     public class ScytherNPC : ParentPokemonNPCFlyingBird
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Scyther/Scyther";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Scyther/Scyther";
         public override Type HomeClass()
         {
             return typeof(Scyther);

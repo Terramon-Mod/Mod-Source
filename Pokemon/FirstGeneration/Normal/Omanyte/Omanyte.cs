@@ -17,14 +17,14 @@ namespace Terramon.Pokemon.FirstGeneration.Normal.Omanyte
 
         public override PokemonType[] PokemonTypes => new[] { PokemonType.Rock, PokemonType.Water };
 
-        public override ExpGroup ExpGroup => ExpGroup.MediumFast;public override int MaxHP => 35; public override int PhysicalDamage => 40; public override int PhysicalDefence => 100; public override int SpecialDamage => 90; public override int SpecialDefence => 55; public override int Speed => 35;
+        public override ExpGroup ExpGroup => ExpGroup.MediumFast; public override int MaxHP => 35; public override int PhysicalDamage => 40; public override int PhysicalDefence => 100; public override int SpecialDamage => 90; public override int SpecialDefence => 55; public override int Speed => 35;
 
         public override void SetDefaults()
         {
             base.SetDefaults();
 
-            
-            
+
+
         }
     }
 }

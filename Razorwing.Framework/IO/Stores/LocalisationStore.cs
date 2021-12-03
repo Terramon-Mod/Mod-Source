@@ -52,7 +52,7 @@ namespace Terramon.Razorwing.Framework.IO.Stores
                         }
                         else
                         {
-                            dictionary.Add(key, val); 
+                            dictionary.Add(key, val);
                         }
                         //if (!Enum.TryParse(key, out TLookup lookup))
                         //    continue;

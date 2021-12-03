@@ -19,14 +19,14 @@ namespace Terramon.Pokemon.FirstGeneration.Normal.Clefairy
 
         public override PokemonType[] PokemonTypes => new[] { PokemonType.Fairy };
 
-        public override ExpGroup ExpGroup => ExpGroup.Fast;public override int MaxHP => 70; public override int PhysicalDamage => 45; public override int PhysicalDefence => 48; public override int SpecialDamage => 60; public override int SpecialDefence => 65; public override int Speed => 35;
+        public override ExpGroup ExpGroup => ExpGroup.Fast; public override int MaxHP => 70; public override int PhysicalDamage => 45; public override int PhysicalDefence => 48; public override int SpecialDamage => 60; public override int SpecialDefence => 65; public override int Speed => 35;
 
         public override void SetDefaults()
         {
             base.SetDefaults();
 
-            
-            
+
+
         }
     }
 }

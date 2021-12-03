@@ -11,20 +11,20 @@ namespace Terramon.Pokemon.FirstGeneration.Normal.Magneton
 {
     public class Magneton : ParentPokemonGastly
     {
-        
 
-        
+
+
 
         public override PokemonType[] PokemonTypes => new[] { PokemonType.Electric, PokemonType.Steel };
 
-        public override ExpGroup ExpGroup => ExpGroup.MediumFast;public override int MaxHP => 50; public override int PhysicalDamage => 60; public override int PhysicalDefence => 95; public override int SpecialDamage => 120; public override int SpecialDefence => 70; public override int Speed => 70;
+        public override ExpGroup ExpGroup => ExpGroup.MediumFast; public override int MaxHP => 50; public override int PhysicalDamage => 60; public override int PhysicalDefence => 95; public override int SpecialDamage => 120; public override int SpecialDefence => 70; public override int Speed => 70;
 
         public override void SetDefaults()
         {
             base.SetDefaults();
 
-            
-            
+
+
         }
     }
 }

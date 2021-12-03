@@ -19,14 +19,14 @@ namespace Terramon.Pokemon.FirstGeneration.Normal.Nidorino
 
         public override PokemonType[] PokemonTypes => new[] { PokemonType.Poison };
 
-        public override ExpGroup ExpGroup => ExpGroup.MediumSlow;public override int MaxHP => 61; public override int PhysicalDamage => 72; public override int PhysicalDefence => 57; public override int SpecialDamage => 55; public override int SpecialDefence => 55; public override int Speed => 65;
+        public override ExpGroup ExpGroup => ExpGroup.MediumSlow; public override int MaxHP => 61; public override int PhysicalDamage => 72; public override int PhysicalDefence => 57; public override int SpecialDamage => 55; public override int SpecialDefence => 55; public override int Speed => 65;
 
         public override void SetDefaults()
         {
             base.SetDefaults();
 
-            
-            
+
+
         }
     }
 }

@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Dratini
 {
     public class DratiniNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Dratini/Dratini";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Dratini/Dratini";
         public override Type HomeClass()
         {
             return typeof(Dratini);

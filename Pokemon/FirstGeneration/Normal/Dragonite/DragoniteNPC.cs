@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Dragonite
 {
     public class DragoniteNPC : NotCatchablePKMNBirdFlying
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Dragonite/Dragonite";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Dragonite/Dragonite";
         public override Type HomeClass()
         {
             return typeof(Dragonite);

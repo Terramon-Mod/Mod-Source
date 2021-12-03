@@ -104,14 +104,14 @@ namespace Terramon.UI.SidebarParty
         public override void OnInitialize()
         {
             //Add version string as argument so it can be passed in other locales
-            help1Text.Args = new object[] {TerramonMod.Instance.Version};
+            help1Text.Args = new object[] { TerramonMod.Instance.Version };
 
             Append(TerramonMod.ZoomAnimator = new Animator());
 
             //pokemon icons
             mainPanel = new SidebarPanel();
             mainPanel.SetPadding(0);
-            mainPanel.HAlign = 0f - 0.01f;
+            mainPanel.Left.Set(-8, 0f);
             mainPanel.VAlign = 0.65f;
             mainPanel.Width.Set(94, 0f);
             mainPanel.Height.Set(400, 0f);
@@ -126,7 +126,7 @@ namespace Terramon.UI.SidebarParty
             choose.OnClick += HelpClicked;
             Append(choose);
 
-//#if DEBUG
+            //#if DEBUG
             chooseTexture = ModContent.GetTexture("Terramon/UI/SidebarParty/LightMode");
             battle = new UIOpaqueButton(chooseTexture, "[PH] Start Battle")
             {
@@ -168,10 +168,10 @@ namespace Terramon.UI.SidebarParty
                     {
                         var data = new PokemonData()
                         {
-                            Pokemon = ((ParentPokemonNPC) id.modNPC).HomeClass().Name,
+                            Pokemon = ((ParentPokemonNPC)id.modNPC).HomeClass().Name,
                         };
                         player.Battle = new BattleMode(player, BattleState.BattleWithWild,
-                            npc: (ParentPokemonNPC) id.modNPC, second: data);
+                            npc: (ParentPokemonNPC)id.modNPC, second: data);
                         if (Main.netMode == NetmodeID.MultiplayerClient)
                         {
                             var p = new StartBattlePacket();
@@ -183,7 +183,7 @@ namespace Terramon.UI.SidebarParty
             };
             //Append(battle);
 
-//#endif
+            //#endif
 
             //firstpkmntexture = ModContent.GetTexture("Terramon/UI/SidebarParty/Empty");
             firstpkmn = new SidebarClass("")
@@ -602,7 +602,7 @@ namespace Terramon.UI.SidebarParty
                     PrintSwitch(player, modPlayer);
                 if (!player.HasBuff(pokeBuff)) player.AddBuff(pokeBuff, 2);
                 modPlayer.ActivePetName = pet;
-                goText.Args = new object[] {pokemonName1.Value};
+                goText.Args = new object[] { pokemonName1.Value };
                 //CombatText.NewText(player.Hitbox, Color.White, goText.Value, true);
                 Main.PlaySound(ModContent.GetInstance<TerramonMod>()
                     .GetLegacySoundSlot(SoundType.Custom, "Sounds/Custom/sendout"));
@@ -640,7 +640,7 @@ namespace Terramon.UI.SidebarParty
                     PrintSwitch(player, modPlayer);
                 if (!player.HasBuff(pokeBuff)) player.AddBuff(pokeBuff, 2);
                 modPlayer.ActivePetName = pet;
-                goText.Args = new object[] {pokemonName2.Value};
+                goText.Args = new object[] { pokemonName2.Value };
                 //CombatText.NewText(player.Hitbox, Color.White, goText.Value, true);
                 Main.PlaySound(ModContent.GetInstance<TerramonMod>()
                     .GetLegacySoundSlot(SoundType.Custom, "Sounds/Custom/sendout"));
@@ -678,7 +678,7 @@ namespace Terramon.UI.SidebarParty
                     PrintSwitch(player, modPlayer);
                 if (!player.HasBuff(pokeBuff)) player.AddBuff(pokeBuff, 2);
                 modPlayer.ActivePetName = pet;
-                goText.Args = new object[] {pokemonName3.Value};
+                goText.Args = new object[] { pokemonName3.Value };
                 //CombatText.NewText(player.Hitbox, Color.White, goText.Value, true);
                 Main.PlaySound(ModContent.GetInstance<TerramonMod>()
                     .GetLegacySoundSlot(SoundType.Custom, "Sounds/Custom/sendout"));
@@ -716,7 +716,7 @@ namespace Terramon.UI.SidebarParty
                     PrintSwitch(player, modPlayer);
                 if (!player.HasBuff(pokeBuff)) player.AddBuff(pokeBuff, 2);
                 modPlayer.ActivePetName = pet;
-                goText.Args = new object[] {pokemonName4.Value};
+                goText.Args = new object[] { pokemonName4.Value };
                 //CombatText.NewText(player.Hitbox, Color.White, goText.Value, true);
                 Main.PlaySound(ModContent.GetInstance<TerramonMod>()
                     .GetLegacySoundSlot(SoundType.Custom, "Sounds/Custom/sendout"));
@@ -754,7 +754,7 @@ namespace Terramon.UI.SidebarParty
                     PrintSwitch(player, modPlayer);
                 if (!player.HasBuff(pokeBuff)) player.AddBuff(pokeBuff, 2);
                 modPlayer.ActivePetName = pet;
-                goText.Args = new object[] {pokemonName5.Value};
+                goText.Args = new object[] { pokemonName5.Value };
                 //CombatText.NewText(player.Hitbox, Color.White, goText.Value, true);
                 Main.PlaySound(ModContent.GetInstance<TerramonMod>()
                     .GetLegacySoundSlot(SoundType.Custom, "Sounds/Custom/sendout"));
@@ -792,7 +792,7 @@ namespace Terramon.UI.SidebarParty
                     PrintSwitch(player, modPlayer);
                 if (!player.HasBuff(pokeBuff)) player.AddBuff(pokeBuff, 2);
                 modPlayer.ActivePetName = pet;
-                goText.Args = new object[] {pokemonName6.Value};
+                goText.Args = new object[] { pokemonName6.Value };
                 //CombatText.NewText(player.Hitbox, Color.White, goText.Value, true);
                 Main.PlaySound(ModContent.GetInstance<TerramonMod>()
                     .GetLegacySoundSlot(SoundType.Custom, "Sounds/Custom/sendout"));
@@ -842,15 +842,15 @@ namespace Terramon.UI.SidebarParty
             switch (Main.rand.Next(3))
             {
                 case 0:
-                    retire1Text.Args = new object[] {pet};
+                    retire1Text.Args = new object[] { pet };
                     //CombatText.NewText(rect, Color.White, retire1Text.Value, true);
                     break;
                 case 1:
-                    retire2Text.Args = new object[] {pet};
+                    retire2Text.Args = new object[] { pet };
                     //CombatText.NewText(rect, Color.White, retire2Text.Value, true);
                     break;
                 default:
-                    retire3Text.Args = new object[] {pet};
+                    retire3Text.Args = new object[] { pet };
                     //CombatText.NewText(rect, Color.White, retire3Text.Value, true);
                     break;
             }

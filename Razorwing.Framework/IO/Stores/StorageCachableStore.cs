@@ -34,7 +34,7 @@ namespace Terramon.Razorwing.Framework.IO.Stores
         public StorageCachableStore(Storage storage, IResourceStore<byte[]> store = null)
         {
             this.storage = storage;
-            if(store != null)
+            if (store != null)
                 AddStore(store);
 
             if (storage.Exists(AVAILABLE_FILE_NAME))

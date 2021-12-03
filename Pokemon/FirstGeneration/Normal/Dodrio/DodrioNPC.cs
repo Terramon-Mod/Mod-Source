@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Dodrio
 {
     public class DodrioNPC : NotCatchablePKMN
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Dodrio/Dodrio";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Dodrio/Dodrio";
         public override Type HomeClass()
         {
             return typeof(Dodrio);

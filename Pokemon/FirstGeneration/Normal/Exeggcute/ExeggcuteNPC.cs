@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Exeggcute
 {
     public class ExeggcuteNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Exeggcute/Exeggcute";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Exeggcute/Exeggcute";
         public override Type HomeClass()
         {
             return typeof(Exeggcute);

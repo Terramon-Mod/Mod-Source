@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Jolteon
 {
     public class JolteonNPC : NotCatchablePKMN
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Jolteon/Jolteon";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Jolteon/Jolteon";
         public override Type HomeClass()
         {
             return typeof(Jolteon);

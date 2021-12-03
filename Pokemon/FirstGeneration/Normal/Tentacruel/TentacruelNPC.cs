@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Tentacruel
 {
     public class TentacruelNPC : NotCatchablePKMN
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Tentacruel/Tentacruel";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Tentacruel/Tentacruel";
         public override Type HomeClass()
         {
             return typeof(Tentacruel);

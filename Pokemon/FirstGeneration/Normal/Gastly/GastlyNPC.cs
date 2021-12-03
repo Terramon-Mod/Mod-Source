@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Gastly
 {
     public class GastlyNPC : ParentPokemonNPCFlying
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Gastly/Gastly";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Gastly/Gastly";
         public override Type HomeClass()
         {
             return typeof(Gastly);

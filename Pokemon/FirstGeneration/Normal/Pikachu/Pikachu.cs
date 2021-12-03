@@ -19,14 +19,14 @@ namespace Terramon.Pokemon.FirstGeneration.Normal.Pikachu
 
         public override PokemonType[] PokemonTypes => new[] { PokemonType.Electric };
 
-        public override ExpGroup ExpGroup => ExpGroup.MediumFast;public override int MaxHP => 35; public override int PhysicalDamage => 55; public override int PhysicalDefence => 40; public override int SpecialDamage => 50; public override int SpecialDefence => 50; public override int Speed => 90;
+        public override ExpGroup ExpGroup => ExpGroup.MediumFast; public override int MaxHP => 35; public override int PhysicalDamage => 55; public override int PhysicalDefence => 40; public override int SpecialDamage => 50; public override int SpecialDefence => 50; public override int Speed => 90;
 
         public override void SetDefaults()
         {
             base.SetDefaults();
 
-            
-            
+
+
         }
     }
 }

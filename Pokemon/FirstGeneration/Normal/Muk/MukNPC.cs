@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Muk
 {
     public class MukNPC : NotCatchablePKMN
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Muk/Muk";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Muk/Muk";
         public override Type HomeClass()
         {
             return typeof(Muk);

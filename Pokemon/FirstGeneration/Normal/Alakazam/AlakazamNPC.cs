@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Alakazam
 {
     public class AlakazamNPC : NotCatchablePKMN
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Alakazam/Alakazam";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Alakazam/Alakazam";
         public override Type HomeClass()
         {
             return typeof(Alakazam);

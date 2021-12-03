@@ -15,14 +15,14 @@ namespace Terramon.Pokemon.ThirdGeneration.Normal.Dusclops
 
         public override Type EvolveTo => typeof(Dusknoir);
 
-        public override PokemonType[] PokemonTypes => new[] { PokemonType.Ghost};
+        public override PokemonType[] PokemonTypes => new[] { PokemonType.Ghost };
 
         public override void SetDefaults()
         {
             base.SetDefaults();
 
-            
-            
+
+
         }
     }
 }

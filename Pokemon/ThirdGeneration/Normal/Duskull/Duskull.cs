@@ -14,14 +14,14 @@ namespace Terramon.Pokemon.ThirdGeneration.Normal.Duskull
 
         public override Type EvolveTo => typeof(Dusclops.Dusclops);
 
-        public override PokemonType[] PokemonTypes => new[] { PokemonType.Ghost};
+        public override PokemonType[] PokemonTypes => new[] { PokemonType.Ghost };
 
         public override void SetDefaults()
         {
             base.SetDefaults();
 
-            
-            
+
+
         }
     }
 }

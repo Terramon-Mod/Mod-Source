@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Arcanine
 {
     public class ArcanineNPC : NotCatchablePKMN
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Arcanine/Arcanine";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Arcanine/Arcanine";
         public override Type HomeClass()
         {
             return typeof(Arcanine);

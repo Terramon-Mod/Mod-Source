@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Nidoking
 {
     public class NidokingNPC : NotCatchablePKMN
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Nidoking/Nidoking";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Nidoking/Nidoking";
         public override Type HomeClass()
         {
             return typeof(Nidoking);

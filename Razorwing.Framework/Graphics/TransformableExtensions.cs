@@ -353,7 +353,7 @@ namespace Razorwing.Framework.Graphics
         /// <returns>A <see cref="TransformSequence{T}"/> to which further transforms can be added.</returns>
         public static TransformSequence<T> MoveAlign<T>(this T drawable, Vector2 destination, double duration = 0, Easing easing = Easing.None) where T : Drawable
             => drawable.MoveHAlign(destination.Y, duration, easing).MoveVAlign(destination.X, duration, easing);
-        
+
 
         /// <summary>
         /// Smoothly adjusts <see cref="Drawable.VAlign"/> over time.

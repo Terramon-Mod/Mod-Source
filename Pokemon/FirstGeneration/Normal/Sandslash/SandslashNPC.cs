@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Sandslash
 {
     public class SandslashNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Sandslash/Sandslash";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Sandslash/Sandslash";
         public override Type HomeClass()
         {
             return typeof(Sandslash);

@@ -47,12 +47,12 @@ namespace Terramon.Pokemon.Moves
         public override bool PerformInBattle(ParentPokemon mon, ParentPokemon target, TerramonPlayer player, PokemonData attacker,
             PokemonData deffender, BaseMove move)
         {
-            var heal = (int) (attacker.MaxHP * 0.35f);
+            var heal = (int)(attacker.MaxHP * 0.35f);
             var d = attacker.HP;
             attacker.HP += heal;
             d = attacker.HP - d;
             CombatText.NewText(mon.projectile.Hitbox, CombatText.HealLife, d, true);
-            PostTextLoc.Args = new object[] {attacker.PokemonName, d};
+            PostTextLoc.Args = new object[] { attacker.PokemonName, d };
             return true;
         }
 

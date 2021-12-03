@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Victreebel
 {
     public class VictreebelNPC : NotCatchablePKMN
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Victreebel/Victreebel";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Victreebel/Victreebel";
         public override Type HomeClass()
         {
             return typeof(Victreebel);

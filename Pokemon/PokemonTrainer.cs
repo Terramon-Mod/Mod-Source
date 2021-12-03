@@ -156,17 +156,13 @@ namespace Terramon.Pokemon
                 case 13:
                     return "Have you played Mobile Creatures on the Game Boy? It has excellent music! Some can be played quite loud...";
                 case 14:
-                    return "I can give you some types of Poké Balls, but some require rare materials such as Nanites to craft.";
-                case 15:
                     return "That Pokédex of yours doesn't seem to be working. I'll have to look into buying you an upgrade...";
-                case 16:
+                case 15:
                     return "I like to decorate my room with mini Pokéballs, crafted using the same ingredients as full-sized ones.";
-                case 17:
+                case 16:
                     return "I conveniently sell Pokéballs for you to buy, but if you're short of cash you can always make your own using apricorns and iron!";
-                case 18:
-                    return "Sometimes when I shake a tree, apricorns fall out! They taste especially good when juiced.";
-                case 19:
-                    return "Flying Pokémon can be hard to catch. If only I had a stronger Pokéball to catch them with...";
+                case 17:
+                    return "Sometimes when I shake a tree, apricorns fall out!";
                 default:
                     return "missingno.";
             }

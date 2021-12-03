@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Cloyster
 {
     public class CloysterNPC : NotCatchablePKMN
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Cloyster/Cloyster";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Cloyster/Cloyster";
         public override Type HomeClass()
         {
             return typeof(Cloyster);

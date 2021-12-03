@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Seel
 {
     public class SeelNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Seel/Seel";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Seel/Seel";
         public override Type HomeClass()
         {
             return typeof(Seel);

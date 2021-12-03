@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Seaking
 {
     public class SeakingNPC : NotCatchablePKMN
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Seaking/Seaking";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Seaking/Seaking";
         public override Type HomeClass()
         {
             return typeof(Seaking);

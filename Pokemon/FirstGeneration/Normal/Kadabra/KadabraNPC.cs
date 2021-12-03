@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Kadabra
 {
     public class KadabraNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Kadabra/Kadabra";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Kadabra/Kadabra";
         public override Type HomeClass()
         {
             return typeof(Kadabra);

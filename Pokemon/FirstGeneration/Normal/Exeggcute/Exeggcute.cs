@@ -19,14 +19,14 @@ namespace Terramon.Pokemon.FirstGeneration.Normal.Exeggcute
 
         public override PokemonType[] PokemonTypes => new[] { PokemonType.Grass, PokemonType.Psychic };
 
-        public override ExpGroup ExpGroup => ExpGroup.Slow;public override int MaxHP => 60; public override int PhysicalDamage => 40; public override int PhysicalDefence => 80; public override int SpecialDamage => 60; public override int SpecialDefence => 45; public override int Speed => 40;
+        public override ExpGroup ExpGroup => ExpGroup.Slow; public override int MaxHP => 60; public override int PhysicalDamage => 40; public override int PhysicalDefence => 80; public override int SpecialDamage => 60; public override int SpecialDefence => 45; public override int Speed => 40;
 
         public override void SetDefaults()
         {
             base.SetDefaults();
 
-            
-            
+
+
         }
     }
 }

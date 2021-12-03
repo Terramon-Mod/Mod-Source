@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Doduo
 {
     public class DoduoNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Doduo/Doduo";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Doduo/Doduo";
         public override Type HomeClass()
         {
             return typeof(Doduo);

@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Vaporeon
 {
     public class VaporeonNPC : NotCatchablePKMN
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Vaporeon/Vaporeon";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Vaporeon/Vaporeon";
         public override Type HomeClass()
         {
             return typeof(Vaporeon);

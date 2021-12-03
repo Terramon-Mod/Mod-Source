@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Beedrill
 {
     public class BeedrillNPC : NotCatchablePKMNBirdFlying
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Beedrill/Beedrill";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Beedrill/Beedrill";
         public override Type HomeClass()
         {
             return typeof(Beedrill);

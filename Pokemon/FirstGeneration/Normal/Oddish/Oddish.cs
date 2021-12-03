@@ -17,14 +17,14 @@ namespace Terramon.Pokemon.FirstGeneration.Normal.Oddish
 
         public override PokemonType[] PokemonTypes => new[] { PokemonType.Grass, PokemonType.Poison };
 
-        public override ExpGroup ExpGroup => ExpGroup.MediumSlow;public override int MaxHP => 45; public override int PhysicalDamage => 50; public override int PhysicalDefence => 55; public override int SpecialDamage => 75; public override int SpecialDefence => 65; public override int Speed => 30;
+        public override ExpGroup ExpGroup => ExpGroup.MediumSlow; public override int MaxHP => 45; public override int PhysicalDamage => 50; public override int PhysicalDefence => 55; public override int SpecialDamage => 75; public override int SpecialDefence => 65; public override int Speed => 30;
 
         public override void SetDefaults()
         {
             base.SetDefaults();
 
-            
-            
+
+
         }
     }
 }

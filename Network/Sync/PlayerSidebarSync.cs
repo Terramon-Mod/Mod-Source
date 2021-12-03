@@ -17,7 +17,7 @@ namespace Terramon.Network.Sync
 
         public void Send(TerramonMod mod, TerramonPlayer pl, int target = -1)
         {
-            if(Main.netMode == NetmodeID.Server)
+            if (Main.netMode == NetmodeID.Server)
                 return;
             var p = GetPacket(mod);
             p.Write(pl.Save());

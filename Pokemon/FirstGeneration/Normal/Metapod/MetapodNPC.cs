@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Metapod
 {
     public class MetapodNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Metapod/Metapod";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Metapod/Metapod";
         public override Type HomeClass()
         {
             return typeof(Metapod);

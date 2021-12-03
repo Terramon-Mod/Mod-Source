@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Pinsir
 {
     public class PinsirNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Pinsir/Pinsir";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Pinsir/Pinsir";
         public override Type HomeClass()
         {
             return typeof(Pinsir);

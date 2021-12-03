@@ -17,14 +17,14 @@ namespace Terramon.Pokemon.FirstGeneration.Normal.Drowzee
 
         public override PokemonType[] PokemonTypes => new[] { PokemonType.Psychic };
 
-        public override ExpGroup ExpGroup => ExpGroup.MediumFast;public override int MaxHP => 60; public override int PhysicalDamage => 48; public override int PhysicalDefence => 45; public override int SpecialDamage => 43; public override int SpecialDefence => 90; public override int Speed => 42;
+        public override ExpGroup ExpGroup => ExpGroup.MediumFast; public override int MaxHP => 60; public override int PhysicalDamage => 48; public override int PhysicalDefence => 45; public override int SpecialDamage => 43; public override int SpecialDefence => 90; public override int Speed => 42;
 
         public override void SetDefaults()
         {
             base.SetDefaults();
 
-            
-            
+
+
         }
     }
 }

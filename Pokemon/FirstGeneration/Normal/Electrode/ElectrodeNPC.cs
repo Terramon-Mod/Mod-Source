@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Electrode
 {
     public class ElectrodeNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Electrode/Electrode";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Electrode/Electrode";
         public override Type HomeClass()
         {
             return typeof(Electrode);

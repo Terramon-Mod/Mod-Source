@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Starmie
 {
     public class StarmieNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Starmie/Starmie";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Starmie/Starmie";
         public override Type HomeClass()
         {
             return typeof(Starmie);

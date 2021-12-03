@@ -25,7 +25,7 @@ namespace Terramon.Network.Sync.Battle
             p.Send();
         }
 
-        public void ReSend(int playerID ,int pID, int projID)
+        public void ReSend(int playerID, int pID, int projID)
         {
             var p = GetPacket(TerramonMod.Instance);
             p.Write(playerID);

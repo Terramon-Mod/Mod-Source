@@ -17,14 +17,14 @@ namespace Terramon.Pokemon.FirstGeneration.Normal.Dratini
 
         public override PokemonType[] PokemonTypes => new[] { PokemonType.Dragon };
 
-        public override ExpGroup ExpGroup => ExpGroup.Slow;public override int MaxHP => 41; public override int PhysicalDamage => 64; public override int PhysicalDefence => 45; public override int SpecialDamage => 50; public override int SpecialDefence => 50; public override int Speed => 50;
+        public override ExpGroup ExpGroup => ExpGroup.Slow; public override int MaxHP => 41; public override int PhysicalDamage => 64; public override int PhysicalDefence => 45; public override int SpecialDamage => 50; public override int SpecialDefence => 50; public override int Speed => 50;
 
         public override void SetDefaults()
         {
             base.SetDefaults();
 
-            
-            
+
+
         }
     }
 }

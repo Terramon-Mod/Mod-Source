@@ -56,7 +56,7 @@ namespace Razorwing.Framework.Localisation
                         break;
                 }
 
-                if(validLocale == null)
+                if (validLocale == null)
                     validLocale = locales[0];
             }
 

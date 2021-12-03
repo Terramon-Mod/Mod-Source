@@ -28,7 +28,7 @@ namespace Terramon.Razorwing.Framework.IO.Stores
         public new Task<Texture2D> GetAsync(string name)
         {
             return Task.Run(
-                () => Task.FromResult(Get(name)) 
+                () => Task.FromResult(Get(name))
             );
         }
 

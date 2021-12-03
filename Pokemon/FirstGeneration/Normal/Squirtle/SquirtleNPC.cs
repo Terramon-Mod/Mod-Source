@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Squirtle
 {
     public class SquirtleNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Squirtle/Squirtle";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Squirtle/Squirtle";
         public override Type HomeClass()
         {
             return typeof(Squirtle);

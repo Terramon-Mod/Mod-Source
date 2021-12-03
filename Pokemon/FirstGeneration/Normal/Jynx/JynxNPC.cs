@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Jynx
 {
     public class JynxNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Jynx/Jynx";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Jynx/Jynx";
         public override Type HomeClass()
         {
             return typeof(Jynx);

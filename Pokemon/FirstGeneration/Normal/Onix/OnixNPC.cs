@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Onix
 {
     public class OnixNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Onix/Onix";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Onix/Onix";
         public override Type HomeClass()
         {
             return typeof(Onix);

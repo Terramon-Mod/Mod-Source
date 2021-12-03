@@ -17,14 +17,14 @@ namespace Terramon.Pokemon.FirstGeneration.Normal.Bulbasaur
 
         public override PokemonType[] PokemonTypes => new[] { PokemonType.Grass, PokemonType.Poison };
 
-        public override ExpGroup ExpGroup => ExpGroup.MediumSlow;public override int MaxHP => 45; public override int PhysicalDamage => 49; public override int PhysicalDefence => 49; public override int SpecialDamage => 65; public override int SpecialDefence => 65; public override int Speed => 45;
+        public override ExpGroup ExpGroup => ExpGroup.MediumSlow; public override int MaxHP => 45; public override int PhysicalDamage => 49; public override int PhysicalDefence => 49; public override int SpecialDamage => 65; public override int SpecialDefence => 65; public override int Speed => 45;
 
         public override void SetDefaults()
         {
             base.SetDefaults();
 
-            
-            
+
+
         }
     }
 }

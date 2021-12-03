@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Shellder
 {
     public class ShellderNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Shellder/Shellder";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Shellder/Shellder";
         public override Type HomeClass()
         {
             return typeof(Shellder);

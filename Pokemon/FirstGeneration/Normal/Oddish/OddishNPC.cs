@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Oddish
 {
     public class OddishNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Oddish/Oddish";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Oddish/Oddish";
         public override Type HomeClass()
         {
             return typeof(Oddish);

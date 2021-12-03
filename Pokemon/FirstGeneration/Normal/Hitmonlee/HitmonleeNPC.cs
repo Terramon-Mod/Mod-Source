@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Hitmonlee
 {
     public class HitmonleeNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Hitmonlee/Hitmonlee";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Hitmonlee/Hitmonlee";
         public override Type HomeClass()
         {
             return typeof(Hitmonlee);

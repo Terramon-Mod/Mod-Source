@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Bellsprout
 {
     public class BellsproutNPC : ParentPokemonNPC
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Bellsprout/Bellsprout";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Bellsprout/Bellsprout";
         public override Type HomeClass()
         {
             return typeof(Bellsprout);

@@ -61,7 +61,8 @@ namespace Terramon.Tiles
                 Main.tile[x + 1, y].frameY -= 56;
                 Main.tile[x, y + 1].frameY -= 56;
                 Main.tile[x + 1, y + 1].frameY -= 56;
-            } else
+            }
+            else
             {
                 // Activate
                 Main.PlaySound(ModContent.GetInstance<TerramonMod>().GetLegacySoundSlot(SoundType.Custom, "Sounds/Custom/pc").WithVolume(.7f));
@@ -106,30 +107,30 @@ namespace Terramon.Tiles
             player.showItemIcon2 = ModContent.ItemType<PCItem>();
         }
     }
-    
+
     //PC Item
 
-        public class PCItem : ModItem
-        {
+    public class PCItem : ModItem
+    {
         public override void SetStaticDefaults()
-            {
-                DisplayName.SetDefault("PC");
-            }
+        {
+            DisplayName.SetDefault("PC");
+        }
 
-            public override void SetDefaults()
-            {
-                item.width = 20;
-                item.height = 30;
-                item.maxStack = 99;
-                item.value = 40000;
-                item.useTurn = true;
-                item.autoReuse = true;
-                item.useAnimation = 15;
-                item.useTime = 10;
-                item.useStyle = 1;
-                item.consumable = true;
-                item.createTile = mod.TileType("PCTile");
-            }
+        public override void SetDefaults()
+        {
+            item.width = 20;
+            item.height = 30;
+            item.maxStack = 99;
+            item.value = 40000;
+            item.useTurn = true;
+            item.autoReuse = true;
+            item.useAnimation = 15;
+            item.useTime = 10;
+            item.useStyle = 1;
+            item.consumable = true;
+            item.createTile = mod.TileType("PCTile");
+        }
 
         public override void AddRecipes()
         {

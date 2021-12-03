@@ -7,7 +7,8 @@ using Terraria.ModLoader;
 namespace Terramon.Pokemon.FirstGeneration.Normal.Wigglytuff
 {
     public class WigglytuffNPC : NotCatchablePKMN
-    { public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Wigglytuff/Wigglytuff";
+    {
+        public override string Texture => "Terramon/Pokemon/FirstGeneration/Normal/Wigglytuff/Wigglytuff";
         public override Type HomeClass()
         {
             return typeof(Wigglytuff);
