@@ -4,11 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
+using Razorwing.RPC;
 using Terramon.Extensions;
 using Terramon.Extensions.ValidationExtensions;
+using Terramon.Network;
 using Terramon.Pokemon;
 using Terramon.Pokemon.Moves;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 #if DEBUG
@@ -29,24 +32,34 @@ namespace Terramon.Commands
             {
                 case "startnearest":
                 case "sn":
-                {
-                    var npc = GetNearestWild(caller.Player.position);
-                    if ((caller.Player.position - npc.position).Length() < 200)
+                {                        
+                    var pl = caller.Player.TPlayer();
+                    if (!pl.Validate().NotInBattle().HasActivePetProjectile()
+                        .HasNotFaintedPokemons().Result())
                     {
-                        var pl = caller.Player.TPlayer();
-                        if (pl.Validate().NotInBattle().HasActivePetProjectile()
-                            .HasNotFaintedPokemons().Result())
-                        {
-                            TerramonMod.Instance.
-                                Logger.Error("Player in invalid state send battle start packet. Ignoring...");
-                            return;
-                        }
+                        caller.Reply("You or already in battle or don't have available for battling pokemon");
+                        TerramonMod.Instance.Logger.Error(
+                            "Player in invalid state send battle start packet. Ignoring...");
+                        return;
+                    }
+
+                    var npc = GetNearestWild(caller.Player.position);
+                    if (npc != null && (caller.Player.position - npc.position).Length() < 200)
+                    {
+
 
                         if (npc.modNPC is ParentPokemonNPC pnpc)
                         {
                             ParentPokemon.det_Wild = true;
+                            var world = ModContent.GetInstance<TerramonWorld>();
                             npc.active = false;
-                            var proj = Projectile.NewProjectileDirect(npc.position, Vector2.Zero, TerramonMod.Instance.ProjectileType(pnpc.HomeClass().Name), 0, 0, pl.whoAmI);
+                            //var proj = Projectile.NewProjectileDirect(npc.position, Vector2.Zero,
+                            //    TerramonMod.Instance.ProjectileType(pnpc.HomeClass().Name),
+                            //    0, 0, pl.whoAmI);
+
+                            //This automatically send packets to clients 
+                            var id = NetWatcher.RequestWildToProjTransform(caller.Player, npc);
+                            var proj = Main.projectile[id];
                             var poke = (ParentPokemon)proj.modProjectile;
 
                             //TODO: Fetch DB for lvl and stats
@@ -63,13 +76,15 @@ namespace Terramon.Commands
                             };
                             data.HP = data.MaxHP;
 
-                            var plo = new BattlePlayerOpponent(pl);
-                            var wild = new BattleWildOpponent(proj.Pokemon(), data);
-
-                            pl.Battlev2 = new BattleModeV2(plo, wild);
+                            BattleOpponent plo = new BattlePlayerOpponent(pl);
+                            BattleOpponent wild = new BattleWildOpponent(proj.Pokemon(), data);
+                            //var battle = new BattleModeV2(plo, wild);
+                            world.StartNewBattle(plo, wild);
+                            //world.RPC(world.StartNewBattle,plo, wild, (byte)BattleModeV2.BattleState.Intro);
+                            //pl.Battlev2 = battle;
                         }
                     }
-
+                    caller.Reply("No pokemons near you...", Color.MediumPurple);
                     break;
                 }
 
@@ -126,9 +141,8 @@ namespace Terramon.Commands
                         data.HP = data.MaxHP;
 
                         var wild2 = new BattleWildOpponent(proj2.Pokemon(), data);
-
-                        pl.Battlev2 = new BattleModeV2(wild1, wild2);
-
+                        //var battle = new BattleModeV2(wild1, wild2);
+                        ModContent.GetInstance<TerramonWorld>().StartNewBattle(wild1, wild2);
                     }
 
                     break;

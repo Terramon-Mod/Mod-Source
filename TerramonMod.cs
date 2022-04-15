@@ -346,6 +346,7 @@ namespace Terramon
 #if DEBUG
                 _exampleUserInterface.SetState(new TestState());
                 _debugDrawings.SetState(DebugUX = new DebugUX());
+                //DebugUX.DebugTarget = BattleMode.UI;
 #endif
             }
 

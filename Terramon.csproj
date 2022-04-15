@@ -54,4 +54,7 @@
   <ItemGroup>
     <Folder Include="Razorwing.Framework\Attribute\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Razorwing\Razorwing.csproj" />
+  </ItemGroup>
 </Project>

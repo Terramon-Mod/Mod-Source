@@ -1,4 +1,6 @@
 ﻿using Razorwing.Framework.Localisation;
+using Razorwing.RPC;
+using Terramon.Network;
 using Terramon.Network.Sync;
 using Terramon.Players;
 using Terraria;
@@ -69,8 +71,11 @@ namespace Terramon
                     player.position.Y - 8, 0f, 0f, mod.ProjectileType(ProjectileName), 0, 0f,
                     player.whoAmI, 0f, 0f);
                 }
-                if (Main.netMode == NetmodeID.MultiplayerClient)
-                    new PetIDSyncPacket().Send((TerramonMod)mod, modPlayer.ActivePetId);
+
+ 
+                modPlayer.RPC(modPlayer.ActivePetSync, modPlayer.ActivePetId, modPlayer.ActivePartySlot, ExecutingSide.Both | ExecutingSide.DenySender);
+                    //if (Main.netMode == NetmodeID.MultiplayerClient)
+                //    new PetIDSyncPacket().Send((TerramonMod)mod, modPlayer.ActivePetId);
             }
         }
 

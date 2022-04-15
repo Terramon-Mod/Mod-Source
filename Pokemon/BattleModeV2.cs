@@ -16,18 +16,21 @@ using Terramon.UI.Battling.v2;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
+using Razorwing.RPC;
+using Razorwing.RPC.Attributes;
 
 namespace Terramon.Pokemon
 {
     public class BattleModeV2
     {
-        /// <summary>
-        /// Wild, trainers and players now merged in to one abstract class
-        /// what contains all necessary information 
-        /// </summary>
-        private BattleOpponent p1, p2;
         private Queue<KeyValuePair<BattleOpponent, BaseMove>> MovesQuive = new Queue<KeyValuePair<BattleOpponent, BaseMove>>();
         private Dictionary<BattleOpponent, BaseMove> SelectedMoves = new Dictionary<BattleOpponent, BaseMove>();
+
+        public string BattleID
+        {
+            get => battleId;
+            set => battleId = battleId ?? value;
+        }
 
         private static KeyValuePair<BattleOpponent, BaseMove> kvp_Null { get; }
             = new KeyValuePair<BattleOpponent, BaseMove>(null, null);
@@ -52,16 +55,30 @@ namespace Terramon.Pokemon
             set => pauseFrame = value;
         }
 
+        /// <summary>
+        /// Wild, trainers and players now merged in to one abstract class
+        /// what contains all necessary information 
+        /// </summary>
+        public BattleOpponent P1 { get; }
+
+        /// <summary>
+        /// Wild, trainers and players now merged in to one abstract class
+        /// what contains all necessary information 
+        /// </summary>
+        public BattleOpponent P2 { get; }
+
         public static BattleV2UI ui = new BattleV2UI();
-        public BattleState State = BattleState.InProggress;
+        public BattleState State;
         private BattleState prevState = BattleState.InProggress;
         private bool pauseFrame;
 
         public BattleModeV2(BattleOpponent first, BattleOpponent second, bool lazy = false,
             BattleStyle bs = BattleStyle.Default)
         {
-            p1 = first;
-            p2 = second;
+            P1 = first;
+            P1.Battle = this;
+            P2 = second;
+            P2.Battle = this;
 
             State = BattleState.Intro;
 
@@ -73,14 +90,13 @@ namespace Terramon.Pokemon
                 {
                     UI = TerramonMod.Instance.V2Battle;
                     UI.Player = pl;
-                    UI.Enemy = p2;
+                    UI.Enemy = P2;
                     UI.Battle = this;
                     BattleV2UI.Visible = true;
                     UI.State = BattleUIState.Intro;
                     UI.SetupPokeData();
                 }
             }
-
 
         }
 
@@ -89,6 +105,10 @@ namespace Terramon.Pokemon
             if(State == BattleState.Intro)
                 Intro_Update();
 
+
+            //In order i forget reset it
+            P1.MarkOld(); P2.MarkOld();
+
             //Intro
             //UI.State = BattleUIState.PostIntro;
             if (UI?.State == BattleUIState.PostIntro)
@@ -96,7 +116,7 @@ namespace Terramon.Pokemon
                 UI.State = BattleUIState.MainMenu;
                 State = BattleState.InProggress;
                 if(UI!=null)
-                    SplashText($"What {p1.PokeData.PokemonName} should do?");
+                    SplashText($"What {P1.PokeData.PokemonName} should do?");
             }
 
             if (UIAnimDelay > 0)
@@ -110,9 +130,9 @@ namespace Terramon.Pokemon
 
             if (State == BattleState.Fainted)
             {
-                if (p1.Fainted)
+                if (P1.Fainted)
                 {
-                    if (p1 is BattlePlayerOpponent p)
+                    if (P1 is BattlePlayerOpponent p)
                     {
                         if (!p.NetPlayer)
                         {
@@ -127,9 +147,9 @@ namespace Terramon.Pokemon
                     State = BattleState.Ended;
                     return;
                 }
-                if (p2.Fainted)
+                if (P2.Fainted)
                 {
-                    if (p2 is BattlePlayerOpponent p)
+                    if (P2 is BattlePlayerOpponent p)
                     {
                         if (!p.NetPlayer)
                         {
@@ -142,12 +162,12 @@ namespace Terramon.Pokemon
                             }
                         }
                     }else
-                    if (p2 is BattleWildOpponent wild)
+                    if (P2 is BattleWildOpponent wild)
                     {
-                        var exp = p1.PokeData.GiveEXP(p1.PokeData, p2.PokeData, Pokemon.BattleState.BattleWithWild, 1);
+                        var exp = P1.PokeData.GiveEXP(P1.PokeData, P2.PokeData, Pokemon.BattleState.BattleWithWild, 1);
                         Text(
-                            $"{wild.PokeData.PokemonName} was fainted. [PH] Your {p1.PokeData.PokemonName} received {exp} exp");
-                        p1.PokeData.Exp += exp;
+                            $"{wild.PokeData.PokemonName} was fainted. [PH] Your {P1.PokeData.PokemonName} received {exp} exp");
+                        P1.PokeData.Exp += exp;
                         State = BattleState.Ended;
 
                     }
@@ -165,24 +185,24 @@ namespace Terramon.Pokemon
                         UI.State = BattleUIState.MainMenu;
                     if (prevState == BattleState.Animating)
                     {
-                        SplashText($"What {p1.PokeData.PokemonName} should do?");
+                        SplashText($"What {P1.PokeData.PokemonName} should do?");
                     }
                 }
 
-                if (!SelectedMoves.ContainsKey(p1))
+                if (!SelectedMoves.ContainsKey(P1))
                 {
-                    var move = p1.SelectMove(p2);
+                    var move = P1.SelectMove(P2);
                     if (move != null)
                     {
-                        SelectedMoves.Add(p1, move);
+                        SelectedMoves.Add(P1, move);
                     }
                 }
-                if (!SelectedMoves.ContainsKey(p2))
+                if (!SelectedMoves.ContainsKey(P2))
                 {
-                    var move = p2.SelectMove(p1);
+                    var move = P2.SelectMove(P1);
                     if (move != null)
                     {
-                        SelectedMoves.Add(p2, move);
+                        SelectedMoves.Add(P2, move);
                     }
                 }
 
@@ -192,27 +212,27 @@ namespace Terramon.Pokemon
                 }
                 if(SelectedMoves.Count == 2)
                 {
-                    if (p1.PokeData.Speed > p2.PokeData.Speed)
+                    if (P1.PokeData.Speed > P2.PokeData.Speed)
                     {
-                        MovesQuive.Enqueue(new KeyValuePair<BattleOpponent, BaseMove>(p1, SelectedMoves[p1]));
-                        MovesQuive.Enqueue(new KeyValuePair<BattleOpponent, BaseMove>(p2, SelectedMoves[p2]));
-                    }else if(p1.PokeData.Speed == p2.PokeData.Speed)
+                        MovesQuive.Enqueue(new KeyValuePair<BattleOpponent, BaseMove>(P1, SelectedMoves[P1]));
+                        MovesQuive.Enqueue(new KeyValuePair<BattleOpponent, BaseMove>(P2, SelectedMoves[P2]));
+                    }else if(P1.PokeData.Speed == P2.PokeData.Speed)
                     {
                         if (BaseMove._mrand.Next(2) == 0)
                         {
-                            MovesQuive.Enqueue(new KeyValuePair<BattleOpponent, BaseMove>(p1, SelectedMoves[p1]));
-                            MovesQuive.Enqueue(new KeyValuePair<BattleOpponent, BaseMove>(p2, SelectedMoves[p2]));
+                            MovesQuive.Enqueue(new KeyValuePair<BattleOpponent, BaseMove>(P1, SelectedMoves[P1]));
+                            MovesQuive.Enqueue(new KeyValuePair<BattleOpponent, BaseMove>(P2, SelectedMoves[P2]));
                         }
                         else
                         {
-                            MovesQuive.Enqueue(new KeyValuePair<BattleOpponent, BaseMove>(p2, SelectedMoves[p2]));
-                            MovesQuive.Enqueue(new KeyValuePair<BattleOpponent, BaseMove>(p1, SelectedMoves[p1]));
+                            MovesQuive.Enqueue(new KeyValuePair<BattleOpponent, BaseMove>(P2, SelectedMoves[P2]));
+                            MovesQuive.Enqueue(new KeyValuePair<BattleOpponent, BaseMove>(P1, SelectedMoves[P1]));
                         }
                     }
                     else
                     {
-                        MovesQuive.Enqueue(new KeyValuePair<BattleOpponent, BaseMove>(p2, SelectedMoves[p2]));
-                        MovesQuive.Enqueue(new KeyValuePair<BattleOpponent, BaseMove>(p1, SelectedMoves[p1]));
+                        MovesQuive.Enqueue(new KeyValuePair<BattleOpponent, BaseMove>(P2, SelectedMoves[P2]));
+                        MovesQuive.Enqueue(new KeyValuePair<BattleOpponent, BaseMove>(P1, SelectedMoves[P1]));
                     }
 
                     State = BattleState.Animating;
@@ -234,13 +254,13 @@ namespace Terramon.Pokemon
 
         private bool Text(string text, bool localOnly = false)
         {
-            if ((p1 is BattlePlayerOpponent pl && !pl.NetPlayer) || (p2 is BattlePlayerOpponent pl2 && !pl2.NetPlayer))
+            if ((P1 is BattlePlayerOpponent pl && !pl.NetPlayer) || (P2 is BattlePlayerOpponent pl2 && !pl2.NetPlayer))
             {
                 if (!localOnly)
                     Main.NewText(text);
                 else
                 {
-                    if (p1 is BattlePlayerOpponent p && !p.NetPlayer)
+                    if (P1 is BattlePlayerOpponent p && !p.NetPlayer)
                     {
                         Main.NewText(text);
                     }
@@ -256,13 +276,13 @@ namespace Terramon.Pokemon
 
         private bool Text(string text, Color color, bool localOnly = false)
         {
-            if ((p1 is BattlePlayerOpponent pl && !pl.NetPlayer) || (p2 is BattlePlayerOpponent pl2 && !pl2.NetPlayer))
+            if ((P1 is BattlePlayerOpponent pl && !pl.NetPlayer) || (P2 is BattlePlayerOpponent pl2 && !pl2.NetPlayer))
             {
                 if (!localOnly)
                     Main.NewText(text, color);
                 else
                 {
-                    if (p1 is BattlePlayerOpponent p && !p.NetPlayer)
+                    if (P1 is BattlePlayerOpponent p && !p.NetPlayer)
                     {
                         Main.NewText(text, color);
                     }
@@ -280,7 +300,7 @@ namespace Terramon.Pokemon
         {
             if (ExecutingMove != null)
             {
-                var target = MoveCaster == p1 ? p2 : p1;
+                var target = MoveCaster == P1 ? P2 : P1;
                 if (FrameCount == -1)// At initial frame
                 {
                     if (!ExecutingMove.PerformInBattle(MoveCaster, target, this))
@@ -352,23 +372,23 @@ namespace Terramon.Pokemon
         protected void EndBattle()
         {
             // poof wild pokemon away in dust
-            if (p2 is BattleWildOpponent)
+            if (P2 is BattleWildOpponent)
             {
                 for (int i = 0; i < 18; i++)
                 {
-                    Dust.NewDust(p2.PokeProj.projectile.position, p2.PokeProj.projectile.width, p2.PokeProj.projectile.height, ModContent.GetInstance<TerramonMod>().DustType("SmokeTransformDust"));
+                    Dust.NewDust(P2.PokeProj.projectile.position, P2.PokeProj.projectile.width, P2.PokeProj.projectile.height, ModContent.GetInstance<TerramonMod>().DustType("SmokeTransformDust"));
                 }
 
-                p2.PokeProj.projectile.active = false;
+                P2.PokeProj.projectile.active = false;
             }
-            if (p1 is BattleWildOpponent)
+            if (P1 is BattleWildOpponent)
             {
                 for (int i = 0; i < 18; i++)
                 {
-                    Dust.NewDust(p1.PokeProj.projectile.position, p1.PokeProj.projectile.width, p1.PokeProj.projectile.height, ModContent.GetInstance<TerramonMod>().DustType("SmokeTransformDust"));
+                    Dust.NewDust(P1.PokeProj.projectile.position, P1.PokeProj.projectile.width, P1.PokeProj.projectile.height, ModContent.GetInstance<TerramonMod>().DustType("SmokeTransformDust"));
                 }
 
-                p1.PokeProj.projectile.active = false;
+                P1.PokeProj.projectile.active = false;
             }
 
 
@@ -398,10 +418,10 @@ namespace Terramon.Pokemon
             ModContent.GetInstance<TerramonMod>().battleCamera = Vector2.Zero;
 
             // reset modifiers
-            if (p1.PokeData.CustomData.ContainsKey("PhysDefModifier")) p1.PokeData.CustomData.Remove("PhysDefModifier");
-            if (p1.PokeData.CustomData.ContainsKey("SpDefModifier")) p1.PokeData.CustomData.Remove("SpDefModifier");
-            if (p1.PokeData.CustomData.ContainsKey("SpeedModifier")) p1.PokeData.CustomData.Remove("SpeedModifier");
-            if (p1.PokeData.CustomData.ContainsKey("CritRatioModifier")) p1.PokeData.CustomData.Remove("CritRatioModifier");
+            if (P1.PokeData.CustomData.ContainsKey("PhysDefModifier")) P1.PokeData.CustomData.Remove("PhysDefModifier");
+            if (P1.PokeData.CustomData.ContainsKey("SpDefModifier")) P1.PokeData.CustomData.Remove("SpDefModifier");
+            if (P1.PokeData.CustomData.ContainsKey("SpeedModifier")) P1.PokeData.CustomData.Remove("SpeedModifier");
+            if (P1.PokeData.CustomData.ContainsKey("CritRatioModifier")) P1.PokeData.CustomData.Remove("CritRatioModifier");
 
             State = BattleState.None;
         }
@@ -428,6 +448,23 @@ namespace Terramon.Pokemon
         public void Cleanup()
         {
             ui = null;
+            if (P1 is BattlePlayerOpponent p1)
+            {
+                p1.Player.Battlev2 = null;
+            }else if (P1 is BattleWildOpponent w1)
+            {
+                w1.PokeProj.projectile.active = false;
+                w1.PokeProj.Wild = false;
+            }
+            if (P2 is BattlePlayerOpponent p2)
+            {
+                p2.Player.Battlev2 = null;
+            }
+            else if (P2 is BattleWildOpponent w2)
+            {
+                w2.PokeProj.projectile.active = false;
+                w2.PokeProj.Wild = false;
+            }
         }
 
         #region Networking
@@ -460,6 +497,9 @@ namespace Terramon.Pokemon
 
         protected void Intro_Update()
         {
+            if(Main.netMode == NetmodeID.Server)
+                return;
+
             if (introMusicTimer < 190)
                 intro_Music();
             else if (wildTimer < 515)
@@ -481,7 +521,7 @@ namespace Terramon.Pokemon
         {
             wildTimer++;
 
-            if (p1 is BattlePlayerOpponent pl)//Execute only for local player  
+            if (P1 is BattlePlayerOpponent pl)//Execute only for local player  
             {
                 if(pl.NetPlayer)
                     return;
@@ -493,7 +533,7 @@ namespace Terramon.Pokemon
                 TerramonMod.ZoomAnimator.ScreenPosX(pl.Player.player.position.X + 10, 500, Easing.OutExpo);
                 TerramonMod.ZoomAnimator.ScreenPosY(pl.Player.player.position.Y, 500, Easing.OutExpo);
                 // Set splash text
-                UI.splashText.SetText($"Go! {pl.PokeData.PokemonName}!");
+                UI?.splashText.SetText($"Go! {pl.PokeData.PokemonName}!");
 
                 forceDirection = pl.PokeProj.projectile.position.X > pl.Player.player.position.X ? 1 : -1;
 
@@ -509,7 +549,7 @@ namespace Terramon.Pokemon
 
             if (wildTimer == 470)
             {
-                UI.HP1.MoveToX(-340, 500, Easing.OutExpo);
+                UI?.HP1.MoveToX(-340, 500, Easing.OutExpo);
                 //TerramonMod.ZoomAnimator.HPBar1LeftPixels(-340, 500, Easing.OutExpo);
             }
 
@@ -527,12 +567,13 @@ namespace Terramon.Pokemon
         }
 
         private int introMusicTimer, wildTimer = 369; //I love magic numbers, you know?
+        private string battleId;
 
         private void intro_Music()
         {
             introMusicTimer++;
 
-            if (p1 is BattlePlayerOpponent pl)//Execute only for local player  
+            if (P1 is BattlePlayerOpponent pl)//Execute only for local player  
             {
                 if (pl.NetPlayer)
                     return;
@@ -575,7 +616,7 @@ namespace Terramon.Pokemon
 
             if (introMusicTimer == 165)
             {
-                ParentPokemon playerpet = p1.PokeProj;
+                ParentPokemon playerpet = P1.PokeProj;
                 playerpet.SpawnTime = -252;
                 playerpet.DontTpOnCollide = true;
                 UI.HP2.Left.Set(160, 0f);
@@ -586,10 +627,10 @@ namespace Terramon.Pokemon
                 // Zoom in
                 TerramonMod.ZoomAnimator.GameZoom(1f).GameZoom(1.7f, 0, Easing.None);
                 // Pan camera to wild opponent, if this is BattleWithWild
-                if (p2 is BattleWildOpponent)
+                if (P2 is BattleWildOpponent)
                 {
-                    TerramonMod.ZoomAnimator.ScreenPosX(p2.PokeProj.projectile.position.X + 12, 0, Easing.None);
-                    TerramonMod.ZoomAnimator.ScreenPosY(p2.PokeProj.projectile.position.Y, 0, Easing.None);
+                    TerramonMod.ZoomAnimator.ScreenPosX(P2.PokeProj.projectile.position.X + 12, 0, Easing.None);
+                    TerramonMod.ZoomAnimator.ScreenPosY(P2.PokeProj.projectile.position.Y, 0, Easing.None);
                 }
                 TerramonMod.ZoomAnimator.WhiteFlashOpacity(0f, 200, Easing.None);
             }
@@ -597,11 +638,11 @@ namespace Terramon.Pokemon
             if (introMusicTimer == 190)
             {
                 Main.PlaySound(TerramonMod.Instance
-                    .GetLegacySoundSlot(SoundType.Custom, "Sounds/Cries/cry" + p2.PokeData.Pokemon).WithVolume(0.55f));
+                    .GetLegacySoundSlot(SoundType.Custom, "Sounds/Cries/cry" + P2.PokeData.Pokemon).WithVolume(0.55f));
 
                 // Set splash text
-                if(p2 is BattleWildOpponent)
-                    UI.splashText.SetText($"A wild {p2.PokeData.PokemonName} appeared!");
+                if(P2 is BattleWildOpponent)
+                    UI.splashText.SetText($"A wild {P2.PokeData.PokemonName} appeared!");
             }
         }
 
@@ -628,7 +669,6 @@ namespace Terramon.Pokemon
 
         public bool NetPlayer { get; }
 
-        public BaseMove ForwardedMove;
         
         public BattlePlayerOpponent(TerramonPlayer pl, bool netPlayer = false)
         {
@@ -648,9 +688,10 @@ namespace Terramon.Pokemon
 
         public override BaseMove SelectMove(BattleOpponent enemy)
         {
-            var fm = ForwardedMove;
-            ForwardedMove = null;
-            return fm;
+            return base.SelectMove(enemy);
+            //var fm = ForwardedMove;
+            //ForwardedMove = null;
+            //return fm;
         }
 
         private void FillBall(PokemonData data, int slot)
@@ -677,10 +718,10 @@ namespace Terramon.Pokemon
             return null;
         }
 
-        public override BaseMove SelectMove(BattleOpponent enemy)
-        {
-            return null;
-        }
+        //public override BaseMove SelectMove(BattleOpponent enemy)
+        //{
+        //    return null;
+        //}
     }
 
     public class BattleWildOpponent : BattleOpponent
@@ -694,8 +735,13 @@ namespace Terramon.Pokemon
 
         public override BaseMove SelectMove(BattleOpponent enemy)
         {
+            //In mp server decide what move should be casted
+            if (Main.netMode == NetmodeID.MultiplayerClient)
+                return base.SelectMove(enemy);
 #if DEBUG
-            return TerramonMod.GetMove(nameof(ShootMove));
+            var move = TerramonMod.GetMove(nameof(ShootMove));
+            this.RPC(ForwardMove, move, ExecutingSide.Client | ExecutingSide.DenySender);
+            return move;
 #endif
             if (PokeData.Validate().HasAvailableMoves().Result())
             {
@@ -703,10 +749,12 @@ namespace Terramon.Pokemon
                 if (list.Count > 1)
                 {
                     var s = BaseMove._mrand.Next(list.Count);
+                    this.RPC(ForwardMove, list[s].Key, ExecutingSide.Client | ExecutingSide.DenySender);
                     return list[s].Key;
                 }
                 else
                 {
+                    this.RPC(ForwardMove, list.First().Key, ExecutingSide.Client | ExecutingSide.DenySender);
                     return list.First().Key;
                 }
             }
@@ -715,7 +763,7 @@ namespace Terramon.Pokemon
         }
     }
 
-    public abstract class BattleOpponent : IDisposable
+    public abstract partial class BattleOpponent : IDisposable
     {
         /// <summary>
         /// Represents pokeball types what opponent have (count and its type)
@@ -725,6 +773,7 @@ namespace Terramon.Pokemon
 
         protected byte[] pokeballs = { (byte)TerramonMod.PokeballFactory.Pokebals.Pokeball, 0, 0, 0, 0, 0 };
 
+        public BaseMove ForwardedMove;
 
         /// <summary>
         /// Represents pokemon projectile and used for animations
@@ -746,15 +795,63 @@ namespace Terramon.Pokemon
         /// <param name="enemy">Enemy data</param>
         /// <returns>Should return selected <see cref="BaseMove"/>
         /// or null if no decision is made</returns>
-        public abstract BaseMove SelectMove(BattleOpponent enemy);
+        public virtual BaseMove SelectMove(BattleOpponent enemy)
+        {
+            var move = ForwardedMove;
+            ForwardedMove = null;
+            return move;
+        }
+
+        [RPCCallable]
+        public void ForwardMove(BaseMove move)
+        {
+            ForwardedMove = move;
+        }
+
 
         public virtual bool Fainted => PokeData?.Fainted ?? true;
         public virtual bool CanSwitch => false;
         public virtual bool MoveSelected { get; set; }
 
+        private BattleModeV2 _battle;
+        private string id;
+
+        public BattleModeV2 Battle
+        {
+            get => _battle;
+            set
+            {
+                //Opponent class is specific for one battle.
+                //It can't migrate to another
+                if (_battle != null)
+                    return;
+                _battle = value;
+            }
+        }
+
         public virtual void Dispose()
         {
         }
+
+        public string ID
+        {
+            get => id;
+            set => id = id ?? value;
+        }
+
+        public void MarkNew()
+        {
+            __new = true;
+        }
+
+        public void MarkOld()
+        {
+            __new = false;
+        }
+
+        public bool NeedCopy() => __new;
+
+        private bool __new = true;
     }
 
 

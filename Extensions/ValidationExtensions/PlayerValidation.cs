@@ -30,12 +30,12 @@ namespace Terramon.Extensions.ValidationExtensions
         {
             var pl = validator.Value;
 
-            if (pl.PartySlot1.IsNull() || pl.PartySlot1.Fainted || // Each slot null and faint check
-                pl.PartySlot2.IsNull() || pl.PartySlot2.Fainted ||
-                pl.PartySlot3.IsNull() || pl.PartySlot3.Fainted ||
-                pl.PartySlot4.IsNull() || pl.PartySlot4.Fainted ||
-                pl.PartySlot5.IsNull() || pl.PartySlot5.Fainted ||
-                pl.PartySlot6.IsNull() || pl.PartySlot6.Fainted)
+            if ((pl.PartySlot1.IsNull() || pl.PartySlot1.Fainted) &&// Each slot null and faint check
+                (pl.PartySlot2.IsNull() || pl.PartySlot2.Fainted) &&
+                (pl.PartySlot3.IsNull() || pl.PartySlot3.Fainted) &&
+                (pl.PartySlot4.IsNull() || pl.PartySlot4.Fainted) &&
+                (pl.PartySlot5.IsNull() || pl.PartySlot5.Fainted) &&
+                (pl.PartySlot6.IsNull() || pl.PartySlot6.Fainted))
                 return validator.Invalidate();
 
             return validator;
