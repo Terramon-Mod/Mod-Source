@@ -292,6 +292,7 @@ namespace Terramon.Pokemon
             if (pMove?.AnimationFrame == 40) pMove.AnimationFrame = 120;
             if (oMove?.AnimationFrame == 40) oMove.AnimationFrame = 120;
 
+            #region Camera Control
             // CAMERA & ZOOM CONTROL //
             if (Main.keyState.IsKeyDown(Keys.D) && doneWildIntro && UI.Turn)
             {
@@ -335,6 +336,7 @@ namespace Terramon.Pokemon
                 TerramonMod.ZoomAnimator.GameZoom(Main.GameZoomTarget - 0.03f, 1, Easing.None);
             }
             // END CAMERA & ZOOM CONTROL //
+            #endregion
 
 
 

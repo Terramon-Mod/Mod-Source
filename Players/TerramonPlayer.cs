@@ -28,6 +28,10 @@ using static Terraria.ModLoader.ModContent;
 using Terraria.DataStructures;
 using System.Management;
 using System.Text;
+using Razorwing.RPC;
+using Razorwing.RPC.Attributes;
+using Terramon.Network;
+
 // ReSharper disable ParameterHidesMember
 // ReSharper disable LocalVariableHidesMember
 
@@ -40,6 +44,7 @@ namespace Terramon.Players
         public List<Item> loadList = new List<Item>();
 
         public BattleMode Battle = null;
+        public BattleModeV2 Battlev2 = null;
 
         //public int deletepokecase = 0;
         public int premierBallRewardCounter;
@@ -111,11 +116,25 @@ namespace Terramon.Players
 
                 if (Main.netMode == NetmodeID.MultiplayerClient && Main.LocalPlayer == player && !loading)
                 {
-                    var p = new ActivePetSync();
-                    p.Send((TerramonMod)mod, this);
+                    this.RPC(ActivePetSync,-2,ActivePartySlot,ExecutingSide.Both | ExecutingSide.DenySender);
+                    //var p = new ActivePetSync();
+                    //p.Send((TerramonMod)mod, this);
                 }
 
                 Battle?.HandleChange();
+            }
+        }
+
+        [RPCCallable]
+        public void ActivePetSync(int id, int slotId)
+        {
+            ActivePartySlot = slotId;
+            if(id != -2)
+                ActivePetId = id;
+            if (Battle != null)
+            {
+                Battle.awaitSync = false;
+                Battle.HandleChange();
             }
         }
 
@@ -581,7 +600,7 @@ namespace Terramon.Players
                 new RequestSyncPacket().Send();
 
             // Check if update is available!
-
+#if !DEBUG
             var mod_version = Get("https://pokeparser.projectagon.repl.co/mod/ver");
             var current_version = $"v{mod.Version}";
 
@@ -592,7 +611,10 @@ namespace Terramon.Players
                 else Main.NewText($"[c/f3cc61:Terramon >] A new update is available to download ({mod_version})");
                 Main.NewText($"Go the the Mod Browser to update!");
             }
+#endif
         }
+
+
 
         public string Get(string uri)
         {
@@ -650,6 +672,9 @@ namespace Terramon.Players
         string lastmon = "";
         public override void PreUpdate()
         {
+            if(Main.netMode == NetmodeID.MultiplayerClient && player == Main.LocalPlayer)
+                ModContent.GetInstance<TerramonWorld>().PreUpdate();// Workaround bc World updates wont get called in clients...
+
             ShowItemIconForUsableItems(); // Appropriately sets item icon when holding an item that is usable by right-clicking a Pok�mon in the overworld
 
             var monName = ActivePets.FirstOrDefault(x => x.Value).Key;
@@ -710,20 +735,30 @@ namespace Terramon.Players
                 Cooldown--;
 #endif
 
+            if (Battle != null)
+            {
+                Battle.Update();
+                if (Battle.State == BattleState.None)
+                {
+                    Battle.Cleanup();
+                    Battle = null;
+                }
+            }
+            //else if (Battlev2 != null)
+            //{
+            //    Battlev2.Update();
+            //    if (Battlev2.State == BattleModeV2.BattleState.None)
+            //    {
+            //        Battlev2.Cleanup();
+            //        Battlev2 = null;
+            //    }
+            //}
+
             //Moves logic
             if (Main.LocalPlayer == player && CombatReady && ActivePartySlot > 0 && ActivePartySlot <= 6 && ActivePetId != -1
                 && Main.projectile[ActivePetId].modProjectile is ParentPokemon) //Integrity check
-            {
-                if (Battle != null)
-                {
-                    Battle.Update();
-                    if (Battle.State == BattleState.None)
-                    {
-                        Battle.Cleanup();
-                        Battle = null;
-                    }
-                }
-                else if (ActiveMove != null)
+            { 
+                if (ActiveMove != null)
                 {
                     if (!ActiveMove.Update((ParentPokemon)Main.projectile[ActivePetId].modProjectile, this))
                         ActiveMove = null;

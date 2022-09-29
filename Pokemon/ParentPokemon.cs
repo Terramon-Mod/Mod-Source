@@ -13,6 +13,7 @@ using System.Text.RegularExpressions;
 using System.Collections.Generic;
 using Terraria.UI.Chat;
 using Razorwing.Framework.Localisation;
+using Terramon.Extensions;
 using Terraria.Graphics.Effects;
 using Terraria.Graphics.Shaders;
 // ReSharper disable CompareOfFloatsByEqualityOperator
@@ -360,6 +361,17 @@ namespace Terramon.Pokemon
                     if (frame >= Main.projFrames[projectile.type])
                     {
                         frame = 0;
+                    }
+                }
+
+                var pl = Main.player[projectile.owner];
+                if (pl.active)
+                {
+                    var tp = pl.TPlayer();
+                    if (tp.Battlev2 == null && tp.Battle == null)
+                    {
+                        Wild = false;
+                        projectile.active = false;
                     }
                 }
             }

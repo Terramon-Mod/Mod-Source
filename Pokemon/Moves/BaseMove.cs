@@ -11,6 +11,7 @@ using System.Globalization;
 using Newtonsoft.Json.Converters;
 using Terraria.ModLoader;
 using System.Text;
+using Terraria.ID;
 using static Terramon.Pokemon.Moves.DamageMove;
 
 namespace Terramon.Pokemon.Moves
@@ -106,6 +107,41 @@ namespace Terramon.Pokemon.Moves
             return false;
         }
 
+        #region BattleV2
+
+        /// <summary>
+        /// Called at first time move executed in battle.
+        /// Basically here you want to write defaults to <see cref="PokemonData.CustomData"/>
+        /// </summary>
+        /// <param name="atacker">Pokemon what use move and it's trainer (it not wild)</param>
+        /// <param name="deffender">Opponent active pokemon and it's trainer (if not wild)</param>
+        /// <param name="battle">Current Battle instance</param>
+        /// <returns>true if move can be executed</returns>
+        public virtual bool PerformInBattle(BattleOpponent atacker, BattleOpponent deffender, BattleModeV2 battle)
+        {
+            return false;
+        }
+
+        /// <summary>
+        /// Called each battle update call and used to animate moves
+        /// At moment of dealing damage to enemy call <see cref="BattleModeV2.DealDamage"/>
+        /// It automatically will pause animation frame increase
+        /// And starts UI animation (text)
+        /// </summary>
+        /// <param name="atacker">Pokemon what use move and it's trainer (it not wild)</param>
+        /// <param name="deffender">Opponent active pokemon and it's trainer (if not wild)</param>
+        /// <param name="battle">Current Battle instance</param>
+        /// <param name="frame">Animation frame (starts from 0, now fully manipulated inside BattleMode)</param>
+        /// <param name="skipBtnPressed">Is skip button pressed this frame.
+        /// Allow skipping animation fragments</param>
+        /// <returns>If true returned this method will be called next frame</returns>
+        public virtual bool AnimateTurn(BattleOpponent atacker, BattleOpponent deffender, BattleModeV2 battle, int frame, bool skipBtnPressed = false)
+        {
+            return false;
+        }
+
+        #endregion
+
         public virtual void CheckIfAffects(ParentPokemon target, PokemonData deffender, BattleState state, bool opponent)
         {
 
@@ -121,6 +157,27 @@ namespace Terramon.Pokemon.Moves
         public virtual bool Update(ParentPokemon mon, TerramonPlayer player)
         {
             return false;
+        }
+
+        public static int NewProjectile(Vector2 position, Vector2 velocity, int type)
+        {
+            var id = Projectile.NewProjectile(position, velocity, type, 0, 0);
+            if (Main.netMode != NetmodeID.SinglePlayer)
+            {
+                for (int id2 = Main.maxProjectiles; id2 > 0; id2++)
+                {
+                    if (!Main.projectile[id2].active)
+                    {
+                        Main.projectile[id2] = Main.projectile[id];
+                        Main.projectile[id] = new Projectile
+                        {
+                            active = false,
+                        };
+                    }
+                }
+            }
+
+            return id;
         }
 
         /// <summary>

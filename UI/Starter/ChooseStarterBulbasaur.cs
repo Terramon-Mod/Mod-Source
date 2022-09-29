@@ -1,5 +1,7 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
+using Razorwing.RPC;
 using Terramon.Items.Pokeballs.Inventory;
+using Terramon.Network;
 using Terramon.Network.Starter;
 using Terramon.Players;
 using Terramon.Pokemon.FirstGeneration.Normal.Bulbasaur;
@@ -173,6 +175,7 @@ namespace Terramon.UI.Starter
             TerramonPlayer.StarterChosen = true;
             if (Main.netMode == NetmodeID.MultiplayerClient)
             {
+                //dev.Null.RPC(NetWatcher.SpawnStarter, nameof(Bulbasaur), player.getRect(), ExecutingSide.Server);
                 SpawnStarterPacket packet = new SpawnStarterPacket();
                 packet.Send((TerramonMod)mod, SpawnStarterPacket.BULBASAUR);
             }

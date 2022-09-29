@@ -458,7 +458,7 @@ namespace Terramon.UI
                     storedMapStyle = Main.mapStyle;
                     Main.mapStyle = 0;
                     IsPokedexOpen = true;
-                    Main.PlaySound(ModContent.GetInstance<TerramonMod>().GetLegacySoundSlot(SoundType.Custom, "Sounds/Custom/opendex").WithVolume(.7f));
+                    Main.PlaySound(TerramonMod.Instance.GetLegacySoundSlot(SoundType.Custom, "Sounds/Custom/opendex").WithVolume(.7f));
                     TerramonMod.ZoomAnimator.DexVAlign(0.5f, 600, Easing.OutExpo);
 
                     // Update the displayed completion percentage here, when dex is opened.
@@ -478,7 +478,7 @@ namespace Terramon.UI
                 {
                     Main.mapStyle = storedMapStyle;
                     IsPokedexOpen = false;
-                    Main.PlaySound(ModContent.GetInstance<TerramonMod>().GetLegacySoundSlot(SoundType.Custom, "Sounds/Custom/closedex").WithVolume(.7f));
+                    Main.PlaySound(TerramonMod.Instance.GetLegacySoundSlot(SoundType.Custom, "Sounds/Custom/closedex").WithVolume(.7f));
                     TerramonMod.ZoomAnimator.DexVAlign(3.8f, 600, Easing.In);
                 }
             }
@@ -504,12 +504,12 @@ namespace Terramon.UI
         public float ScreenPosXTarget
         {
             get => Main.screenPosition.X + (Main.screenWidth / 2);
-            set => ModContent.GetInstance<TerramonMod>().battleCamera.X = value;
+            set => TerramonMod.Instance.battleCamera.X = value;
         }
         public float ScreenPosYTarget
         {
             get => Main.screenPosition.Y + (Main.screenHeight / 2);
-            set => ModContent.GetInstance<TerramonMod>().battleCamera.Y = value;
+            set => TerramonMod.Instance.battleCamera.Y = value;
         }
 
         public Vector2 ScreenPos
@@ -562,8 +562,8 @@ namespace Terramon.UI
 
         public float DexVerticalAlign
         {
-            get => ModContent.GetInstance<TerramonMod>().summaryUI.pokedexTexture.VAlign;
-            set => ModContent.GetInstance<TerramonMod>().summaryUI.pokedexTexture.VAlign = value;
+            get => TerramonMod.Instance.summaryUI.pokedexTexture.VAlign;
+            set => TerramonMod.Instance.summaryUI.pokedexTexture.VAlign = value;
         }
     }
     public static class AnimatorExtensions
